@@ -1,0 +1,21 @@
+{
+  "scheme_code": "NAVASAKAM",
+  "name_te": "నవశకం",
+  "name_en": "Navasakam (Land Titling Act)",
+  "department": "Revenue",
+  "description_te": "భూమి హక్కు పత్రాలను modernize చేసే చట్టం. Digital land records + guaranteed land titles + తగాదాల పరిష్కారం.",
+  "description_en": "Land Titling Act to modernize land records. Digital land records + guaranteed land titles + dispute resolution.",
+  "eligibility_criteria": {
+    "land_owner": "Any land owner in AP",
+    "automatic": "Automatic coverage for all registered land owners",
+    "dispute_resolution": "Land disputes can be filed under this act"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Existing land documents (pattadar passbook, 1-B)", "Survey number details"]
+  },
+  "benefit_amount": "Free digital land title certificate + Government guarantee on title",
+  "application_process_te": "1. Revenue Sadassulu (camps) ద్వారా automatic survey\n2. Digital title generation\n3. Objections ఉంటే 30 రోజులలో file చేయవచ్చు\n4. Title settlement officer ద్వారా dispute resolution",
+  "go_reference": "AP Land Titling Act, 2022",
+  "effective_from": "2022-01-01",
+  "is_active": true
+}

@@ -1,0 +1,33 @@
+{
+  "scheme_code": "JAGANANNA-VIDYA-DEEVENA",
+  "name_te": "జగనన్న విద్యా దీవెన",
+  "name_en": "Jagananna Vidya Deevena",
+  "department": "Higher Education",
+  "description_te": "ITI, Polytechnic, Degree, PG, Professional courses చదివే విద్యార్థుల tuition fee మొత్తం ప్రభుత్వం చెల్లిస్తుంది. DBT ద్వారా నేరుగా college కి చెల్లించబడుతుంది.",
+  "description_en": "Complete reimbursement of tuition fees for students pursuing ITI, Polytechnic, Degree, PG, and Professional courses. Paid directly to colleges via DBT.",
+  "eligibility_criteria": {
+    "courses": "ITI, Polytechnic, Degree, Engineering, Medicine, PG, MBA, MCA, Law",
+    "income": "Family annual income below ₹2,50,000",
+    "ration_card": "White/Rice ration card",
+    "institution": "Must be studying in recognized government/private institution in AP",
+    "attendance": "Minimum 75% attendance",
+    "excluded": ["Management quota admissions", "Students with arrears in previous year", "Government employee children"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Student Aadhaar card",
+      "Parent/Guardian Aadhaar card",
+      "Income certificate",
+      "Caste certificate (if applicable)",
+      "College admission letter",
+      "Previous year marks memo",
+      "Ration card",
+      "Bank passbook (mother's account)"
+    ]
+  },
+  "benefit_amount": "Full tuition fee reimbursement (varies by course: ITI ~₹10,000, Engineering ~₹35,000-₹1,00,000, Medicine ~₹5,00,000)",
+  "application_process_te": "1. College లో admission తీసుకోండి\n2. Vidya Deevena portal లో online apply చేయండి\n3. Documents upload చేయండి\n4. College verification తర్వాత\n5. Fee నేరుగా college account కి credit అవుతుంది",
+  "go_reference": "GO Ms. No. 16, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

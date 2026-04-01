@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-NAVODAYAM",
+  "name_te": "వైఎస్ఆర్ నవోదయం",
+  "name_en": "YSR Navodayam",
+  "department": "SC / ST Welfare",
+  "description_te": "SC/ST వ్యక్తులకు సాగు కోసం భూమి కొనుగోలుకు ₹10 లక్షల వరకు ఆర్థిక సహాయం. Land purchase scheme.",
+  "description_en": "Up to ₹10 lakhs financial assistance for SC/ST individuals to purchase agricultural land.",
+  "eligibility_criteria": {
+    "caste": "SC / ST only",
+    "land": "Must not own more than 1 acre of land",
+    "income": "Family annual income below ₹2,40,000",
+    "age": "21 to 50 years",
+    "excluded": ["Existing land owners (>1 acre)", "Government employees"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Caste certificate", "Income certificate", "No-land certificate / existing land documents", "Bank passbook"]
+  },
+  "benefit_amount": "Up to ₹10,00,000 (subsidy component + loan component through banks)",
+  "application_process_te": "1. సచివాలయంలో SC/ST Welfare Assistant దగ్గర apply\n2. Land identification\n3. District collector approval\n4. Bank loan + government subsidy\n5. Land registration in beneficiary name",
+  "go_reference": "GO Ms. No. 55, dated 2019",
+  "effective_from": "2019-12-01",
+  "is_active": true
+}

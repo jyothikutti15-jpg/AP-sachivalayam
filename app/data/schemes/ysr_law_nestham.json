@@ -1,0 +1,22 @@
+{
+  "scheme_code": "YSR-LAW-NESTHAM",
+  "name_te": "వైఎస్ఆర్ లా నేస్తం",
+  "name_en": "YSR Law Nestham",
+  "department": "Law Department",
+  "description_te": "Junior lawyers కి ₹5,000 నెలవారీ stipend. 3 సంవత్సరాల వరకు. Practice establish చేసుకోవడానికి.",
+  "description_en": "₹5,000 monthly stipend for junior lawyers for up to 3 years to establish their practice.",
+  "eligibility_criteria": {
+    "profession": "Enrolled advocate (within first 3 years of practice)",
+    "bar_council": "Must be enrolled with AP Bar Council",
+    "income": "Family annual income below ₹2,40,000",
+    "excluded": ["Advocates with more than 3 years experience", "Government employed advocates"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Bar Council enrollment certificate", "Income certificate", "Bank passbook"]
+  },
+  "benefit_amount": "₹5,000 per month for 3 years",
+  "application_process_te": "1. Online portal లో apply\n2. Bar Council enrollment verify\n3. District legal services authority approval\n4. Monthly DBT",
+  "go_reference": "GO Ms. No. 30, dated 2020",
+  "effective_from": "2020-06-01",
+  "is_active": true
+}

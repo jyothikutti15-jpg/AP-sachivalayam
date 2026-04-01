@@ -1,0 +1,30 @@
+{
+  "scheme_code": "YSR-CHEYUTHA",
+  "name_te": "వైఎస్ఆర్ చేయూత",
+  "name_en": "YSR Cheyutha",
+  "department": "Women Development & Child Welfare",
+  "description_te": "SC, ST, BC, Minority మహిళలకు (45-60 సంవత్సరాలు) ₹18,750 ఆర్థిక సహాయం. ప్రతి సంవత్సరం జనవరిలో DBT.",
+  "description_en": "Annual financial assistance of ₹18,750 for women aged 45-60 from SC, ST, BC, and Minority communities.",
+  "eligibility_criteria": {
+    "gender": "Female only",
+    "age": "45 to 60 years",
+    "caste": "SC / ST / BC / Minority",
+    "income": "Family annual income below ₹10,00,000",
+    "ration_card": "White/Rice ration card",
+    "excluded": ["Government employees", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Age proof",
+      "Caste certificate",
+      "Ration card",
+      "Bank passbook"
+    ]
+  },
+  "benefit_amount": "₹18,750 per annum",
+  "application_process_te": "1. సచివాలయంలో Mahila Police / WDCW Assistant దగ్గర apply చేయండి\n2. Documents verify\n3. DBT ద్వారా bank account లో credit",
+  "go_reference": "GO Ms. No. 22, dated 2020",
+  "effective_from": "2020-08-12",
+  "is_active": true
+}

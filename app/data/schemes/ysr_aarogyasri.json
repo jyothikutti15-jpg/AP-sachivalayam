@@ -1,0 +1,27 @@
+{
+  "scheme_code": "YSR-AAROGYASRI",
+  "name_te": "వైఎస్ఆర్ ఆరోగ్యశ్రీ",
+  "name_en": "YSR Aarogyasri",
+  "department": "Health, Medical & Family Welfare",
+  "description_te": "BPL కుటుంబాలకు ₹25 లక్షల వరకు ఉచిత వైద్య సేవలు. 3,257 రకాల procedures cover చేయబడతాయి. Network hospitals లో cashless treatment.",
+  "description_en": "Free medical treatment up to ₹25 lakhs for BPL families. Covers 3,257 procedures. Cashless treatment at network hospitals.",
+  "eligibility_criteria": {
+    "ration_card": "Must have White/Rice/Antyodaya ration card",
+    "income": "Family annual income below ₹5,00,000 (5 lakhs)",
+    "residence": "Must be a resident of Andhra Pradesh",
+    "excluded": ["Government employees with medical reimbursement", "ESIC beneficiaries"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Ration card (White/Rice/Antyodaya)",
+      "Aarogyasri Health Card",
+      "Doctor referral letter"
+    ]
+  },
+  "benefit_amount": "Up to ₹25,00,000 per family per year (cashless)",
+  "application_process_te": "1. Network hospital కి వెళ్ళండి\n2. Aarogyasri Health Card చూపించండి\n3. Hospital Aarogyasri counter లో registration\n4. Pre-authorization approval తర్వాత treatment start\n5. Emergency cases లో treatment ముందు, authorization తర్వాత",
+  "go_reference": "GO Ms. No. 174, dated 2019",
+  "effective_from": "2007-04-01",
+  "is_active": true
+}

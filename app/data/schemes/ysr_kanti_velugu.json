@@ -1,0 +1,21 @@
+{
+  "scheme_code": "YSR-KANTI-VELUGU",
+  "name_te": "వైఎస్ఆర్ కంటి వెలుగు",
+  "name_en": "YSR Kanti Velugu",
+  "department": "Health, Medical & Family Welfare",
+  "description_te": "ఉచిత కంటి పరీక్ష + ఉచిత కళ్ళజోడు + ఉచిత కంటి శస్త్రచికిత్స. Door-to-door screening camps.",
+  "description_en": "Free eye screening + free spectacles + free eye surgery. Door-to-door screening camps.",
+  "eligibility_criteria": {
+    "residence": "AP resident",
+    "automatic": "Free for all — no income limit",
+    "priority": "Priority for school children, elderly, and BPL families"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Ration card (for BPL priority)"]
+  },
+  "benefit_amount": "Free eye screening + Free spectacles + Free cataract surgery (if needed)",
+  "application_process_te": "1. Screening camp మీ secretariat/village లో conduct అవుతుంది\n2. Eye test free\n3. కళ్ళజోడు అవసరమైతే free delivery\n4. Surgery అవసరమైతే nearest hospital కి referral + free surgery",
+  "go_reference": "GO Ms. No. 51, dated 2019",
+  "effective_from": "2019-10-10",
+  "is_active": true
+}

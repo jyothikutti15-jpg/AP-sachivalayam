@@ -1,0 +1,144 @@
+{
+  "YSR-AMMA-VODI": [
+    {
+      "question_te": "అమ్మ ఒడి అర్హత ఏమిటి?",
+      "answer_te": "అమ్మ ఒడి అర్హత:\n• తల్లి/సంరక్షకురాలు ఉండాలి\n• పిల్లలు 1-12 తరగతి చదువుతుండాలి\n• 75% attendance ఉండాలి\n• White/Rice/Antyodaya ration card\n• కుటుంబ ఆదాయం ₹10 లక్షల లోపు\n\nExcluded: Govt employees, Income tax payees, ₹10,000+ pension receivers",
+      "question_en": "What is Amma Vodi eligibility?",
+      "answer_en": "Amma Vodi eligibility: Mother/guardian with children in classes 1-12, 75% attendance, White/Rice ration card, family income under 10 lakhs."
+    },
+    {
+      "question_te": "అమ్మ ఒడి ఎంత డబ్బు వస్తుంది?",
+      "answer_te": "అమ్మ ఒడి: ₹15,000 ప్రతి కుటుంబానికి సంవత్సరానికి. జనవరిలో DBT ద్వారా mother's bank account లో credit.",
+      "question_en": "How much money in Amma Vodi?",
+      "answer_en": "₹15,000 per family per year. Paid via DBT in January to mother's bank account."
+    },
+    {
+      "question_te": "అమ్మ ఒడి కి ఏ documents కావాలి?",
+      "answer_te": "అమ్మ ఒడి documents:\n• తల్లి Aadhaar card\n• పిల్లల Aadhaar card\n• School enrollment certificate\n• Ration card (White/Rice)\n• Bank passbook (తల్లి account)\n• Attendance certificate (75%+)",
+      "question_en": "What documents needed for Amma Vodi?",
+      "answer_en": "Mother's Aadhaar, children's Aadhaar, school enrollment certificate, ration card (White/Rice), bank passbook (mother's account)."
+    },
+    {
+      "question_te": "అమ్మ ఒడి ఎప్పుడు వస్తుంది?",
+      "answer_te": "అమ్మ ఒడి ప్రతి సంవత్సరం జనవరి 26 (Republic Day) న credit అవుతుంది. DBT ద్వారా mother's bank account కి.",
+      "question_en": "When is Amma Vodi paid?",
+      "answer_en": "Amma Vodi is credited on January 26 (Republic Day) every year via DBT."
+    },
+    {
+      "question_te": "అమ్మ ఒడి private school కి వర్తిస్తుందా?",
+      "answer_te": "అవును, అమ్మ ఒడి government మరియు private schools రెండింటికీ వర్తిస్తుంది. Recognized school అయి ఉండాలి. Un-recognized schools కి వర్తించదు.",
+      "question_en": "Does Amma Vodi apply to private schools?",
+      "answer_en": "Yes, Amma Vodi applies to both government and private recognized schools."
+    }
+  ],
+  "YSR-RYTHU-BHAROSA": [
+    {
+      "question_te": "రైతు భరోసా అర్హత ఏమిటి?",
+      "answer_te": "రైతు భరోసా అర్హత:\n• వ్యవసాయ భూమి ఉన్న రైతు (pattadar)\n• భూమి actively cultivate చేస్తుండాలి\n• Land limit లేదు\n\nExcluded: Govt employees, IT payees, institutional lands",
+      "question_en": "What is Rythu Bharosa eligibility?",
+      "answer_en": "Must own agricultural land (pattadar), actively cultivating. No land size limit. Excluded: Govt employees, income tax payees."
+    },
+    {
+      "question_te": "రైతు భరోసా ఎంత డబ్బు వస్తుంది?",
+      "answer_te": "రైతు భరోసా: ₹13,500/సంవత్సరం\n• Kharif: ₹7,500 (May/June)\n• Rabi: ₹4,000 (October)\n• PM-KISAN: ₹2,000 (Jan)\n\nDBT ద్వారా farmer bank account కి.",
+      "question_en": "How much money in Rythu Bharosa?",
+      "answer_en": "₹13,500/year in 3 installments: ₹7,500 (Kharif) + ₹4,000 (Rabi) + ₹2,000 (PM-KISAN)."
+    },
+    {
+      "question_te": "రైతు భరోసా documents ఏమి కావాలి?",
+      "answer_te": "రైతు భరోసా documents:\n• Aadhaar card\n• Land pattadar passbook / 1-B\n• Bank passbook\n• Ration card\n• RBK registration",
+      "question_en": "What documents for Rythu Bharosa?",
+      "answer_en": "Aadhaar, land pattadar passbook/1-B, bank passbook, ration card."
+    },
+    {
+      "question_te": "కౌలు రైతుకు రైతు భరోసా వస్తుందా?",
+      "answer_te": "కౌలు రైతులకు (tenant farmers) ప్రత్యేక CCRC (Crop Cultivator Rights Card) ఉంటే రైతు భరోసా వస్తుంది. VRO/Agriculture Assistant ద్వారా CCRC apply చేయండి.",
+      "question_en": "Do tenant farmers get Rythu Bharosa?",
+      "answer_en": "Tenant farmers with CCRC (Crop Cultivator Rights Card) are eligible. Apply for CCRC through VRO."
+    }
+  ],
+  "YSR-AAROGYASRI": [
+    {
+      "question_te": "ఆరోగ్యశ్రీ అర్హత ఏమిటి?",
+      "answer_te": "ఆరోగ్యశ్రీ అర్హత:\n• White/Rice/Antyodaya ration card\n• కుటుంబ ఆదాయం ₹5 లక్షల లోపు\n• AP resident\n• ₹25 లక్షల వరకు cashless treatment\n• 3,257 procedures cover\n\nExcluded: Govt employees with medical reimbursement, ESIC beneficiaries",
+      "question_en": "What is Aarogyasri eligibility?",
+      "answer_en": "White/Rice ration card, family income below 5 lakhs, AP resident. Covers 3,257 procedures up to ₹25 lakhs."
+    },
+    {
+      "question_te": "ఆరోగ్యశ్రీ card ఎలా తీసుకోవాలి?",
+      "answer_te": "ఆరోగ్యశ్రీ Health Card:\n1. సచివాలయంలో Aadhaar + Ration card తో apply\n2. GSWS portal ద్వారా online verify\n3. e-Health card generate\n4. Network hospital కి వెళ్ళేటప్పుడు Aadhaar + Ration card sufficient (e-card optional)",
+      "question_en": "How to get Aarogyasri card?",
+      "answer_en": "Apply at secretariat with Aadhaar + Ration card. e-Health card generated via GSWS. At hospital, Aadhaar + Ration card is sufficient."
+    },
+    {
+      "question_te": "ఆరోగ్యశ్రీ లో ఏ hospitals వస్తాయి?",
+      "answer_te": "ఆరోగ్యశ్రీ network hospitals:\n• అన్ని government hospitals\n• Empanelled private hospitals\n• Network hospital list: aarogyasri.telangana.gov.in లో check చేయవచ్చు\n• Emergency లో ఏ hospital కైనా వెళ్ళవచ్చు, తర్వాత approval",
+      "question_en": "Which hospitals accept Aarogyasri?",
+      "answer_en": "All government hospitals and empanelled private hospitals. Emergency treatment at any hospital, approval can be obtained afterwards."
+    }
+  ],
+  "YSR-PENSION-KANUKA": [
+    {
+      "question_te": "పెన్షన్ అర్హత ఏమిటి?",
+      "answer_te": "YSR పెన్షన్ కానుక types:\n\n• వృద్ధాప్య పెన్షన్: 60+ సంవత్సరాలు, ₹2.4L income లోపు\n• వితంతు పెన్షన్: 18+ సంవత్సరాలు, unmarried/widowed\n• వికలాంగ పెన్షన్: 40%+ disability, 18+ సంవత్సరాలు\n• చేనేత పెన్షన్: 50+ సంవత్సరాలు\n• తాపీ మేస్త్రీ పెన్షన్: 50+ సంవత్సరాలు\n\nమొత్తం: ₹3,000/నెల. ప్రతి నెల 1వ తేదీ door delivery.",
+      "question_en": "What is YSR Pension eligibility?",
+      "answer_en": "Old age (60+), Widow (18+), Disabled (40%+ disability, 18+). All need income below ₹2.4L. Amount: ₹3,000/month, door delivery on 1st of every month."
+    },
+    {
+      "question_te": "పెన్షన్ documents ఏమి కావాలి?",
+      "answer_te": "పెన్షన్ documents:\n• Aadhaar card\n• Age proof\n• Ration card\n• Bank passbook\n• Income certificate\n• Death certificate (widow pension కి)\n• Disability certificate (disabled pension కి)\n• Caste certificate (if applicable)",
+      "question_en": "What documents for pension?",
+      "answer_en": "Aadhaar, age proof, ration card, bank passbook, income certificate. Widow: death certificate. Disabled: disability certificate."
+    },
+    {
+      "question_te": "పెన్షన్ ఎప్పుడు వస్తుంది?",
+      "answer_te": "YSR పెన్షన్ ప్రతి నెల 1వ తేదీన వస్తుంది. Volunteer ద్వారా door delivery. Bank account లో DBT. ₹3,000/నెల.",
+      "question_en": "When does pension come?",
+      "answer_en": "YSR Pension is delivered on 1st of every month via volunteer door delivery + DBT to bank. ₹3,000/month."
+    }
+  ],
+  "YSR-CHEYUTHA": [
+    {
+      "question_te": "చేయూత అర్హత ఏమిటి?",
+      "answer_te": "YSR చేయూత అర్హత:\n• మహిళలు మాత్రమే\n• వయస్సు: 45-60 సంవత్సరాలు\n• SC/ST/BC/Minority\n• ₹10 లక్షల income లోపు\n• White/Rice ration card\n\nMొత్తం: ₹18,750/సంవత్సరం DBT",
+      "question_en": "What is YSR Cheyutha eligibility?",
+      "answer_en": "Women only, age 45-60, SC/ST/BC/Minority, income below 10 lakhs, White/Rice ration card. Amount: ₹18,750/year."
+    },
+    {
+      "question_te": "చేయూత documents ఏమి కావాలి?",
+      "answer_te": "చేయూత documents:\n• Aadhaar card\n• Age proof\n• Caste certificate\n• Ration card\n• Bank passbook\n• Income certificate",
+      "question_en": "What documents for Cheyutha?",
+      "answer_en": "Aadhaar, age proof, caste certificate, ration card, bank passbook."
+    }
+  ],
+  "JAGANANNA-VIDYA-DEEVENA": [
+    {
+      "question_te": "విద్యా దీవెన అర్హత ఏమిటి?",
+      "answer_te": "జగనన్న విద్యా దీవెన:\n• ITI/Polytechnic/Degree/PG/Professional courses\n• ₹2.5 లక్షల income లోపు\n• White/Rice ration card\n• 75% attendance\n• Recognized institution లో study\n\nFull tuition fee reimbursement!",
+      "question_en": "What is Vidya Deevena eligibility?",
+      "answer_en": "ITI/Poly/Degree/PG students, income below 2.5 lakhs, White/Rice ration card, 75% attendance. Full tuition fee reimbursement."
+    },
+    {
+      "question_te": "విద్యా దీవెన ఎంత వస్తుంది?",
+      "answer_te": "విద్యా దీవెన — Full tuition fee:\n• ITI: ~₹10,000\n• Polytechnic: ~₹15,000\n• Degree: ~₹20,000-35,000\n• Engineering: ~₹35,000-1,00,000\n• Medicine: ~₹5,00,000\n\nFee నేరుగా college account కి credit.",
+      "question_en": "How much is Vidya Deevena?",
+      "answer_en": "Full tuition fee reimbursement. Varies by course: ITI ~10K, Engineering ~35K-1L, Medicine ~5L. Paid directly to college."
+    }
+  ],
+  "PEDALANDARIKI-ILLU": [
+    {
+      "question_te": "ఇళ్ళ పథకం అర్హత ఏమిటి?",
+      "answer_te": "పేదలందరికీ ఇళ్ళు:\n• Pucca house లేకుండా ఉండాలి\n• ₹3 లక్షల income లోపు\n• White/Rice/Antyodaya ration card\n• 18+ సంవత్సరాలు\n• AP resident 10+ సంవత్సరాలు\n\nFree house (₹3-5 లక్షల subsidy)",
+      "question_en": "Housing scheme eligibility?",
+      "answer_en": "Must not own pucca house, income below 3 lakhs, White/Rice ration card, 18+ years, AP resident 10+ years. Free house with 3-5 lakh subsidy."
+    }
+  ],
+  "YSR-BIMA": [
+    {
+      "question_te": "YSR బీమా అర్హత ఏమిటి?",
+      "answer_te": "YSR బీమా:\n• BPL కుటుంబంలో earning member మరణిస్తే\n• వయస్సు 18-70\n• White/Rice/Antyodaya ration card\n• ₹5 లక్షల income లోపు\n\nBenefit: ₹5,00,000 insurance + ₹10,000 funeral expenses\n\n⚠️ మరణం జరిగిన 90 రోజులలోపు apply చేయాలి!",
+      "question_en": "What is YSR Bima?",
+      "answer_en": "₹5 lakh insurance if earning member of BPL family dies. Age 18-70. Must apply within 90 days of death. ₹10,000 funeral expenses also covered."
+    }
+  ]
+}

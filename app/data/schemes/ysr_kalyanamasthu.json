@@ -1,0 +1,33 @@
+{
+  "scheme_code": "YSR-KALYANAMASTHU",
+  "name_te": "వైఎస్ఆర్ కళ్యాణమస్తు",
+  "name_en": "YSR Kalyanamastu",
+  "department": "BC Welfare / SC Welfare / ST Welfare / Minority Welfare",
+  "description_te": "SC, ST, BC, Minority, EBC కుటుంబాల ఆడపిల్లల వివాహం కోసం ₹1,00,000 ఆర్థిక సహాయం.",
+  "description_en": "Marriage assistance of ₹1,00,000 for daughters of SC, ST, BC, Minority, and EBC families.",
+  "eligibility_criteria": {
+    "bride_age": "18 years and above",
+    "groom_age": "21 years and above",
+    "caste": "SC / ST / BC / EBC / Minority",
+    "income": "Family annual income below ₹2,40,000",
+    "first_two_daughters": "Only for first two daughters in the family",
+    "excluded": ["Third or subsequent daughters", "Government employees", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Bride Aadhaar card",
+      "Groom Aadhaar card",
+      "Age proof (both)",
+      "Caste certificate",
+      "Income certificate",
+      "Ration card",
+      "Marriage invitation / date proof",
+      "Bank passbook (bride's father/mother account)"
+    ]
+  },
+  "benefit_amount": "₹1,00,000 per marriage",
+  "application_process_te": "1. సచివాలయంలో respective Welfare Assistant దగ్గర apply\n2. వివాహానికి 15 రోజుల ముందు apply చేయాలి\n3. Documents verify\n4. DBT ద్వారా bank account కి credit\n5. వివాహం తర్వాత marriage certificate submit",
+  "go_reference": "GO Ms. No. 5, dated 2019",
+  "effective_from": "2019-10-01",
+  "is_active": true
+}

@@ -1,0 +1,30 @@
+{
+  "scheme_code": "YSR-VAHANA-MITRA",
+  "name_te": "వైఎస్ఆర్ వాహన మిత్ర",
+  "name_en": "YSR Vahana Mitra",
+  "department": "Transport",
+  "description_te": "ఆటో/టాక్సీ/మాక్సీ క్యాబ్ డ్రైవర్లకు ₹10,000 ఆర్థిక సహాయం. Insurance, fitness, permit ఖర్చులకు.",
+  "description_en": "₹10,000 financial assistance to auto/taxi/maxi cab drivers for insurance, fitness, and permit expenses.",
+  "eligibility_criteria": {
+    "occupation": "Auto-rickshaw / Taxi / Maxi cab driver-cum-owner",
+    "vehicle": "Must own the vehicle (registered in own name)",
+    "license": "Valid driving license",
+    "income": "Family annual income below ₹2,40,000",
+    "excluded": ["Fleet owners (more than 1 vehicle)", "Government employees"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Driving license",
+      "Vehicle RC (Registration Certificate)",
+      "Insurance copy",
+      "Bank passbook",
+      "Ration card"
+    ]
+  },
+  "benefit_amount": "₹10,000 per annum",
+  "application_process_te": "1. సచివాలయంలో apply\n2. Vehicle documents verify\n3. Transport department approval\n4. DBT ద్వారా bank account కి credit",
+  "go_reference": "GO Ms. No. 25, dated 2019",
+  "effective_from": "2019-10-15",
+  "is_active": true
+}

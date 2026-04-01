@@ -1,0 +1,24 @@
+{
+  "scheme_code": "PEDALANDARIKI-ILLU",
+  "name_te": "నవరత్నాలు - పేదలందరికీ ఇళ్ళు",
+  "name_en": "Navaratnalu - Pedalandariki Illu (Houses for Poor)",
+  "department": "Housing",
+  "description_te": "పేద కుటుంబాలకు ఉచిత ఇల్లు. 30 లక్షల ఇళ్ళు నిర్మించే లక్ష్యం. TIDCO/YSR housing layouts.",
+  "description_en": "Free houses for poor families. Target of 30 lakh houses through TIDCO/YSR housing layouts.",
+  "eligibility_criteria": {
+    "housing": "Must not own a pucca house",
+    "income": "Family annual income below ₹3,00,000",
+    "ration_card": "White/Rice/Antyodaya ration card",
+    "age": "Applicant must be 18+ years",
+    "residence": "Must be a resident of AP for at least 10 years",
+    "excluded": ["Existing pucca house owners", "Government employees", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Ration card", "Income certificate", "No-house certificate from VRO", "Bank passbook", "Caste certificate"]
+  },
+  "benefit_amount": "Free house (apartment/independent house) — ₹3-5 lakhs government subsidy",
+  "application_process_te": "1. సచివాలయంలో VRO/Welfare Assistant దగ్గర apply\n2. House-site survey\n3. Lottery system ద్వారా allotment\n4. Housing layout లో site allotment\n5. Construction start + beneficiary contribution (if any)",
+  "go_reference": "GO Ms. No. 88, dated 2019",
+  "effective_from": "2019-12-25",
+  "is_active": true
+}

@@ -1,0 +1,21 @@
+{
+  "scheme_code": "YSR-SAMPOORNA-POSHANA-PLUS",
+  "name_te": "వైఎస్ఆర్ సంపూర్ణ పోషణ ప్లస్",
+  "name_en": "YSR Sampoorna Poshana Plus",
+  "department": "Women Development & Child Welfare",
+  "description_te": "బాలింతలకు ₹1,000 కొత్త బట్టలు + KIT. Delivery అయిన 24 గంటలలో Anganwadi worker ద్వారా delivery.",
+  "description_en": "₹1,000 worth clothes + kit for new mothers. Delivered by Anganwadi worker within 24 hours of delivery.",
+  "eligibility_criteria": {
+    "status": "New mothers (within 24 hours of delivery)",
+    "registration": "Must be registered at Anganwadi center",
+    "institution_delivery": "Must deliver at government hospital / PHC"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Discharge summary from hospital", "Anganwadi registration"]
+  },
+  "benefit_amount": "Kit worth ₹1,000 (new clothes for mother and baby + essential items)",
+  "application_process_te": "1. Government hospital లో delivery\n2. Hospital Anganwadi worker కి inform\n3. 24 గంటలలో kit delivery\n4. ప్రత్యేక apply అవసరం లేదు",
+  "go_reference": "GO Ms. No. 41, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

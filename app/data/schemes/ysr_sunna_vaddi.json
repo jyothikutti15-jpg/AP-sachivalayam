@@ -1,0 +1,29 @@
+{
+  "scheme_code": "YSR-SUNNA-VADDI",
+  "name_te": "వైఎస్ఆర్ సున్నా వడ్డీ",
+  "name_en": "YSR Sunna Vaddi (Zero Interest)",
+  "department": "Women Development & Child Welfare",
+  "description_te": "SHG మహిళలు తీసుకున్న ₹3 లక్షల వరకు bank loans పై వడ్డీని ప్రభుత్వం చెల్లిస్తుంది. సున్నా వడ్డీ (Zero Interest).",
+  "description_en": "Government pays the interest on bank loans up to ₹3 lakhs taken by SHG women. Zero Interest loans.",
+  "eligibility_criteria": {
+    "gender": "Female SHG members",
+    "shg_membership": "Active member of registered SHG",
+    "loan_repayment": "Must have regular repayment record",
+    "loan_limit": "Loan amount up to ₹3,00,000",
+    "excluded": ["Defaulters", "Non-SHG loans"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "SHG group ID",
+      "Bank loan account details",
+      "Repayment history",
+      "Bank passbook"
+    ]
+  },
+  "benefit_amount": "Full interest reimbursement on loans up to ₹3,00,000",
+  "application_process_te": "1. SHG group ద్వారా bank loan తీసుకోండి\n2. Regular EMI చెల్లించండి\n3. ప్రతి సంవత్సరం వడ్డీ మొత్తం ప్రభుత్వం reimburse చేస్తుంది\n4. DBT ద్వారా SHG member account కి credit",
+  "go_reference": "GO Ms. No. 20, dated 2019",
+  "effective_from": "2019-10-01",
+  "is_active": true
+}

@@ -1,0 +1,34 @@
+{
+  "scheme_code": "YSR-AMMA-VODI",
+  "name_te": "వైఎస్ఆర్ అమ్మ ఒడి",
+  "name_en": "YSR Amma Vodi",
+  "department": "School Education",
+  "description_te": "పిల్లలను బడికి పంపే తల్లులు/సంరక్షకురాళ్ళకు ₹15,000 ఆర్థిక సహాయం. ప్రతి సంవత్సరం జనవరిలో DBT ద్వారా చెల్లించబడుతుంది.",
+  "description_en": "Financial assistance of ₹15,000 per year to mothers/guardians who send their children to school. Paid through DBT in January.",
+  "eligibility_criteria": {
+    "mother_or_guardian": "Must be the mother or authorized female guardian",
+    "children_enrolled": "Children must be enrolled in classes 1-12 in recognized schools",
+    "attendance": "Children must have minimum 75% attendance",
+    "income": "Family annual income must be below ₹10,00,000 (10 lakhs)",
+    "ration_card": "Must have White/Rice/Antyodaya ration card",
+    "excluded": ["Government employees", "Income tax payees", "Pension recipients (>₹10,000/month)"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card of mother/guardian",
+      "Aadhaar card of children",
+      "School enrollment certificate",
+      "Ration card (White/Rice/Antyodaya)",
+      "Bank passbook (mother's account)"
+    ],
+    "optional": [
+      "Caste certificate",
+      "Income certificate"
+    ]
+  },
+  "benefit_amount": "₹15,000 per annum per family",
+  "application_process_te": "1. సచివాలయంలో VRO/Welfare Assistant దగ్గర apply చేయండి\n2. Documents verify చేయబడతాయి\n3. GSWS portal లో online application submit అవుతుంది\n4. జనవరిలో DBT ద్వారా bank account లో credit అవుతుంది",
+  "go_reference": "GO Ms. No. 47, dated 28.12.2019",
+  "effective_from": "2020-01-26",
+  "is_active": true
+}

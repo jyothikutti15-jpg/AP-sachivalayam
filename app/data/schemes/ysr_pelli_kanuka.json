@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-PELLI-KANUKA",
+  "name_te": "వైఎస్ఆర్ పెళ్ళి కానుక",
+  "name_en": "YSR Pelli Kanuka",
+  "department": "Revenue",
+  "description_te": "BPL కుటుంబాల ఆడపిల్లల వివాహానికి ₹1,00,000. Kalyanamastu తో combine అయి ₹1,00,000 DBT.",
+  "description_en": "₹1,00,000 marriage gift for daughters of BPL families. Combined with Kalyanamastu scheme.",
+  "eligibility_criteria": {
+    "bride_age": "18 years and above",
+    "income": "Family annual income below ₹2,40,000",
+    "ration_card": "White/Rice ration card",
+    "first_two": "Only first two daughters eligible",
+    "excluded": ["Government employees", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": ["Bride Aadhaar", "Groom Aadhaar", "Age proof", "Income certificate", "Ration card", "Bank passbook"]
+  },
+  "benefit_amount": "₹1,00,000",
+  "application_process_te": "1. వివాహానికి 15 రోజుల ముందు సచివాలయంలో apply\n2. Documents verify\n3. DBT ద్వారా credit",
+  "go_reference": "GO Ms. No. 6, dated 2019",
+  "effective_from": "2019-10-01",
+  "is_active": true
+}

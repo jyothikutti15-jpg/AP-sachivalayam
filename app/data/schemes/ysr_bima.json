@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-BIMA",
+  "name_te": "వైఎస్ఆర్ బీమా",
+  "name_en": "YSR Bima",
+  "department": "Labour & Employment",
+  "description_te": "BPL కుటుంబంలో సంపాదించే వ్యక్తి మరణిస్తే ₹5 లక్షల బీమా. ₹10,000 అంత్యక్రియల ఖర్చులు.",
+  "description_en": "₹5 lakh insurance for BPL families if the earning member dies. ₹10,000 for funeral expenses.",
+  "eligibility_criteria": {
+    "death": "Death of earning member (natural or accidental)",
+    "age": "Deceased must be between 18-70 years",
+    "ration_card": "White/Rice/Antyodaya ration card",
+    "income": "Family annual income below ₹5,00,000",
+    "excluded": ["Suicide (partial coverage)", "Death due to alcohol/drugs"]
+  },
+  "required_documents": {
+    "mandatory": ["Deceased Aadhaar card", "Death certificate", "Nominee Aadhaar card", "Ration card", "Bank passbook (nominee)", "FIR (if accidental death)"]
+  },
+  "benefit_amount": "₹5,00,000 (natural death) / ₹5,00,000 (accidental death) + ₹10,000 funeral expenses",
+  "application_process_te": "1. మరణం జరిగిన 90 రోజులలోపు apply\n2. సచివాలయంలో VRO/Welfare Assistant దగ్గర documents submit\n3. District verification\n4. DBT ద్వారా nominee account కి credit",
+  "go_reference": "GO Ms. No. 62, dated 2019",
+  "effective_from": "2019-10-01",
+  "is_active": true
+}

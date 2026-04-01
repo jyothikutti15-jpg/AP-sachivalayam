@@ -1,0 +1,21 @@
+{
+  "scheme_code": "JAGANANNA-VIDYA-KANUKA",
+  "name_te": "జగనన్న విద్యా కానుక",
+  "name_en": "Jagananna Vidya Kanuka (School Kits)",
+  "department": "School Education",
+  "description_te": "ప్రభుత్వ పాఠశాల విద్యార్థులకు 3 జతల uniforms + shoes + socks + belt + textbooks + notebooks. ₹3,000-₹4,000 విలువైన kit.",
+  "description_en": "Free school kit for government school students: 3 pairs of uniforms + shoes + socks + belt + textbooks + notebooks. Kit worth ₹3,000-₹4,000.",
+  "eligibility_criteria": {
+    "enrollment": "Students enrolled in government / aided schools",
+    "classes": "Classes 1 to 10",
+    "automatic": "No separate application needed"
+  },
+  "required_documents": {
+    "mandatory": ["No separate documents — school enrollment is sufficient"]
+  },
+  "benefit_amount": "Kit worth ₹3,000-₹4,000 (3 uniforms + shoes + socks + belt + textbooks + notebooks)",
+  "application_process_te": "ప్రత్యేక apply అవసరం లేదు. ప్రతి academic year beginning లో school ద్వారా distribute.",
+  "go_reference": "GO Ms. No. 45, dated 2020",
+  "effective_from": "2020-06-01",
+  "is_active": true
+}

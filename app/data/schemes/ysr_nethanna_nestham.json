@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-NETHANNA-NESTHAM",
+  "name_te": "వైఎస్ఆర్ నేతన్న నేస్తం",
+  "name_en": "YSR Nethanna Nestham",
+  "department": "Handlooms & Textiles",
+  "description_te": "చేనేత కార్మికులకు ₹24,000 ఆర్థిక సహాయం. ప్రతి సంవత్సరం ₹24,000 DBT.",
+  "description_en": "₹24,000 annual financial assistance for handloom weavers.",
+  "eligibility_criteria": {
+    "occupation": "Registered handloom weaver",
+    "registration": "Must have valid weaver ID / Nethanna Nestham card",
+    "active_weaving": "Must be actively engaged in handloom weaving",
+    "income": "Family annual income below ₹2,40,000",
+    "excluded": ["Powerloom workers", "Government employees"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Weaver ID card", "Bank passbook", "Ration card"]
+  },
+  "benefit_amount": "₹24,000 per annum",
+  "application_process_te": "1. Handlooms department లో registration\n2. సచివాలయంలో apply\n3. Verification\n4. DBT ద్వారా credit",
+  "go_reference": "GO Ms. No. 19, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

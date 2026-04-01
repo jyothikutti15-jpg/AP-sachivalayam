@@ -1,0 +1,21 @@
+{
+  "scheme_code": "YSR-YANTRA-SEVA",
+  "name_te": "వైఎస్ఆర్ యంత్ర సేవ",
+  "name_en": "YSR Yantra Seva",
+  "department": "Agriculture",
+  "description_te": "రైతులకు subsidized farm machinery. Custom Hiring Centers (CHC) ద్వారా tractors, harvesters అద్దెకు. ₹50/hour subsidy.",
+  "description_en": "Subsidized farm machinery for farmers through Custom Hiring Centers (CHC). Tractors, harvesters on rent with ₹50/hour subsidy.",
+  "eligibility_criteria": {
+    "occupation": "Farmer (any landholding)",
+    "location": "Within CHC service area",
+    "automatic": "No eligibility restrictions — any farmer can use"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Farmer/Land details (for booking)"]
+  },
+  "benefit_amount": "₹50/hour subsidy on machinery rental (effective rate: ₹300-500/hour vs market ₹800-1000/hour)",
+  "application_process_te": "1. Nearest Custom Hiring Centre (CHC) కి call/visit\n2. Required machinery book\n3. Scheduled date కి machinery comes to field\n4. Subsidized rate pay\n5. RBK (Rythu Bharosa Kendra) ద్వారా కూడా book చేయవచ్చు",
+  "go_reference": "GO Ms. No. 38, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

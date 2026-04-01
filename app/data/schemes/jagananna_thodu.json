@@ -1,0 +1,29 @@
+{
+  "scheme_code": "JAGANANNA-THODU",
+  "name_te": "జగనన్న తోడు",
+  "name_en": "Jagananna Thodu",
+  "department": "BC Welfare",
+  "description_te": "చిన్న వ్యాపారులు, వీధి వ్యాపారులకు ₹10,000 వడ్డీ లేని రుణం. వీధి వ్యాపారులకు ఆర్థిక సహాయం.",
+  "description_en": "Interest-free loan of ₹10,000 for small traders and street vendors.",
+  "eligibility_criteria": {
+    "occupation": "Street vendor / Small trader / Petty business",
+    "income": "Family annual income below ₹2,40,000",
+    "age": "21 to 58 years",
+    "ration_card": "White/Rice ration card",
+    "excluded": ["Government employees", "Income tax payees", "Existing bank loan defaulters"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Ration card",
+      "Vending certificate / trade proof",
+      "Bank passbook",
+      "Income certificate"
+    ]
+  },
+  "benefit_amount": "₹10,000 interest-free loan (revolving credit)",
+  "application_process_te": "1. సచివాలయంలో BC Welfare Assistant దగ్గర apply\n2. Vending/trade proof submit\n3. Mandal level approval\n4. Bank account లో ₹10,000 credit\n5. 1 సంవత్సరంలో repay — interest ₹0",
+  "go_reference": "GO Ms. No. 12, dated 2020",
+  "effective_from": "2020-03-01",
+  "is_active": true
+}

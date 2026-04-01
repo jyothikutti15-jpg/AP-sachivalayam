@@ -1,0 +1,21 @@
+{
+  "scheme_code": "JAGANANNA-GORUMUDDA",
+  "name_te": "జగనన్న గోరుముద్ద",
+  "name_en": "Jagananna Gorumudda (Mid-Day Meal Plus)",
+  "department": "School Education",
+  "description_te": "ప్రభుత్వ పాఠశాలల్లో విద్యార్థులకు ఉచిత భోజనం + గుడ్డు + 200ml పాలు + చిక్కీ. Menu upgraded.",
+  "description_en": "Free meals + egg + 200ml milk + chikki for students in government schools. Enhanced mid-day meal.",
+  "eligibility_criteria": {
+    "enrollment": "Students enrolled in government / aided schools",
+    "classes": "Classes 1 to 10",
+    "automatic": "No separate application needed — automatic for all enrolled students"
+  },
+  "required_documents": {
+    "mandatory": ["No separate documents needed", "School enrollment is sufficient"]
+  },
+  "benefit_amount": "Free daily meal + egg + 200ml milk + chikki (5 days/week)",
+  "application_process_te": "ప్రత్యేక apply అవసరం లేదు. ప్రభుత్వ పాఠశాలల్లో enroll అయిన విద్యార్థులందరికీ automatic గా అందుబాటులో.",
+  "go_reference": "GO Ms. No. 33, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

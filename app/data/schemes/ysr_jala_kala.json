@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-JALA-KALA",
+  "name_te": "వైఎస్ఆర్ జల కళ",
+  "name_en": "YSR Jala Kala",
+  "department": "Water Resources",
+  "description_te": "రైతులకు ఉచిత బోర్‌వెల్ తవ్వకం. ₹1,00,000 వరకు ఉచిత borwell. భూగర్భ జలాల కోసం.",
+  "description_en": "Free borewell drilling for farmers. Up to ₹1,00,000 free borewell for groundwater.",
+  "eligibility_criteria": {
+    "land_ownership": "Must own agricultural land (small/marginal farmer)",
+    "land_limit": "Maximum 5 acres for dry land / 2.5 acres for wet land",
+    "no_existing_well": "Should not have an existing functional borewell",
+    "income": "Family annual income below ₹2,40,000",
+    "excluded": ["Large farmers (>5 acres)", "Land with existing functional borewell"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Land pattadar passbook / 1-B", "Income certificate", "No-existing-well certificate from VRO"]
+  },
+  "benefit_amount": "Free borewell drilling up to ₹1,00,000",
+  "application_process_te": "1. సచివాలయంలో Agriculture/VRO దగ్గర apply\n2. Ground water department survey\n3. Geophysical survey for water point identification\n4. Approved అయితే free drilling",
+  "go_reference": "GO Ms. No. 42, dated 2020",
+  "effective_from": "2020-06-01",
+  "is_active": true
+}

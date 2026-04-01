@@ -1,0 +1,29 @@
+{
+  "scheme_code": "YSR-ASARA",
+  "name_te": "వైఎస్ఆర్ ఆసరా",
+  "name_en": "YSR Aasara",
+  "department": "Women Development & Child Welfare",
+  "description_te": "DWCRA/SHG మహిళల బ్యాంక్ రుణాలను ప్రభుత్వం చెల్లిస్తుంది. గరిష్టంగా ₹1,00,000 వరకు loan waiver.",
+  "description_en": "Government pays off bank loans of DWCRA/SHG women. Loan waiver up to ₹1,00,000.",
+  "eligibility_criteria": {
+    "gender": "Female SHG members",
+    "shg_membership": "Active member of DWCRA/SHG group",
+    "loan_type": "Bank loan taken through SHG linkage",
+    "loan_amount": "Outstanding loan up to ₹1,00,000",
+    "excluded": ["Non-SHG individual loans", "Government employees"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "SHG membership ID",
+      "Bank loan details",
+      "Bank passbook",
+      "Ration card"
+    ]
+  },
+  "benefit_amount": "Loan waiver up to ₹1,00,000 (paid in 4 annual installments of ₹25,000)",
+  "application_process_te": "1. SHG group leader ద్వారా apply\n2. Bank loan details verify\n3. ప్రతి సంవత్సరం ₹25,000 చొప్పున 4 installments లో bank కి నేరుగా credit",
+  "go_reference": "GO Ms. No. 15, dated 2019",
+  "effective_from": "2019-12-27",
+  "is_active": true
+}

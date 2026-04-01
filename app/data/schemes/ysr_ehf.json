@@ -1,0 +1,23 @@
+{
+  "scheme_code": "YSR-EHF",
+  "name_te": "వైఎస్ఆర్ ఉద్యోగ హామీ పథకం (EHF)",
+  "name_en": "YSR Employment Guarantee Scheme (EHF)",
+  "department": "Panchayat Raj & Rural Development",
+  "description_te": "గ్రామీణ ప్రాంతాల్లో 150 రోజుల guaranteed employment. MGNREGS + రాష్ట్ర అదనపు 50 రోజులు. రోజు వేతనం ₹300+.",
+  "description_en": "150 days guaranteed employment in rural areas. MGNREGS 100 days + State additional 50 days. Daily wage ₹300+.",
+  "eligibility_criteria": {
+    "residence": "Rural household in AP",
+    "age": "18 years and above",
+    "job_card": "Must have MGNREGS job card",
+    "willing": "Must be willing to do manual/unskilled work",
+    "automatic": "Any rural household can demand work"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "MGNREGS Job card", "Bank passbook"]
+  },
+  "benefit_amount": "₹300+ per day for 150 days (100 MGNREGS + 50 State) = ~₹45,000 per year",
+  "application_process_te": "1. సచివాలయంలో job card కోసం apply (ఇప్పటికే లేకపోతే)\n2. పని కావాలని demand letter ఇవ్వండి\n3. 15 రోజులలో పని కల్పించాలి\n4. Wages DBT ద్వారా bank account కి weekly credit",
+  "go_reference": "MGNREGA Act + State GO Ms. No. 70, dated 2020",
+  "effective_from": "2020-04-01",
+  "is_active": true
+}

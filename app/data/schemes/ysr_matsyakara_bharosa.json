@@ -1,0 +1,27 @@
+{
+  "scheme_code": "YSR-MATSYAKARA-BHAROSA",
+  "name_te": "వైఎస్ఆర్ మత్స్యకార భరోసా",
+  "name_en": "YSR Matsyakara Bharosa",
+  "department": "Fisheries",
+  "description_te": "fishing ban period లో (ఏప్రిల్-జూన్) మత్స్యకారులకు ₹10,000 ఆర్థిక సహాయం. జీవనోపాధి కోసం.",
+  "description_en": "₹10,000 financial assistance to fishermen during fishing ban period (April-June) for livelihood support.",
+  "eligibility_criteria": {
+    "occupation": "Registered fisherman",
+    "registration": "Must have valid fisherman ID card",
+    "active_fishing": "Must be actively engaged in fishing",
+    "excluded": ["Boat owners with more than 2 mechanized boats", "Non-registered fishermen"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Fisherman ID card",
+      "Bank passbook",
+      "Ration card"
+    ]
+  },
+  "benefit_amount": "₹10,000 per annum (during ban period)",
+  "application_process_te": "1. Fisheries department లో registration\n2. సచివాలయంలో Fisheries Assistant ద్వారా apply\n3. Ban period ముందు verification\n4. DBT ద్వారా bank account కి credit",
+  "go_reference": "GO Ms. No. 8, dated 2020",
+  "effective_from": "2020-04-01",
+  "is_active": true
+}

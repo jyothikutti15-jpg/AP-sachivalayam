@@ -1,0 +1,21 @@
+{
+  "scheme_code": "JAGANANNA-SURAKSHA",
+  "name_te": "జగనన్న సురక్ష",
+  "name_en": "Jagananna Suraksha",
+  "department": "School Education",
+  "description_te": "ప్రభుత్వ పాఠశాల విద్యార్థులకు ₹15,000 వరకు ప్రమాద బీమా. స్కూల్ లో లేదా స్కూల్ కి వెళ్ళేటప్పుడు accident జరిగితే.",
+  "description_en": "Accident insurance up to ₹15,000 for government school students. Covers accidents in school or while traveling to school.",
+  "eligibility_criteria": {
+    "enrollment": "Students enrolled in government / aided schools",
+    "classes": "Classes 1 to 12",
+    "automatic": "Automatic coverage — no separate application"
+  },
+  "required_documents": {
+    "mandatory": ["School ID", "Aadhaar card (for claim)", "Medical/hospital bills (for claim)", "FIR copy (if applicable)"]
+  },
+  "benefit_amount": "Up to ₹15,000 per accident (medical + disability coverage)",
+  "application_process_te": "1. Accident జరిగినప్పుడు school principal కి inform\n2. Hospital treatment\n3. Bills + FIR submit to school\n4. School ద్వారా insurance claim process",
+  "go_reference": "GO Ms. No. 55, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

@@ -1,0 +1,27 @@
+{
+  "scheme_code": "YSR-RYTHU-BHAROSA",
+  "name_te": "వైఎస్ఆర్ రైతు భరోసా",
+  "name_en": "YSR Rythu Bharosa",
+  "department": "Agriculture",
+  "description_te": "రైతులకు ప్రతి సంవత్సరం ₹13,500 ఆర్థిక సహాయం (PM-KISAN ₹6,000 + రాష్ట్ర వాటా ₹7,500). మూడు విడతలుగా చెల్లించబడుతుంది.",
+  "description_en": "Annual financial assistance of ₹13,500 to farmers (PM-KISAN ₹6,000 + State share ₹7,500). Paid in three installments.",
+  "eligibility_criteria": {
+    "land_ownership": "Must own agricultural land (pattadar)",
+    "land_limit": "No upper limit on land holding",
+    "cultivation": "Must be actively cultivating the land",
+    "excluded": ["Government employees", "Income tax payees", "Institutional land holders", "Land used for non-agricultural purposes"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Land ownership document (1-B / Pattadar passbook)",
+      "Bank passbook",
+      "Ration card"
+    ]
+  },
+  "benefit_amount": "₹13,500 per annum (3 installments: ₹7,500 Kharif + ₹4,000 Rabi + ₹2,000 PM-KISAN)",
+  "application_process_te": "1. సచివాలయంలో Agriculture Assistant దగ్గర apply చేయండి\n2. భూమి documents verify చేయబడతాయి\n3. RBK (Rythu Bharosa Kendra) లో registration\n4. DBT ద్వారా bank account లో credit అవుతుంది",
+  "go_reference": "GO Ms. No. 10, dated 15.10.2019",
+  "effective_from": "2019-10-15",
+  "is_active": true
+}

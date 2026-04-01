@@ -1,0 +1,21 @@
+{
+  "scheme_code": "YSR-SAMPOORNA-POSHANA",
+  "name_te": "వైఎస్ఆర్ సంపూర్ణ పోషణ",
+  "name_en": "YSR Sampoorna Poshana",
+  "department": "Women Development & Child Welfare",
+  "description_te": "గర్భిణీ స్త్రీలు మరియు బాలింతలకు పోషకాహారం. ₹4 కిలో పప్పులు + గుడ్లు + పాలు. Anganwadi centers ద్వారా.",
+  "description_en": "Nutritional support for pregnant and lactating women. 4 kg pulses + eggs + milk through Anganwadi centers.",
+  "eligibility_criteria": {
+    "status": "Pregnant women / Lactating mothers / Children (0-6 years)",
+    "registration": "Must be registered at Anganwadi center",
+    "automatic": "Free for all registered beneficiaries"
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Pregnancy card (from PHC/hospital)", "Anganwadi registration"]
+  },
+  "benefit_amount": "Monthly nutrition kit: 4 kg pulses + 30 eggs + milk + one hot cooked meal daily",
+  "application_process_te": "1. Nearest Anganwadi center లో register\n2. Pregnancy/child birth details provide\n3. Monthly nutrition kit automatic delivery\n4. Regular health checkup at PHC",
+  "go_reference": "GO Ms. No. 40, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

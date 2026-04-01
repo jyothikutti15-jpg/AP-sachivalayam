@@ -1,0 +1,31 @@
+{
+  "scheme_code": "JAGANANNA-VASATHI-DEEVENA",
+  "name_te": "జగనన్న వసతి దీవెన",
+  "name_en": "Jagananna Vasathi Deevena",
+  "department": "Higher Education",
+  "description_te": "ఇంటికి దూరంగా చదివే విద్యార్థులకు hostel/mess/travel ఖర్చుల కోసం ₹10,000 నుండి ₹20,000 వరకు ఆర్థిక సహాయం.",
+  "description_en": "Financial assistance of ₹10,000 to ₹20,000 for hostel, mess, and travel expenses for students studying away from home.",
+  "eligibility_criteria": {
+    "courses": "ITI, Polytechnic, Degree, Engineering, Medicine, PG courses",
+    "distance": "Must be studying away from home (different mandal/district)",
+    "income": "Family annual income below ₹2,50,000",
+    "ration_card": "White/Rice ration card",
+    "excluded": ["Day scholars in same mandal", "Government employee children"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Student Aadhaar card",
+      "Parent Aadhaar card",
+      "Income certificate",
+      "College admission letter",
+      "Hostel admission proof / rent agreement",
+      "Ration card",
+      "Bank passbook (mother's account)"
+    ]
+  },
+  "benefit_amount": "₹10,000 (Day scholars in different mandal) / ₹15,000 (Hostellers) / ₹20,000 (Professional courses hostellers)",
+  "application_process_te": "1. Vasathi Deevena portal లో online apply\n2. College లో hostel/accommodation proof submit\n3. College verification\n4. DBT ద్వారా mother's bank account కి credit",
+  "go_reference": "GO Ms. No. 17, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}

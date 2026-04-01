@@ -1,0 +1,40 @@
+{
+  "scheme_code": "YSR-PENSION-KANUKA",
+  "name_te": "వైఎస్ఆర్ పెన్షన్ కానుక",
+  "name_en": "YSR Pension Kanuka",
+  "department": "Panchayat Raj & Rural Development",
+  "description_te": "వృద్ధులు, వికలాంగులు, వితంతువులు మరియు ఇతర అర్హులకు నెలవారీ పెన్షన్ ₹3,000. ప్రతి నెల 1వ తేదీన door delivery.",
+  "description_en": "Monthly pension of ₹3,000 for elderly, disabled, widows, and other eligible beneficiaries. Door delivery on 1st of every month.",
+  "eligibility_criteria": {
+    "old_age_pension": {
+      "age": "60 years and above",
+      "income": "Family annual income below ₹2,40,000",
+      "ration_card": "White/Rice ration card"
+    },
+    "widow_pension": {
+      "status": "Widow (not remarried)",
+      "age": "18 years and above",
+      "income": "Family annual income below ₹2,40,000"
+    },
+    "disabled_pension": {
+      "disability": "40% or more disability certified by medical board",
+      "age": "18 years and above"
+    },
+    "excluded": ["Government pensioners", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Age proof (for old age pension)",
+      "Ration card",
+      "Bank passbook",
+      "Death certificate of husband (for widow pension)",
+      "Disability certificate (for disabled pension)"
+    ]
+  },
+  "benefit_amount": "₹3,000 per month",
+  "application_process_te": "1. సచివాలయంలో Welfare/Ward Assistant దగ్గర apply చేయండి\n2. Documents verify చేయబడతాయి\n3. Mandal level approval\n4. ప్రతి నెల 1వ తేదీన volunteer ద్వారా door delivery",
+  "go_reference": "GO Ms. No. 75, dated 2019",
+  "effective_from": "2019-06-01",
+  "is_active": true
+}

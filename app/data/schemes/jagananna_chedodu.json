@@ -1,0 +1,23 @@
+{
+  "scheme_code": "JAGANANNA-CHEDODU",
+  "name_te": "జగనన్న చేదోడు",
+  "name_en": "Jagananna Chedodu",
+  "department": "BC Welfare",
+  "description_te": "Tailors, Dhobis, Nayi Brahmins (barbers) కు ₹10,000 ఆర్థిక సహాయం. వృత్తి నిపుణులకు సహాయం.",
+  "description_en": "₹10,000 financial assistance for Tailors, Dhobis (washermen), and Nayi Brahmins (barbers).",
+  "eligibility_criteria": {
+    "occupation": "Tailor / Dhobi (washerman) / Nayi Brahmin (barber)",
+    "income": "Family annual income below ₹2,40,000",
+    "ration_card": "White/Rice ration card",
+    "age": "21 to 58 years",
+    "excluded": ["Government employees", "Income tax payees"]
+  },
+  "required_documents": {
+    "mandatory": ["Aadhaar card", "Ration card", "Trade proof / occupation certificate", "Bank passbook", "Income certificate"]
+  },
+  "benefit_amount": "₹10,000 per annum",
+  "application_process_te": "1. సచివాలయంలో BC Welfare Assistant దగ్గర apply\n2. Occupation verify\n3. DBT ద్వారా credit",
+  "go_reference": "GO Ms. No. 14, dated 2020",
+  "effective_from": "2020-01-01",
+  "is_active": true
+}
