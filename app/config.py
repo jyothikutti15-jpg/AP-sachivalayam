@@ -20,6 +20,20 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/sachivalayam"
     database_echo: bool = False
 
+    @property
+    def async_database_url(self) -> str:
+        """Return database URL with asyncpg driver.
+
+        Render and other PaaS providers give postgresql:// URLs,
+        but SQLAlchemy async needs postgresql+asyncpg://.
+        """
+        url = self.database_url
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif url.startswith("postgresql://") and "+asyncpg" not in url:
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
+
     # Redis
     redis_url: str = "redis://localhost:6379/0"
 
