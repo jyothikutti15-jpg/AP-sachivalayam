@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.core.telugu import fuzzy_match_scheme, normalize_telugu_text
+from app.core.language_config import get_language_config
 from app.dependencies import redis_client
 from app.models.knowledge import KBChunk
 from app.models.scheme import Scheme, SchemeFAQ
@@ -379,7 +380,10 @@ class SchemeAdvisor:
         department: str | None = None,
     ) -> list[Scheme]:
         """Fallback keyword search in scheme table."""
-        search_query = select(Scheme).where(Scheme.is_active.is_(True))
+        search_query = select(Scheme).where(
+            Scheme.is_active.is_(True),
+            Scheme.state_code == settings.state_code,
+        )
 
         if department:
             search_query = search_query.where(Scheme.department == department)

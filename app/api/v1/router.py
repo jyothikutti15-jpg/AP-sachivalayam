@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.v1 import audit, checklist, circulars, citizens, dashboard, forms, grievances, health, outreach, performance, reminders, schemes, supervisor, tasks, training, voice, whatsapp
+from app.api.v1 import audit, checklist, circulars, citizens, dashboard, forms, grievances, health, languages, outreach, performance, reminders, schemes, supervisor, tasks, training, voice, whatsapp
 
 api_v1_router = APIRouter()
 
@@ -21,3 +21,4 @@ api_v1_router.include_router(outreach.router, tags=["Outreach"])
 api_v1_router.include_router(checklist.router, prefix="/checklist", tags=["Document Checklist"])
 api_v1_router.include_router(circulars.router, prefix="/circulars", tags=["GO/Circulars"])
 api_v1_router.include_router(reminders.router, prefix="/reminders", tags=["Citizen Reminders"])
+api_v1_router.include_router(languages.router, prefix="/languages", tags=["Languages & States"])

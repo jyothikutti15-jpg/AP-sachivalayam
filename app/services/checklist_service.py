@@ -20,6 +20,7 @@ from app.schemas.checklist import (
     DocumentItem,
     SchemeDocumentGroup,
 )
+from app.core.language_config import COMMON_DOCUMENTS_I18N, get_document_name
 from app.services.llm_service import LLMRouter
 
 logger = structlog.get_logger()

@@ -10,6 +10,7 @@ import structlog
 
 from app.config import get_settings
 from app.core.circuit_breaker import CircuitOpenError, get_circuit_breaker
+from app.core.language_config import get_language_config
 from app.core.security import strip_pii
 
 logger = structlog.get_logger()
@@ -97,15 +98,18 @@ class LLMRouter:
 
         except CircuitOpenError:
             logger.warning("Claude circuit open, returning fallback", **circuit.status())
-            return "AI సేవ తాత్కాలికంగా అందుబాటులో లేదు. దయచేసి కొద్దిసేపట్లో మళ్ళీ ప్రయత్నించండి."
+            lang_cfg = get_language_config(settings.default_language)
+            return lang_cfg.fallback_error
 
         except anthropic.RateLimitError:
             logger.warning("Claude rate limited, returning fallback")
-            return "సర్వర్ busy గా ఉంది. దయచేసి 1 నిమిషం తర్వాత మళ్ళీ ప్రయత్నించండి."
+            lang_cfg = get_language_config(settings.default_language)
+            return lang_cfg.busy_error
 
         except anthropic.APIConnectionError:
             logger.error("Claude API unreachable")
-            return "Internet connection సమస్య. దయచేసి కొద్దిసేపట్లో మళ్ళీ ప్రయత్నించండి."
+            lang_cfg = get_language_config(settings.default_language)
+            return lang_cfg.connection_error
 
         except anthropic.APIError as e:
             logger.error("Claude API error", error=str(e), status=getattr(e, 'status_code', None))

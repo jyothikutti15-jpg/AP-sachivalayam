@@ -12,6 +12,10 @@ class Settings(BaseSettings):
     debug: bool = False
     secret_key: str = "change-me-in-production"
 
+    # Multi-state & language
+    state_code: str = "AP"           # AP, TS, KA, TN, KL, MH, RJ, UP
+    default_language: str = "te"     # te, hi, kn, ta, mr, ml, en
+
     # Database
     database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/sachivalayam"
     database_echo: bool = False

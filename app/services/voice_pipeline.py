@@ -14,6 +14,7 @@ import structlog
 
 from app.config import get_settings
 from app.core.security import AADHAAR_PATTERN, PHONE_PATTERN, strip_pii
+from app.core.language_config import get_language_config
 from app.core.telugu import (
     fuzzy_match_scheme,
     normalize_telugu_text,
@@ -24,27 +25,20 @@ from app.schemas.voice import TranscriptionResponse
 logger = structlog.get_logger()
 settings = get_settings()
 
-# Telugu domain vocabulary for Whisper initial_prompt (boosts accuracy)
-WHISPER_TELUGU_PROMPT = (
-    "ఆంధ్రప్రదేశ్ సచివాలయం గ్రామ పథకాలు అమ్మ ఒడి రైతు భరోసా ఆరోగ్యశ్రీ చేయూత "
-    "కళ్యాణమస్తు విద్యా దీవెన వసతి దీవెన పెన్షన్ కానుక ఆసరా సున్నా వడ్డీ "
-    "దరఖాస్తు అర్హత ప్రయోజనం ఫారం సమర్పించు ఆధార్ రేషన్ కార్డు "
-    "మండలం జిల్లా గ్రామం సచివాలయం వలంటీర్ VRO "
-    "పేరు వయస్సు ఆదాయం కులం వృత్తి చిరునామా "
-    "నమస్కారం దయచేసి ధన్యవాదాలు"
-)
+# Backward-compatible aliases — now loaded from language config
+_te_config = get_language_config("te")
+WHISPER_TELUGU_PROMPT = _te_config.whisper_prompt
+TELUGU_NUMBER_WORDS = _te_config.number_words
 
-# Telugu number words → digits mapping
-TELUGU_NUMBER_WORDS = {
-    "ఒకటి": "1", "రెండు": "2", "మూడు": "3", "నాలుగు": "4", "ఐదు": "5",
-    "ఆరు": "6", "ఏడు": "7", "ఎనిమిది": "8", "తొమ్మిది": "9", "పది": "10",
-    "ఇరవై": "20", "ముప్పై": "30", "నలభై": "40", "యాభై": "50",
-    "అరవై": "60", "డెబ్భై": "70", "ఎనభై": "80", "తొంభై": "90",
-    "వంద": "100", "నూరు": "100",
-    "వెయ్యి": "1000", "వేయి": "1000",
-    "లక్ష": "100000", "లక్షలు": "100000",
-    "కోటి": "10000000",
-}
+
+def _get_whisper_prompt(language: str) -> str:
+    """Get Whisper initial_prompt for any supported language."""
+    return get_language_config(language).whisper_prompt
+
+
+def _get_number_words(language: str) -> dict[str, str]:
+    """Get number word mapping for any supported language."""
+    return get_language_config(language).number_words
 
 # Whisper model singleton (avoid reloading on every call)
 _whisper_model = None

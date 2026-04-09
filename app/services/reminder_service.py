@@ -21,34 +21,16 @@ from app.schemas.reminder import (
     ReminderStatsResponse,
     ReminderUpdate,
 )
-from app.services.checklist_service import COMMON_DOCUMENTS
+from app.core.language_config import (
+    REMINDER_TEMPLATES_I18N,
+    get_document_name,
+    get_reminder_template,
+)
 
 logger = structlog.get_logger()
 
-# Telugu templates for auto-generated reminder messages
-REMINDER_TEMPLATES = {
-    "pending_documents": (
-        "నమస్కారం {citizen_name} గారు, "
-        "{scheme_name} పథకం కోసం మీ దరఖాస్తులో కింది పత్రాలు పెండింగ్‌లో ఉన్నాయి: "
-        "{documents}. "
-        "దయచేసి {deadline} లోపు మీ సచివాలయానికి తీసుకురండి."
-    ),
-    "renewal_deadline": (
-        "నమస్కారం {citizen_name} గారు, "
-        "{scheme_name} పథకం రెన్యూవల్ గడువు {deadline} న ముగుస్తుంది. "
-        "దయచేసి సమయానికి మీ సచివాలయంలో రెన్యూవల్ చేయించుకోండి."
-    ),
-    "disbursement_date": (
-        "నమస్కారం {citizen_name} గారు, "
-        "{scheme_name} పథకం ద్వారా మీ ఖాతాలో {date} న నగదు జమ అవుతుంది. "
-        "మీ బ్యాంక్ ఖాతా వివరాలు సరిగ్గా ఉన్నాయో ధృవీకరించుకోండి."
-    ),
-    "application_followup": (
-        "నమస్కారం {citizen_name} గారు, "
-        "{scheme_name} పథకం దరఖాస్తు స్థితి: ప్రాసెస్‌లో ఉంది. "
-        "ఏదైనా అదనపు సమాచారం అవసరమైతే మీ సచివాలయాన్ని సంప్రదించండి."
-    ),
-}
+# Backward-compatible: REMINDER_TEMPLATES defaults to Telugu
+REMINDER_TEMPLATES = REMINDER_TEMPLATES_I18N["te"]
 
 
 class ReminderService:
@@ -115,13 +97,13 @@ class ReminderService:
         deadline = request.deadline or (date.today() + timedelta(days=15))
 
         if request.missing_documents:
-            # Build document names in Telugu
+            # Build document names in citizen's language
+            lang = getattr(request, "language", None) or "te"
             doc_names = []
             for doc in request.missing_documents:
-                names = COMMON_DOCUMENTS.get(doc, (doc, doc))
-                doc_names.append(names[0])
+                doc_names.append(get_document_name(doc, lang))
 
-            message = REMINDER_TEMPLATES["pending_documents"].format(
+            message = get_reminder_template(lang, "pending_documents").format(
                 citizen_name=request.citizen_name,
                 scheme_name=scheme_name,
                 documents=", ".join(doc_names),

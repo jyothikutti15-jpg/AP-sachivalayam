@@ -1,8 +1,21 @@
+"""
+Telugu language utilities — backward-compatible wrapper around the generic
+language_config module. All existing imports continue to work.
+
+New code should use app.core.language_config directly.
+"""
+
 import re
 
 from rapidfuzz import fuzz, process
 
-# Telugu digit mapping
+from app.core.language_config import (
+    SUPPORTED_LANGUAGES,
+    detect_language_from_text,
+    get_language_config,
+)
+
+# Telugu digit mapping (kept for backward compatibility)
 TELUGU_DIGITS = "౦౧౨౩౪౫౬౭౮౯"
 ARABIC_DIGITS = "0123456789"
 
@@ -138,12 +151,12 @@ def normalize_telugu_text(text: str) -> str:
 
 
 def detect_language(text: str) -> str:
-    """Detect if text is predominantly Telugu or English."""
-    telugu_chars = len(re.findall(r"[\u0C00-\u0C7F]", text))
-    total_alpha = len(re.findall(r"[a-zA-Z\u0C00-\u0C7F]", text))
-    if total_alpha == 0:
-        return "te"
-    return "te" if telugu_chars / total_alpha > 0.15 else "en"
+    """Detect language from text. Supports Telugu, Hindi, Kannada, Tamil, Malayalam, Marathi, English.
+
+    Uses the generic multi-language detection from language_config,
+    but defaults to settings.default_language instead of "en" when no script detected.
+    """
+    return detect_language_from_text(text)
 
 
 def fuzzy_match_scheme(query: str, threshold: int = 70) -> str | None:
@@ -166,4 +179,44 @@ def fuzzy_match_scheme(query: str, threshold: int = 70) -> str | None:
 def split_telugu_sentences(text: str) -> list[str]:
     """Split Telugu text into sentences. Telugu uses '।' and '.' as sentence endings."""
     sentences = re.split(r"[।.!?]\s*", text)
+    return [s.strip() for s in sentences if s.strip()]
+
+
+# ══════════════════════════════════════════════════════════════
+# GENERIC MULTI-LANGUAGE HELPERS
+# ══════════════════════════════════════════════════════════════
+
+
+def native_digits_to_arabic(text: str, lang_code: str = "te") -> str:
+    """Convert native script digits to Arabic digits for any supported language."""
+    config = get_language_config(lang_code)
+    if config.digit_map == ARABIC_DIGITS:
+        return text
+    table = str.maketrans(config.digit_map, ARABIC_DIGITS)
+    return text.translate(table)
+
+
+def normalize_text(text: str, lang_code: str | None = None) -> str:
+    """Normalize text for any supported language.
+
+    Auto-detects language if lang_code is not provided.
+    """
+    if lang_code is None:
+        lang_code = detect_language(text)
+    # Convert native digits to Arabic
+    text = native_digits_to_arabic(text, lang_code)
+    # Normalize whitespace
+    text = re.sub(r"\s+", " ", text).strip()
+    # Remove zero-width characters
+    text = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", text)
+    return text
+
+
+def split_sentences(text: str, lang_code: str | None = None) -> list[str]:
+    """Split text into sentences for any supported language."""
+    if lang_code is None:
+        lang_code = detect_language(text)
+    config = get_language_config(lang_code)
+    pattern = f"[{re.escape(config.sentence_delimiters)}]\\s*"
+    sentences = re.split(pattern, text)
     return [s.strip() for s in sentences if s.strip()]

@@ -12,6 +12,7 @@ class Scheme(Base, TimestampMixin):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     scheme_code: Mapped[str] = mapped_column(String(30), unique=True, nullable=False)
+    state_code: Mapped[str] = mapped_column(String(5), default="AP", nullable=False)
     name_te: Mapped[str] = mapped_column(Text, nullable=False)
     name_en: Mapped[str] = mapped_column(Text, nullable=False)
     department: Mapped[str] = mapped_column(String(100), nullable=False)
