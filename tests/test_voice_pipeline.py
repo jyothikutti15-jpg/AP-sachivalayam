@@ -53,7 +53,7 @@ class TestEntityExtraction:
     def test_extract_scheme(self):
         pipeline = self._get_pipeline()
         entities = pipeline._extract_entities("అమ్మ ఒడి కోసం apply చేయాలి")
-        assert entities.get("scheme") == "YSR-AMMA-VODI"
+        assert entities.get("scheme") == "THALLIKI-VANDANAM"
 
     def test_extract_age(self):
         pipeline = self._get_pipeline()
@@ -99,4 +99,4 @@ class TestEntityExtraction:
         assert entities.get("age") == 65
         assert entities.get("income") == 100000
         assert entities.get("ration_card") == "White"
-        assert entities.get("scheme") == "YSR-PENSION-KANUKA"
+        assert entities.get("scheme") == "NTR-BHAROSA-PENSION"

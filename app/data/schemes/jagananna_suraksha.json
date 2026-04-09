@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "enrollment": "Students enrolled in government / aided schools",
     "classes": "Classes 1 to 12",
-    "automatic": "Automatic coverage — no separate application"
+    "automatic": "Automatic coverage — no separate application",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["School ID", "Aadhaar card (for claim)", "Medical/hospital bills (for claim)", "FIR copy (if applicable)"]

@@ -93,7 +93,7 @@ class TestMultiTurnContext:
 
     def test_affirmative_followup_to_scheme(self):
         engine = self._get_engine()
-        context = {"last_intent": "scheme_query", "history": [], "schemes_discussed": ["YSR-AMMA-VODI"]}
+        context = {"last_intent": "scheme_query", "history": [], "schemes_discussed": ["THALLIKI-VANDANAM"]}
         result = engine._reclassify_with_context("అవును", context)
         assert result == "scheme_query"
 
@@ -117,7 +117,7 @@ class TestMultiTurnContext:
 
     def test_continue_scheme_discussion(self):
         engine = self._get_engine()
-        context = {"last_intent": "scheme_query", "history": [], "schemes_discussed": ["YSR-AMMA-VODI"]}
+        context = {"last_intent": "scheme_query", "history": [], "schemes_discussed": ["THALLIKI-VANDANAM"]}
         result = engine._reclassify_with_context("some unclear text", context)
         assert result == "scheme_query"
 
@@ -223,7 +223,7 @@ class TestInteractiveRouting:
         ))
 
         result = await engine._handle_interactive(
-            "scheme_YSR-AMMA-VODI", "అమ్మ ఒడి", employee, session
+            "scheme_THALLIKI-VANDANAM", "అమ్మ ఒడి", employee, session
         )
         assert "Test answer about Amma Vodi" in result
 

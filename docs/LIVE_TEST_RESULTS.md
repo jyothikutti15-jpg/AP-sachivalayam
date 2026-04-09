@@ -1,7 +1,7 @@
 # AP Sachivalayam AI Copilot — Live Test Results with Real Government Data
 
 > **Date:** April 2, 2026
-> **API:** Claude Sonnet (claude-sonnet-4-20250514)
+> **API:** Claude Sonnet (claude-sonnet-4-6)
 > **Data:** Real AP government scheme data from `app/data/schemes/ysr_amma_vodi.json`
 > **All 4 core features tested and verified working.**
 
@@ -201,7 +201,7 @@ with open('app/data/schemes/ysr_amma_vodi.json', encoding='utf-8') as f:
 
 # Test 1: Scheme Query
 r = client.messages.create(
-    model='claude-sonnet-4-20250514', max_tokens=500,
+    model='claude-sonnet-4-6', max_tokens=500,
     system='మీరు AP సచివాలయం AI సహాయకుడు. Telugu లో respond చేయండి.',
     messages=[{'role':'user','content':f'పథకం: {json.dumps(scheme, ensure_ascii=False)}\n\nఅమ్మ ఒడి అర్హత ఏమిటి?'}]
 )

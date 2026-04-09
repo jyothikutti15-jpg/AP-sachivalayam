@@ -59,6 +59,7 @@ class FormFiller:
         input_text: str,
         citizen_name: str | None = None,
         voice_entities: dict | None = None,
+        ocr_fields: dict | None = None,
     ) -> AutoFillResponse:
         """Extract form fields from text and create a draft submission."""
         # 1. Get form template
@@ -109,6 +110,18 @@ class FormFiller:
             field_values, confidence_scores = self._apply_voice_entities(
                 field_values, confidence_scores, voice_entities, template.fields
             )
+
+        # 7.5 Apply OCR extracted fields (highest confidence for document-sourced data)
+        if ocr_fields:
+            from app.services.ocr_service import OCRService
+            ocr = OCRService()
+            ocr_mapping = ocr.map_to_form_fields(ocr_fields, template.fields)
+            for field_name, value in ocr_mapping.items():
+                if field_name not in field_values or confidence_scores.get(field_name, 0) < 0.9:
+                    field_values[field_name] = value
+                    confidence_scores[field_name] = 0.95  # OCR from actual document = high confidence
+                    if field_name in missing_fields:
+                        missing_fields.remove(field_name)
 
         # 8. Secure Aadhaar handling
         aadhaar_hash = None

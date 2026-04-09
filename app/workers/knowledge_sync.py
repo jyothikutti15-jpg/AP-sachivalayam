@@ -7,7 +7,13 @@ from app.workers.celery_app import celery_app
 logger = structlog.get_logger()
 
 
-@celery_app.task
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def sync_gsws_data():
     """Nightly sync of scheme data from GSWS portal."""
     try:
@@ -25,17 +31,20 @@ async def _sync():
 
     async with async_session_factory() as session:
         bridge = GSWSBridge(db=session)
-        try:
-            result = await bridge.sync_scheme_data()
-            await session.commit()
-            logger.info("GSWS sync complete", result=result)
-            return result
-        except Exception as e:
-            logger.error("GSWS sync failed", error=str(e))
-            return {"status": "failed", "error": str(e)}
+        # Let exceptions propagate so autoretry_for can trigger on failure.
+        result = await bridge.sync_scheme_data()
+        await session.commit()
+        logger.info("GSWS sync complete", result=result)
+        return result
 
 
-@celery_app.task
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def aggregate_daily_metrics():
     """Aggregate daily usage metrics for analytics dashboard."""
     try:

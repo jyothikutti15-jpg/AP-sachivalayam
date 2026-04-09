@@ -10,11 +10,18 @@ from app.models.grievance import Grievance, GrievanceComment
 from app.models.task import DailyPlan, Task
 from app.models.audit import AuditLog
 from app.models.employee_performance import EmployeePerformance
+from app.models.citizen import Citizen
+from app.models.beneficiary import Beneficiary
+from app.models.outreach import OutreachRecord
+from app.models.training import TrainingSession
+from app.models.circular import Circular
+from app.models.reminder import CitizenReminder
 
 __all__ = [
     "Base",
     "Secretariat",
     "Employee",
+    "Citizen",
     "Scheme",
     "SchemeFAQ",
     "KBDocument",
@@ -32,4 +39,9 @@ __all__ = [
     "DailyPlan",
     "AuditLog",
     "EmployeePerformance",
+    "TrainingSession",
+    "Beneficiary",
+    "OutreachRecord",
+    "Circular",
+    "CitizenReminder",
 ]

@@ -1,0 +1,27 @@
+{
+  "scheme_code": "STREE-SHAKTI",
+  "name_te": "స్త్రీ శక్తి",
+  "name_en": "Stree Shakti",
+  "department": "Transport (APSRTC)",
+  "description_te": "AP లోని మహిళలు, బాలికలు మరియు తృతీయ లింగ వ్యక్తులకు APSRTC బస్సుల్లో ఉచిత ప్రయాణం. ~2.62 కోట్ల మహిళలు benefited.",
+  "description_en": "Free bus travel on eligible APSRTC services for all women, girls, and transgender persons domiciled in AP. ~2.62 crore women expected to benefit.",
+  "eligibility_criteria": {
+    "gender": "All women, girls, and transgender persons",
+    "residency": "Domiciled in Andhra Pradesh",
+    "eligible_services": "Pallevelugu, Ultra Pallevelugu, Express Services, Metro Express, City Ordinary",
+    "excluded_services": "Non-Stop, Chartered, Super Luxury, Ultra Deluxe, Star Liner, AC buses, Saptagiri Express, Interstate services, Package tours",
+    "no_application_needed": "No application or registration required",
+    "excluded": []
+  },
+  "required_documents": {
+    "mandatory": [
+      "Any valid government photo ID: Aadhaar card / Voter ID / Passport / Driving Licence"
+    ]
+  },
+  "benefit_amount": "Free bus travel on eligible APSRTC services (zero fare)",
+  "application_process_te": "1. ప్రత్యేక application అవసరం లేదు\n2. Eligible bus ఎక్కండి\n3. Valid govt photo ID చూపించండి\n4. Conductor verify చేసి zero-fare ticket issue చేస్తారు",
+  "go_reference": "Super Six scheme launched 15 August 2025 by TDP government",
+  "effective_from": "2025-08-15",
+  "helpline": "APSRTC: 0866-2570005",
+  "is_active": true
+}

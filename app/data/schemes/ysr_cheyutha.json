@@ -3,8 +3,8 @@
   "name_te": "వైఎస్ఆర్ చేయూత",
   "name_en": "YSR Cheyutha",
   "department": "Women Development & Child Welfare",
-  "description_te": "SC, ST, BC, Minority మహిళలకు (45-60 సంవత్సరాలు) ₹18,750 ఆర్థిక సహాయం. ప్రతి సంవత్సరం జనవరిలో DBT.",
-  "description_en": "Annual financial assistance of ₹18,750 for women aged 45-60 from SC, ST, BC, and Minority communities.",
+  "description_te": "SC, ST, BC, Minority మహిళలకు (45-60 సంవత్సరాలు) ₹18,750 ఆర్థిక సహాయం. 4 సంవత్సరాల్లో మొత్తం ₹75,000.",
+  "description_en": "Annual financial assistance of ₹18,750 for women aged 45-60 from SC, ST, BC, and Minority communities. Total ₹75,000 over 4 years.",
   "eligibility_criteria": {
     "gender": "Female only",
     "age": "45 to 60 years",
@@ -22,9 +22,10 @@
       "Bank passbook"
     ]
   },
-  "benefit_amount": "₹18,750 per annum",
+  "benefit_amount": "₹18,750 per annum (₹75,000 over 4 years)",
   "application_process_te": "1. సచివాలయంలో Mahila Police / WDCW Assistant దగ్గర apply చేయండి\n2. Documents verify\n3. DBT ద్వారా bank account లో credit",
   "go_reference": "GO Ms. No. 22, dated 2020",
   "effective_from": "2020-08-12",
-  "is_active": true
+  "status_note": "Status uncertain under TDP government (2024+). No official renaming or discontinuation announced. 4th phase payment expected in 2025.",
+  "is_active": false
 }

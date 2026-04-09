@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff linter
+        run: ruff check app/ tests/
+
+      - name: Run ruff formatter check
+        run: ruff format --check app/ tests/
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: lint
+
+    services:
+      postgres:
+        image: ankane/pgvector:latest
+        env:
+          POSTGRES_DB: sachivalayam_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/sachivalayam_test
+      REDIS_URL: redis://localhost:6379/0
+      ANTHROPIC_API_KEY: test-key-for-ci
+      APP_ENV: testing
+      SECRET_KEY: ci-test-secret-key
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg libpango1.0-dev libcairo2-dev libgdk-pixbuf2.0-dev
+
+      - name: Install Python dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run tests
+        run: pytest tests/ -v --tb=short -x --timeout=120
+
+      - name: Test summary
+        if: always()
+        run: pytest tests/ --tb=no -q 2>/dev/null | tail -5 || true
+
+  security:
+    name: Security Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for secrets in code
+        run: |
+          # Ensure no real API keys are committed
+          if grep -rn "sk-ant-" app/ tests/ --include="*.py" | grep -v "test-key\|example\|placeholder\|your-"; then
+            echo "ERROR: Possible API key found in source code!"
+            exit 1
+          fi
+          echo "No secrets found in source code."
+
+      - name: Check for raw Aadhaar storage
+        run: |
+          # Ensure Aadhaar numbers are never stored raw
+          if grep -rn "aadhaar.*=.*[0-9]\{12\}" app/ --include="*.py" | grep -v "hash\|mask\|strip\|test\|example"; then
+            echo "WARNING: Possible raw Aadhaar storage detected!"
+            exit 1
+          fi
+          echo "No raw Aadhaar storage found."

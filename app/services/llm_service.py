@@ -9,6 +9,7 @@ import anthropic
 import structlog
 
 from app.config import get_settings
+from app.core.circuit_breaker import CircuitOpenError, get_circuit_breaker
 from app.core.security import strip_pii
 
 logger = structlog.get_logger()
@@ -67,13 +68,16 @@ class LLMRouter:
         safe_prompt = strip_pii(prompt)
         system = system_prompt or _load_prompt("system_main")
 
+        circuit = get_circuit_breaker()
         try:
-            message = await self.claude_client.messages.create(
-                model=settings.claude_model,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                system=system,
-                messages=[{"role": "user", "content": safe_prompt}],
+            message = await circuit.call(
+                self.claude_client.messages.create(
+                    model=settings.claude_model,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    system=system,
+                    messages=[{"role": "user", "content": safe_prompt}],
+                )
             )
 
             response_text = message.content[0].text
@@ -90,6 +94,10 @@ class LLMRouter:
                 task_type="general",
             )
             return response_text
+
+        except CircuitOpenError:
+            logger.warning("Claude circuit open, returning fallback", **circuit.status())
+            return "AI సేవ తాత్కాలికంగా అందుబాటులో లేదు. దయచేసి కొద్దిసేపట్లో మళ్ళీ ప్రయత్నించండి."
 
         except anthropic.RateLimitError:
             logger.warning("Claude rate limited, returning fallback")
@@ -112,13 +120,16 @@ class LLMRouter:
         """Call Claude for structured JSON extraction (temperature=0)."""
         safe_prompt = strip_pii(prompt)
 
+        circuit = get_circuit_breaker()
         try:
-            message = await self.claude_client.messages.create(
-                model=settings.claude_model,
-                max_tokens=max_tokens,
-                temperature=0.0,
-                system=system_prompt,
-                messages=[{"role": "user", "content": safe_prompt}],
+            message = await circuit.call(
+                self.claude_client.messages.create(
+                    model=settings.claude_model,
+                    max_tokens=max_tokens,
+                    temperature=0.0,
+                    system=system_prompt,
+                    messages=[{"role": "user", "content": safe_prompt}],
+                )
             )
 
             self.total_input_tokens += message.usage.input_tokens
@@ -128,6 +139,54 @@ class LLMRouter:
 
         except Exception as e:
             logger.error("Claude structured call failed", error=str(e))
+            raise
+
+    async def call_claude_vision(
+        self,
+        image_bytes: bytes,
+        prompt: str,
+        system_prompt: str = "",
+        max_tokens: int = 1500,
+    ) -> str:
+        """Call Claude Vision API with an image for document analysis."""
+        import base64
+        image_b64 = base64.b64encode(image_bytes).decode("utf-8")
+
+        # Detect media type (JPEG by default, PNG if starts with PNG header)
+        media_type = "image/png" if image_bytes[:4] == b"\x89PNG" else "image/jpeg"
+
+        circuit = get_circuit_breaker()
+        try:
+            message = await circuit.call(
+                self.claude_client.messages.create(
+                    model=settings.claude_model,
+                    max_tokens=max_tokens,
+                    temperature=0.0,
+                    system=system_prompt or "You are a document analysis assistant. Extract information accurately.",
+                    messages=[{
+                        "role": "user",
+                        "content": [
+                            {"type": "image", "source": {"type": "base64", "media_type": media_type, "data": image_b64}},
+                            {"type": "text", "text": prompt},
+                        ],
+                    }],
+                )
+            )
+
+            self.total_input_tokens += message.usage.input_tokens
+            self.total_output_tokens += message.usage.output_tokens
+
+            logger.info(
+                "Claude Vision response",
+                input_tokens=message.usage.input_tokens,
+                output_tokens=message.usage.output_tokens,
+                task_type="ocr",
+            )
+
+            return message.content[0].text
+
+        except Exception as e:
+            logger.error("Claude Vision call failed", error=str(e))
             raise
 
     async def call_claude_with_history(
@@ -147,13 +206,16 @@ class LLMRouter:
                 "content": strip_pii(msg["content"]),
             })
 
+        circuit = get_circuit_breaker()
         try:
-            message = await self.claude_client.messages.create(
-                model=settings.claude_model,
-                max_tokens=max_tokens,
-                temperature=0.1,
-                system=system,
-                messages=safe_messages,
+            message = await circuit.call(
+                self.claude_client.messages.create(
+                    model=settings.claude_model,
+                    max_tokens=max_tokens,
+                    temperature=0.1,
+                    system=system,
+                    messages=safe_messages,
+                )
             )
 
             self.total_input_tokens += message.usage.input_tokens

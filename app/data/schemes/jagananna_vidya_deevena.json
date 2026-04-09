@@ -1,17 +1,24 @@
 {
-  "scheme_code": "JAGANANNA-VIDYA-DEEVENA",
-  "name_te": "జగనన్న విద్యా దీవెన",
-  "name_en": "Jagananna Vidya Deevena",
-  "department": "Higher Education",
-  "description_te": "ITI, Polytechnic, Degree, PG, Professional courses చదివే విద్యార్థుల tuition fee మొత్తం ప్రభుత్వం చెల్లిస్తుంది. DBT ద్వారా నేరుగా college కి చెల్లించబడుతుంది.",
-  "description_en": "Complete reimbursement of tuition fees for students pursuing ITI, Polytechnic, Degree, PG, and Professional courses. Paid directly to colleges via DBT.",
+  "scheme_code": "POST-MATRIC-SCHOLARSHIP-RTF",
+  "name_te": "పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ (ట్యూషన్ ఫీ రీయింబర్స్‌మెంట్)",
+  "name_en": "Post Matric Scholarship (Reimbursement of Tuition Fees - RTF)",
+  "previous_name": "Jagananna Vidya Deevena",
+  "department": "Social Welfare / Higher Education",
+  "description_te": "ITI, Polytechnic, Degree, PG, Professional courses చదివే విద్యార్థుల tuition fee 100% ప్రభుత్వం చెల్లిస్తుంది. DBT ద్వారా నేరుగా college కి చెల్లించబడుతుంది.",
+  "description_en": "100% tuition fee reimbursement for students pursuing ITI, Polytechnic, Degree, PG, and Professional courses. Paid directly to colleges via DBT.",
   "eligibility_criteria": {
     "courses": "ITI, Polytechnic, Degree, Engineering, Medicine, PG, MBA, MCA, Law",
     "income": "Family annual income below ₹2,50,000",
-    "ration_card": "White/Rice ration card",
+    "caste": "SC, ST, BC, EBC, Kapu, Minority, Differently-abled",
+    "land": "Wetland < 10 acres or agricultural land < 25 acres",
     "institution": "Must be studying in recognized government/private institution in AP",
     "attendance": "Minimum 75% attendance",
-    "excluded": ["Management quota admissions", "Students with arrears in previous year", "Government employee children"]
+    "excluded": [
+      "Management quota admissions",
+      "Students with arrears in previous year",
+      "Any family member paying income tax",
+      "Four-wheeler owners (auto/tractor allowed)"
+    ]
   },
   "required_documents": {
     "mandatory": [
@@ -26,8 +33,9 @@
     ]
   },
   "benefit_amount": "Full tuition fee reimbursement (varies by course: ITI ~₹10,000, Engineering ~₹35,000-₹1,00,000, Medicine ~₹5,00,000)",
-  "application_process_te": "1. College లో admission తీసుకోండి\n2. Vidya Deevena portal లో online apply చేయండి\n3. Documents upload చేయండి\n4. College verification తర్వాత\n5. Fee నేరుగా college account కి credit అవుతుంది",
-  "go_reference": "GO Ms. No. 16, dated 2020",
+  "application_process_te": "1. College లో admission తీసుకోండి\n2. JnanaBhumi portal (jnanabhumi.ap.gov.in) లో online apply చేయండి\n3. Documents upload చేయండి\n4. College verification తర్వాత\n5. Fee నేరుగా college account కి credit అవుతుంది",
+  "go_reference": "GO Ms. No. 16, dated 2020 (original); renamed under TDP government",
   "effective_from": "2020-01-01",
+  "website": "https://jnanabhumi.ap.gov.in/",
   "is_active": true
 }

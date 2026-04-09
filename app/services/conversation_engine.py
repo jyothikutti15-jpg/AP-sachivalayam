@@ -12,7 +12,8 @@ import structlog
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.security import get_employee_by_phone
+from app.core.security import get_employee_by_phone, get_user_by_phone
+from app.models.citizen import Citizen
 from app.core.telugu import detect_language, fuzzy_match_scheme, normalize_telugu_text
 from app.dependencies import redis_client
 from app.models.interaction import ChatSession, Message
@@ -39,7 +40,7 @@ INTENT_KEYWORDS = {
     ],
     "eligibility_check": [
         "అర్హత ఉందా", "eligible", "qualify", "check eligibility",
-        "అర్హత తనిఖీ", "వర్తిస్తుందా", "applies",
+        "అర్హత తనిఖీ", "వర్తిస్తుందా", "applies", "ఎలిజిబిలిటీ", "eligibility",
     ],
     "form_help": [
         "form", "ఫారం", "fill", "నింపు",
@@ -76,6 +77,14 @@ INTENT_KEYWORDS = {
         "switch to telugu", "telugu lo", "తెలుగు లో", "telugu please",
         "change language", "భాష మార్చు",
     ],
+    "training": [
+        "training", "practice", "ట్రైనింగ్", "ప్రాక్టీస్", "learn",
+        "నేర్చుకోవాలి", "quiz", "test me", "practice mode",
+    ],
+    "outreach": [
+        "outreach", "eligible citizens", "పథకం అర్హులు", "outreach list",
+        "who is eligible", "ఎవరు అర్హులు", "beneficiary scan",
+    ],
 }
 
 # Interactive button/list IDs for routing
@@ -87,6 +96,12 @@ INTERACTIVE_ACTIONS = {
     "task_plan": "task_plan",
     "yes_confirm": "yes",
     "no_cancel": "no",
+}
+
+# Intents allowed for citizens (read-only)
+CITIZEN_ALLOWED_INTENTS = {
+    "scheme_query", "eligibility_check", "status_check",
+    "greeting", "help", "thanks", "language_switch",
 }
 
 
@@ -111,13 +126,21 @@ class ConversationEngine:
         """Main entry point for all incoming messages."""
         start_time = time.time()
 
-        # 1. Look up or register employee
-        employee = await get_employee_by_phone(phone_number, self.db)
-        if not employee:
-            employee = await self._auto_register(phone_number, contact_name)
+        # 1. Look up user (employee or citizen)
+        user, user_type = await get_user_by_phone(phone_number, self.db)
+        if not user:
+            user = await self._auto_register_citizen(phone_number, contact_name)
+            user_type = "citizen"
+
+        # For backward compatibility, set employee reference
+        employee = user if user_type == "employee" else None
+        self._current_user_type = user_type
 
         # 2. Get or create session (with timeout check)
-        session = await self._get_or_create_session(employee.id)
+        session = await self._get_or_create_session(
+            employee_id=user.id if user_type == "employee" else None,
+            citizen_id=user.id if user_type == "citizen" else None,
+        )
 
         # 3. Log incoming message
         await self._log_message(
@@ -129,12 +152,16 @@ class ConversationEngine:
         )
 
         # 4. Route based on message type
+        # Use the user object (employee or citizen) for all handlers
+        active_user = employee if employee else user
         if message_type == "audio" and media_id:
-            response = await self._handle_voice(media_id, phone_number, employee, session)
+            response = await self._handle_voice(media_id, phone_number, active_user, session)
+        elif message_type == "image" and media_id:
+            response = await self._handle_image(media_id, text_content or "", phone_number, active_user, session)
         elif interactive_id:
-            response = await self._handle_interactive(interactive_id, text_content, employee, session)
+            response = await self._handle_interactive(interactive_id, text_content, active_user, session)
         else:
-            response = await self._handle_text(text_content, employee, session)
+            response = await self._handle_text(text_content, active_user, session)
 
         # 5. Send response via WhatsApp
         if isinstance(response, dict):
@@ -157,10 +184,10 @@ class ConversationEngine:
 
         # 7. Store conversation context in Redis for multi-turn
         await self._update_session_context(
-            session.id, employee.id, text_content, response_text
+            session.id, active_user.id, text_content, response_text
         )
 
-    async def _handle_text(self, text: str, employee: Employee, session: ChatSession) -> str | dict:
+    async def _handle_text(self, text: str, employee, session: ChatSession) -> str | dict:
         """Process a text message through the intent pipeline."""
         normalized = normalize_telugu_text(text)
         language = detect_language(normalized)
@@ -173,8 +200,22 @@ class ConversationEngine:
             employee_id=employee.id,
         )
 
+        # Check citizen access — block employee-only features
+        if getattr(self, '_current_user_type', 'employee') == "citizen":
+            if intent not in CITIZEN_ALLOWED_INTENTS:
+                if language == "te":
+                    return "🔒 ఈ సేవ సచివాలయం ఉద్యోగులకు మాత్రమే. మీరు పథకాల సమాచారం, అర్హత తనిఖీ, దరఖాస్తు స్థితి చెక్ చేయవచ్చు."
+                return "🔒 This feature is for Sachivalayam employees only. You can check scheme info, eligibility, and application status."
+
         # Check if this is a follow-up to a previous conversation
         context = await self._get_session_context(session.id, employee.id)
+
+        # If in training mode, route the response to training handler
+        if context and context.get("training_mode") and context.get("training_session_id"):
+            if intent != "training":
+                # User is responding to a training scenario
+                return await self._handle_training(normalized, language, employee, session)
+
         if context and intent == "unclear":
             # Try to use conversation context to understand the follow-up
             intent = self._reclassify_with_context(normalized, context)
@@ -263,6 +304,83 @@ class ConversationEngine:
                 "దయచేసి text లో మీ ప్రశ్న పంపండి."
             )
 
+    async def _handle_image(
+        self, media_id: str, caption: str, phone_number: str, employee: Employee, session: ChatSession
+    ) -> str | dict:
+        """Handle document image — OCR extraction and form auto-fill."""
+        from app.services.ocr_service import OCRService
+
+        # Download image from WhatsApp
+        try:
+            image_bytes = await self.wa.download_media(media_id)
+        except Exception as e:
+            logger.error("Image download failed", error=str(e))
+            return "Image download failed. దయచేసి మళ్ళీ పంపండి."
+
+        # OCR extraction
+        ocr = OCRService()
+        ocr_data = await ocr.extract_document_fields(image_bytes)
+        doc_type = ocr_data.get("document_type", "other")
+
+        if doc_type == "not_a_document":
+            return "📷 ఇది government document గా కనిపించడం లేదు. Aadhaar card లేదా Ration card photo పంపండి."
+
+        # Store OCR fields in session context for later form filling
+        import json
+        context = await self._get_session_context(session.id, employee.id)
+        if not context:
+            context = {"history": [], "last_intent": "", "schemes_discussed": []}
+        context["ocr_fields"] = ocr_data
+        context["ocr_document_type"] = doc_type
+        key = f"conv:{employee.id}"
+        await redis_client.setex(
+            key, int(SESSION_TIMEOUT.total_seconds()), json.dumps(context, ensure_ascii=False)
+        )
+
+        # Build response
+        language = employee.preferred_language or "te"
+        if doc_type == "aadhaar_card":
+            name = ocr_data.get("name", "")
+            last4 = ocr_data.get("aadhaar_last4", "????")
+            if language == "te":
+                msg = (
+                    f"✅ Aadhaar card scan అయింది!\n\n"
+                    f"👤 పేరు: {name}\n"
+                    f"🔒 Aadhaar: XXXX XXXX {last4}\n\n"
+                    f"📝 ఈ details తో form నింపాలా? Form scheme పేరు చెప్పండి."
+                )
+            else:
+                msg = (
+                    f"✅ Aadhaar card scanned!\n\n"
+                    f"👤 Name: {name}\n"
+                    f"🔒 Aadhaar: XXXX XXXX {last4}\n\n"
+                    f"📝 Fill a form with these details? Tell me the scheme name."
+                )
+        elif doc_type == "ration_card":
+            head = ocr_data.get("head_of_family", "")
+            card_type = ocr_data.get("card_type", "")
+            if language == "te":
+                msg = (
+                    f"✅ Ration card scan అయింది!\n\n"
+                    f"👤 గృహ యజమాని: {head}\n"
+                    f"🏷️ Card రకం: {card_type}\n\n"
+                    f"📝 ఈ details తో form నింపాలా? Scheme పేరు చెప్పండి."
+                )
+            else:
+                msg = (
+                    f"✅ Ration card scanned!\n\n"
+                    f"👤 Head of Family: {head}\n"
+                    f"🏷️ Card Type: {card_type}\n\n"
+                    f"📝 Fill a form with these details? Tell me the scheme name."
+                )
+        else:
+            if language == "te":
+                msg = f"✅ Document scan అయింది ({doc_type}). 📝 Form నింపడానికి scheme పేరు చెప్పండి."
+            else:
+                msg = f"✅ Document scanned ({doc_type}). Tell me the scheme name to fill a form."
+
+        return msg
+
     def _classify_intent(self, text: str) -> str:
         """Classify intent using keyword matching. Fast and works offline."""
         text_lower = text.lower()
@@ -335,6 +453,8 @@ class ConversationEngine:
             return await self._handle_status_check(text, language, employee)
 
         elif intent == "greeting":
+            if getattr(self, '_current_user_type', 'employee') == "citizen":
+                return self._build_citizen_greeting(employee, language)
             return self._build_greeting(employee, language)
 
         elif intent == "help":
@@ -348,6 +468,12 @@ class ConversationEngine:
 
         elif intent == "task_query":
             return await self._handle_task_query(text, language, employee)
+
+        elif intent == "training":
+            return await self._handle_training(text, language, employee, session)
+
+        elif intent == "outreach":
+            return await self._handle_outreach(text, language, employee)
 
         elif intent == "language_switch":
             return await self._handle_language_switch(text, language, employee)
@@ -513,9 +639,9 @@ class ConversationEngine:
                     "పథకం పేరు టైప్ చేయండి లేదా ఈ options నుండి select చేయండి:"
                 ),
                 "buttons": [
-                    {"id": "scheme_YSR-AMMA-VODI", "title": "అమ్మ ఒడి"},
-                    {"id": "scheme_YSR-PENSION-KANUKA", "title": "పెన్షన్"},
-                    {"id": "scheme_YSR-RYTHU-BHAROSA", "title": "రైతు భరోసా"},
+                    {"id": "scheme_THALLIKI-VANDANAM", "title": "తల్లికి వందనం"},
+                    {"id": "scheme_NTR-BHAROSA-PENSION", "title": "పెన్షన్"},
+                    {"id": "scheme_ANNADATA-SUKHIBHAVA", "title": "అన్నదాత సుఖీభవ"},
                 ],
             }
         return "Which scheme form? Type the scheme name or select from common options."
@@ -717,6 +843,112 @@ class ConversationEngine:
                 else "Error loading task plan. Please try again."
             )
 
+    async def _handle_training(
+        self, text: str, language: str, employee: Employee, session: ChatSession
+    ) -> str:
+        """Handle training mode — present scenario or evaluate response."""
+        from app.services.training_service import TrainingService
+
+        context = await self._get_session_context(session.id, employee.id)
+        training_service = TrainingService(self.db)
+
+        # Check if in active training (waiting for response)
+        if context and context.get("training_mode") and context.get("training_session_id"):
+            # Employee is responding to a scenario
+            result = await training_service.evaluate_response(
+                context["training_session_id"], text
+            )
+            # Clear training mode
+            context["training_mode"] = False
+            context["training_session_id"] = None
+            key = f"conv:{employee.id}"
+            import json as _json
+            await redis_client.setex(
+                key, int(SESSION_TIMEOUT.total_seconds()),
+                _json.dumps(context, ensure_ascii=False),
+            )
+
+            score = result.get("score", 0)
+            feedback = result.get("feedback_te", "") if language == "te" else result.get("feedback_en", "")
+            emoji = "\U0001f31f" if score >= 90 else "\U0001f44d" if score >= 70 else "\U0001f4da" if score >= 50 else "\U0001f4aa"
+
+            if language == "te":
+                return (f"{emoji} Score: {score}/100\n\n{feedback}\n\n"
+                        f"'training' అని టైప్ చేస్తే next scenario వస్తుంది.")
+            return (f"{emoji} Score: {score}/100\n\n{feedback}\n\n"
+                    f"Type 'training' for the next scenario.")
+
+        # Start new training scenario
+        scenario = await training_service.get_next_scenario(employee.id)
+        if not scenario:
+            if language == "te":
+                return "\U0001f389 అన్ని scenarios complete చేసారు! అద్భుతం!"
+            return "\U0001f389 All scenarios completed! Amazing work!"
+
+        ts = await training_service.start_session(employee.id, scenario["id"])
+
+        # Set training mode in context
+        if not context:
+            context = {"history": [], "last_intent": "", "schemes_discussed": []}
+        context["training_mode"] = True
+        context["training_session_id"] = str(ts.id)
+        key = f"conv:{employee.id}"
+        import json as _json
+        await redis_client.setex(
+            key, int(SESSION_TIMEOUT.total_seconds()),
+            _json.dumps(context, ensure_ascii=False),
+        )
+
+        scenario_text = scenario["scenario_te"] if language == "te" else scenario["scenario_en"]
+        difficulty_emoji = {"easy": "\U0001f7e2", "medium": "\U0001f7e1", "hard": "\U0001f534"}.get(scenario["difficulty"], "\u26aa")
+
+        if language == "te":
+            return (f"\U0001f4dd Training Mode \u2014 {difficulty_emoji} {scenario['difficulty']}\n\n"
+                    f"{scenario_text}\n\n"
+                    f"\U0001f4ac \u0c2e\u0c40 response \u0c1f\u0c48\u0c2a\u0c4d \u0c1a\u0c47\u0c2f\u0c02\u0c21\u0c3f:")
+        return (f"\U0001f4dd Training Mode \u2014 {difficulty_emoji} {scenario['difficulty']}\n\n"
+                f"{scenario_text}\n\n"
+                f"\U0001f4ac Type your response:")
+
+    async def _handle_outreach(self, text: str, language: str, employee: Employee) -> str:
+        """Handle outreach queries — scan eligible citizens or list pending outreach."""
+        try:
+            from app.services.outreach_engine import OutreachEngine
+
+            engine = OutreachEngine(db=self.db)
+            pending = await engine.get_pending_outreach(employee.secretariat_id)
+
+            if not pending:
+                if language == "te":
+                    return (
+                        "✅ మీ సచివాలయంలో pending outreach records లేవు.\n\n"
+                        "'beneficiary scan' అని టైప్ చేస్తే కొత్త eligible citizens scan చేస్తాం."
+                    )
+                return (
+                    "✅ No pending outreach records in your secretariat.\n\n"
+                    "Type 'beneficiary scan' to scan for newly eligible citizens."
+                )
+
+            lines = ["📋 Pending Outreach:\n"] if language == "en" else ["📋 Pending Outreach / పెండింగ్ అవుట్రీచ్:\n"]
+            for i, record in enumerate(pending[:10], 1):
+                lines.append(
+                    f"{i}. {record.beneficiary_name} — {record.scheme_code}\n"
+                    f"   Score: {record.eligibility_score:.0%} • Status: {record.status}"
+                )
+
+            if len(pending) > 10:
+                lines.append(f"\n... +{len(pending) - 10} more")
+
+            return "\n".join(lines)
+
+        except Exception as e:
+            logger.error("Outreach query failed", error=str(e))
+            return (
+                "Outreach data load చేయడంలో సమస్య. దయచేసి మళ్ళీ ప్రయత్నించండి."
+                if language == "te"
+                else "Error loading outreach data. Please try again."
+            )
+
     async def _handle_language_switch(self, text: str, language: str, employee: Employee) -> str:
         """Handle language preference change."""
         english_triggers = {"english", "ఇంగ్లీష్", "english lo", "english please"}
@@ -759,30 +991,33 @@ class ConversationEngine:
                 {
                     "title": "🌾 Agriculture",
                     "rows": [
-                        {"id": "scheme_YSR-RYTHU-BHAROSA", "title": "రైతు భరోసా", "description": "₹13,500/year for farmers"},
+                        {"id": "scheme_ANNADATA-SUKHIBHAVA", "title": "అన్నదాత సుఖీభవ", "description": "₹20,000/year for farmers"},
                         {"id": "scheme_YSR-YANTRA-SEVA", "title": "యంత్ర సేవ", "description": "Subsidized farm machinery"},
                     ],
                 },
                 {
                     "title": "📚 Education",
                     "rows": [
-                        {"id": "scheme_YSR-AMMA-VODI", "title": "అమ్మ ఒడి", "description": "₹15,000 for school children"},
-                        {"id": "scheme_JAGANANNA-VIDYA-DEEVENA", "title": "విద్యా దీవెన", "description": "Full tuition fee reimbursement"},
+                        {"id": "scheme_THALLIKI-VANDANAM", "title": "తల్లికి వందనం", "description": "₹15,000 for school children"},
+                        {"id": "scheme_POST-MATRIC-SCHOLARSHIP-RTF", "title": "Post Matric Scholarship", "description": "Full tuition fee reimbursement"},
                     ],
                 },
                 {
                     "title": "🏥 Health & Welfare",
                     "rows": [
-                        {"id": "scheme_YSR-AAROGYASRI", "title": "ఆరోగ్యశ్రీ", "description": "₹25L free medical treatment"},
-                        {"id": "scheme_YSR-PENSION-KANUKA", "title": "పెన్షన్ కానుక", "description": "₹3,000/month pension"},
+                        {"id": "scheme_DR-NTR-VAIDYA-SEVA", "title": "NTR వైద్య సేవ", "description": "₹25L free medical treatment"},
+                        {"id": "scheme_NTR-BHAROSA-PENSION", "title": "NTR భరోసా పెన్షన్", "description": "₹4,000-15,000/month pension"},
                         {"id": "scheme_YSR-CHEYUTHA", "title": "చేయూత", "description": "₹18,750 for women (45-60)"},
                     ],
                 },
                 {
-                    "title": "🏠 Housing & Others",
+                    "title": "🏠 Housing & Super Six",
                     "rows": [
                         {"id": "scheme_PEDALANDARIKI-ILLU", "title": "పేదలందరికీ ఇళ్ళు", "description": "Free houses for poor"},
-                        {"id": "scheme_YSR-KALYANAMASTHU", "title": "కళ్యాణమస్తు", "description": "₹1L marriage assistance"},
+                        {"id": "scheme_CHANDRANNA-PELLI-KANUKA", "title": "చంద్రన్న పెళ్లి కానుక", "description": "₹30K-1L marriage assistance"},
+                        {"id": "scheme_DEEPAM-2", "title": "దీపం 2.0", "description": "3 free LPG cylinders/year"},
+                        {"id": "scheme_STREE-SHAKTI", "title": "స్త్రీ శక్తి", "description": "Free bus travel for women"},
+                        {"id": "scheme_YUVA-GALAM", "title": "యువగళం", "description": "₹3,000/month for unemployed youth"},
                     ],
                 },
             ],
@@ -840,22 +1075,39 @@ class ConversationEngine:
         else:
             await self.wa.send_text(phone, response.get("text", str(response)))
 
-    async def _get_or_create_session(self, employee_id: int) -> ChatSession:
+    async def _get_or_create_session(
+        self, employee_id: int | None = None, citizen_id: int | None = None
+    ) -> ChatSession:
         """Get active session or create a new one (with timeout)."""
         cutoff = datetime.now(timezone.utc) - SESSION_TIMEOUT
 
-        result = await self.db.execute(
-            select(ChatSession)
-            .where(ChatSession.employee_id == employee_id)
-            .where(ChatSession.ended_at.is_(None))
-            .where(ChatSession.started_at > cutoff)
-            .order_by(ChatSession.started_at.desc())
-            .limit(1)
-        )
+        if employee_id:
+            query = (
+                select(ChatSession)
+                .where(ChatSession.employee_id == employee_id)
+                .where(ChatSession.ended_at.is_(None))
+                .where(ChatSession.started_at > cutoff)
+                .order_by(ChatSession.started_at.desc())
+                .limit(1)
+            )
+        else:
+            query = (
+                select(ChatSession)
+                .where(ChatSession.citizen_id == citizen_id)
+                .where(ChatSession.ended_at.is_(None))
+                .where(ChatSession.started_at > cutoff)
+                .order_by(ChatSession.started_at.desc())
+                .limit(1)
+            )
+
+        result = await self.db.execute(query)
         session = result.scalar_one_or_none()
 
         if not session:
-            session = ChatSession(employee_id=employee_id)
+            session = ChatSession(
+                employee_id=employee_id,
+                citizen_id=citizen_id,
+            )
             self.db.add(session)
             await self.db.flush()
 
@@ -874,6 +1126,39 @@ class ConversationEngine:
         await self.db.flush()
         logger.info("Auto-registered employee", phone=phone_number[-4:])
         return employee
+
+    async def _auto_register_citizen(self, phone_number: str, contact_name: str) -> Citizen:
+        """Auto-register an unknown phone number as a citizen."""
+        citizen = Citizen(
+            phone_number=phone_number,
+            name_te=contact_name or "Unknown",
+            name_en=contact_name or "Unknown",
+        )
+        self.db.add(citizen)
+        await self.db.flush()
+        logger.info("New citizen registered", phone=phone_number[-4:])
+        return citizen
+
+    def _build_citizen_greeting(self, citizen, language: str) -> dict:
+        """Build greeting for citizen with reduced menu."""
+        name = citizen.name_te if citizen.name_te != "Unknown" else ""
+        if language == "te":
+            text = f"🙏 నమస్కారం {name}!\n\nAP సచివాలయం AI Copilot కి స్వాగతం.\n\nమీరు ఈ సేవలు పొందవచ్చు:"
+        else:
+            text = f"🙏 Welcome {citizen.name_en or ''}!\n\nWelcome to AP Sachivalayam AI Copilot.\n\nYou can use these services:"
+        return {
+            "type": "list",
+            "text": text,
+            "button_text": "సేవలు చూడండి" if language == "te" else "View Services",
+            "sections": [{
+                "title": "Available Services",
+                "rows": [
+                    {"id": "show_scheme_list", "title": "📋 పథకాలు / Schemes", "description": "Scheme info & eligibility"},
+                    {"id": "status_check", "title": "🔍 స్థితి / Status", "description": "Track applications"},
+                    {"id": "help_menu", "title": "❓ సహాయం / Help", "description": "How to use"},
+                ],
+            }],
+        }
 
     async def _log_message(
         self,

@@ -1,27 +1,37 @@
 {
-  "scheme_code": "YSR-AAROGYASRI",
-  "name_te": "వైఎస్ఆర్ ఆరోగ్యశ్రీ",
-  "name_en": "YSR Aarogyasri",
+  "scheme_code": "DR-NTR-VAIDYA-SEVA",
+  "name_te": "డాక్టర్ ఎన్‌టీఆర్ వైద్య సేవ",
+  "name_en": "Dr. NTR Vaidya Seva",
+  "previous_name": "YSR Aarogyasri",
   "department": "Health, Medical & Family Welfare",
-  "description_te": "BPL కుటుంబాలకు ₹25 లక్షల వరకు ఉచిత వైద్య సేవలు. 3,257 రకాల procedures cover చేయబడతాయి. Network hospitals లో cashless treatment.",
-  "description_en": "Free medical treatment up to ₹25 lakhs for BPL families. Covers 3,257 procedures. Cashless treatment at network hospitals.",
+  "description_te": "BPL కుటుంబాలకు ₹25 లక్షల వరకు ఉచిత వైద్య సేవలు. 949+ రకాల treatments cover. Network hospitals లో cashless treatment. Ayushman Bharat-PMJAY తో integrate అవుతోంది.",
+  "description_en": "Free medical treatment up to ₹25 lakhs for BPL families. Covers 949+ treatments across 14+ specialties. Cashless treatment at network hospitals. Being integrated with Ayushman Bharat-PMJAY.",
   "eligibility_criteria": {
-    "ration_card": "Must have White/Rice/Antyodaya ration card",
-    "income": "Family annual income below ₹5,00,000 (5 lakhs)",
-    "residence": "Must be a resident of Andhra Pradesh",
-    "excluded": ["Government employees with medical reimbursement", "ESIC beneficiaries"]
+    "residency": "Must be permanent resident of Andhra Pradesh",
+    "income": "Annual household income ≤ ₹5,00,000 (5 lakhs)",
+    "ration_card": "White ration card (BPL) linked with Aadhaar",
+    "land": "< 35 acres total (wet + dry combined)",
+    "health_card": "Must possess Aarogyasri Health Card / Dr. NTR Vaidya Seva card",
+    "coverage": "949+ treatments across 14+ specialties: cardiology, oncology, neurosurgery, nephrology, orthopedics, ophthalmology etc.",
+    "excluded": [
+      "Government employees with medical reimbursement",
+      "ESIC beneficiaries"
+    ]
   },
   "required_documents": {
     "mandatory": [
       "Aadhaar card",
-      "Ration card (White/Rice/Antyodaya)",
-      "Aarogyasri Health Card",
+      "Ration card (White/BPL)",
+      "Aarogyasri Health Card / Dr. NTR Vaidya Seva card",
       "Doctor referral letter"
     ]
   },
-  "benefit_amount": "Up to ₹25,00,000 per family per year (cashless)",
-  "application_process_te": "1. Network hospital కి వెళ్ళండి\n2. Aarogyasri Health Card చూపించండి\n3. Hospital Aarogyasri counter లో registration\n4. Pre-authorization approval తర్వాత treatment start\n5. Emergency cases లో treatment ముందు, authorization తర్వాత",
-  "go_reference": "GO Ms. No. 174, dated 2019",
+  "benefit_amount": "Up to ₹25,00,000 per family per year (cashless). Covers admissions, consultations, surgeries, medications, meals.",
+  "application_process_te": "1. drntrvaidyaseva.ap.gov.in లో sign in చేయండి\n2. Documents submit చేయండి\n3. Network hospital కి వెళ్ళండి\n4. Hospital Aarogyasri counter లో registration\n5. Pre-authorization approval తర్వాత treatment start\n6. Emergency cases లో treatment ముందు, authorization తర్వాత",
+  "go_reference": "GO Ms. No. 174, dated 2019 (original); renamed under TDP government",
   "effective_from": "2007-04-01",
+  "website": "https://drntrvaidyaseva.ap.gov.in/",
+  "helpline": "0863-2259861",
+  "budget": "₹500 crore + ₹3,500 crore for hospitals (2025-26)",
   "is_active": true
 }

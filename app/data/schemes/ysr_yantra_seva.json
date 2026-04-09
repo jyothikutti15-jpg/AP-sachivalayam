@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "occupation": "Farmer (any landholding)",
     "location": "Within CHC service area",
-    "automatic": "No eligibility restrictions — any farmer can use"
+    "automatic": "No eligibility restrictions — any farmer can use",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "Farmer/Land details (for booking)"]

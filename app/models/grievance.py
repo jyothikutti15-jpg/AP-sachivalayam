@@ -82,6 +82,7 @@ class Grievance(Base, TimestampMixin):
     metadata_extra: Mapped[dict | None] = mapped_column(JSONB)
 
     is_sla_breached: Mapped[bool] = mapped_column(Boolean, default=False)
+    last_escalated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
     # Relationships
     comments: Mapped[list["GrievanceComment"]] = relationship(

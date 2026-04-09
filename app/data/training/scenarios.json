@@ -1,0 +1,512 @@
+[
+  {
+    "id": "TR001",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'అమ్మ ఒడి అర్హత ఏమిటి?' అని అడుగుతున్నారు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A citizen asks 'What is Amma Vodi eligibility?' How would you respond?",
+    "expected_scheme": "THALLIKI-VANDANAM",
+    "key_points": [
+      "Scheme renamed to Thalliki Vandanam",
+      "Rs 15,000 per child per year",
+      "Children in classes 1-12",
+      "75% attendance required",
+      "Rice card required",
+      "Income limit: Rural Rs 10,000/month, Urban Rs 12,000/month"
+    ],
+    "model_answer_te": "తల్లికి వందనం (గతంలో అమ్మ ఒడి) పథకం ప్రకారం, 1-12 తరగతి చదివే పిల్లల తల్లులకు సంవత్సరానికి Rs 15,000 DBT ద్వారా అందించబడుతుంది. అర్హత: Rice card ఉండాలి, 75% attendance, Rural income Rs 10,000 లోపు, Urban Rs 12,000 లోపు. Govt employees, IT payees excluded."
+  },
+  {
+    "id": "TR002",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక రైతు వచ్చి 'రైతు భరోసా పథకం గురించి చెప్పండి' అని అడుగుతున్నారు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A farmer asks about Rythu Bharosa scheme details. How would you respond?",
+    "expected_scheme": "ANNADATA-SUKHIBHAVA",
+    "key_points": [
+      "Scheme renamed to Annadata Sukhibhava",
+      "Rs 20,000 per year (PM-KISAN Rs 6,000 + State Rs 14,000)",
+      "Paid in 3 installments",
+      "Must own agricultural land",
+      "Tenant farmers eligible with CCRC",
+      "Income tax payers excluded"
+    ],
+    "model_answer_te": "అన్నదాత సుఖీభవ (గతంలో రైతు భరోసా) పథకం ప్రకారం రైతులకు సంవత్సరానికి Rs 20,000 అందించబడుతుంది. PM-KISAN Rs 6,000 + State Rs 14,000. 3 విడతలుగా (Aug Rs 7,000, Nov Rs 7,000, March Rs 6,000) చెల్లించబడుతుంది. భూమి records ఉండాలి. Tenant farmers CCRC తో eligible."
+  },
+  {
+    "id": "TR003",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక వృద్ధుడు వచ్చి 'నాకు pension రావాలి, ఏం చేయాలి?' అని అడుగుతున్నారు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "An elderly person asks 'I want pension, what should I do?' How would you respond?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "NTR Bharosa Pension scheme",
+      "Old age pension: 60+ years, Rs 4,000/month",
+      "BPL/White ration card required",
+      "Income limit: Rural Rs 10,000, Urban Rs 12,000",
+      "Apply at Sachivalayam with documents",
+      "Monthly door delivery via biometric authentication"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో 60+ వయస్సు వారికి Rs 4,000 నెలవారీ పెన్షన్ అందించబడుతుంది. White ration card ఉండాలి. Rural income Rs 10,000, Urban Rs 12,000 లోపు ఉండాలి. సచివాలయంలో Aadhaar, age proof, ration card, bank passbook తో apply చేయండి. ప్రతి నెల 1వ తేదీన biometric authentication ద్వారా door delivery."
+  },
+  {
+    "id": "TR004",
+    "difficulty": "medium",
+    "category": "scheme_query",
+    "scenario_te": "ఒక విధవ మహిళ వచ్చి pension గురించి అడుగుతున్నారు. ఆమె వయస్సు 45 సంవత్సరాలు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A 45-year-old widow asks about pension. How would you respond?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Widow pension under NTR Bharosa Pension",
+      "Age: 18 years and above",
+      "Rs 4,000/month",
+      "Death certificate of husband required",
+      "White ration card required",
+      "No other pension should be received"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో విధవ పెన్షన్ ఉంది. 18+ వయస్సు ఉన్న విధవలకు Rs 4,000 నెలవారీ పెన్షన్. అవసరమైన documents: Aadhaar card, భర్త death certificate, White ration card, bank passbook, income certificate. సచివాలయంలో apply చేయండి."
+  },
+  {
+    "id": "TR005",
+    "difficulty": "medium",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక వికలాంగుడు వచ్చి pension గురించి అడుగుతున్నారు. అతనికి 60% disability ఉంది. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A person with 60% disability asks about pension. How would you respond?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Disability pension under NTR Bharosa Pension",
+      "40-79% disability: Rs 6,000/month",
+      "80%+ disability: Rs 10,000/month",
+      "Medical board disability certificate required",
+      "No age limit for disability pension",
+      "BPL status required"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో disability pension ఉంది. 60% disability ఉన్నందున Rs 6,000/month pension వస్తుంది (40-79% category). Medical board disability certificate, Aadhaar card, White ration card, bank passbook అవసరం. సచివాలయంలో apply చేయండి."
+  },
+  {
+    "id": "TR006",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక మహిళ 'ఆరోగ్యశ్రీ కార్డ్ ఎలా తీసుకోవాలి?' అని అడుగుతున్నారు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A woman asks 'How do I get an Aarogyasri card?' How would you respond?",
+    "expected_scheme": "DR-NTR-VAIDYA-SEVA",
+    "key_points": [
+      "Scheme renamed to Dr. NTR Vaidya Seva",
+      "Up to Rs 25 lakhs free medical treatment",
+      "BPL/White ration card required",
+      "Annual income below Rs 5 lakhs",
+      "949+ treatments covered",
+      "Apply at drntrvaidyaseva.ap.gov.in"
+    ],
+    "model_answer_te": "డాక్టర్ NTR వైద్య సేవ (గతంలో ఆరోగ్యశ్రీ) పథకం ప్రకారం BPL కుటుంబాలకు Rs 25 లక్షల వరకు ఉచిత వైద్యం. White ration card, annual income Rs 5 లక్షల లోపు ఉండాలి. drntrvaidyaseva.ap.gov.in లో apply చేయండి. 949+ treatments cover అవుతాయి."
+  },
+  {
+    "id": "TR007",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక తల్లి వచ్చి 'మా అమ్మాయి పెళ్ళి కోసం ప్రభుత్వం నుండి సహాయం వస్తుందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A mother asks if government provides financial help for her daughter's wedding.",
+    "expected_scheme": "CHANDRANNA-PELLI-KANUKA",
+    "key_points": [
+      "Chandranna Pelli Kanuka scheme",
+      "Rs 30,000 to Rs 1,00,000 based on category",
+      "Bride must be 18+, groom 21+",
+      "SC/ST/BC community",
+      "BPL/White ration card required",
+      "Apply 15 days before marriage at Sachivalayam"
+    ],
+    "model_answer_te": "చంద్రన్న పెళ్లి కానుక పథకం ప్రకారం SC/ST/BC కుటుంబాల ఆడపిల్లల వివాహానికి Rs 30,000 - Rs 1,00,000 సహాయం. Bride 18+, Groom 21+ ఉండాలి. White ration card అవసరం. వివాహానికి 15 రోజుల ముందు సచివాలయంలో apply చేయండి. 20% ముందు, 80% తర్వాత credit."
+  },
+  {
+    "id": "TR008",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక మహిళ వచ్చి 'free gas cylinder ఎలా వస్తుంది?' అని అడుగుతున్నారు.",
+    "scenario_en": "A woman asks about getting free gas cylinders. How would you respond?",
+    "expected_scheme": "DEEPAM-2",
+    "key_points": [
+      "Deepam 2.0 scheme",
+      "3 free LPG cylinders per year",
+      "1 cylinder every 4 months",
+      "Women only (BPL households)",
+      "Must not have another LPG connection",
+      "Apply at MeeSeva portal"
+    ],
+    "model_answer_te": "దీపం 2.0 పథకం ప్రకారం BPL మహిళలకు సంవత్సరానికి 3 ఉచిత LPG gas cylinders (ప్రతి 4 నెలలకు 1). 18+ వయస్సు, AP resident ఉండాలి. మరొక LPG connection ఉండకూడదు. ap.meeseva.gov.in లో apply చేయండి."
+  },
+  {
+    "id": "TR009",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక మహిళ 'free bus pass ఎలా తీసుకోవాలి?' అని అడుగుతున్నారు.",
+    "scenario_en": "A woman asks about free bus travel. How would you respond?",
+    "expected_scheme": "STREE-SHAKTI",
+    "key_points": [
+      "Stree Shakti scheme",
+      "Free bus travel for all women and transgender persons",
+      "No application needed",
+      "Valid govt photo ID required",
+      "Eligible on Pallevelugu, Express, City Ordinary buses",
+      "Not valid on AC, Super Luxury, Interstate buses"
+    ],
+    "model_answer_te": "స్త్రీ శక్తి పథకం ప్రకారం AP లోని అన్ని మహిళలు, తృతీయ లింగ వ్యక్తులకు APSRTC బస్సుల్లో ఉచిత ప్రయాణం. ప్రత్యేక application అవసరం లేదు. Aadhaar/Voter ID చూపించి zero-fare ticket తీసుకోండి. Pallevelugu, Express, City Ordinary services లో valid. AC, Super Luxury, Interstate buses లో valid కాదు."
+  },
+  {
+    "id": "TR010",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక నిరుద్యోగ యువకుడు వచ్చి 'నాకు ఉద్యోగం లేదు, ఏమైనా scheme ఉందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "An unemployed youth asks if there is any scheme for him. How would you respond?",
+    "expected_scheme": "YUVA-GALAM",
+    "key_points": [
+      "Yuva Galam / Nirudyoga Bruthi scheme",
+      "Rs 3,000/month unemployment allowance",
+      "Age: 22-35 years",
+      "Must be degree/diploma holder",
+      "AP permanent resident",
+      "Linked with skill development courses"
+    ],
+    "model_answer_te": "యువగళం / నిరుద్యోగ భృతి పథకం ప్రకారం విద్యావంతులైన నిరుద్యోగ యువతకు నెలకు Rs 3,000 allowance. 22-35 వయస్సు, degree/diploma ఉండాలి. AP Employment portal లో online apply చేయండి. APSSDC skill development courses తో అనుసంధానం."
+  },
+  {
+    "id": "TR011",
+    "difficulty": "medium",
+    "category": "scheme_query",
+    "scenario_te": "ఒక ఆటో డ్రైవర్ వచ్చి 'నాకు ఏదైనా scheme ఉందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "An auto driver asks if there is any scheme for him. How would you respond?",
+    "expected_scheme": "AUTO-DRIVERS-SEVALO",
+    "key_points": [
+      "Auto Drivers Sevalo scheme",
+      "Rs 15,000 per annum",
+      "Must own and personally drive auto/taxi/maxi cab",
+      "Vehicle registered in AP with valid RC",
+      "Valid AP driving license required",
+      "Only one vehicle per household"
+    ],
+    "model_answer_te": "ఆటో డ్రైవర్ల సేవలో పథకం ప్రకారం ఆటో/టాక్సీ/మాక్సీ క్యాబ్ డ్రైవర్లకు సంవత్సరానికి Rs 15,000 సహాయం. Vehicle AP లో registered, valid RC, driving license ఉండాలి. ఒక household కి ఒక vehicle మాత్రమే eligible. NBM/GSWS portal ద్వారా apply చేయండి."
+  },
+  {
+    "id": "TR012",
+    "difficulty": "medium",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక రైతు వచ్చి 'నేను income tax కడుతున్నాను, రైతు భరోసా వస్తుందా?' అని అడుగుతున్నారు. మీరు ఏమి చెప్తారు?",
+    "scenario_en": "A farmer who pays income tax asks if he can get Rythu Bharosa. How would you respond?",
+    "expected_scheme": "ANNADATA-SUKHIBHAVA",
+    "key_points": [
+      "Income tax payers are excluded",
+      "Must politely explain exclusion criteria",
+      "Government/PSU employees also excluded",
+      "Pensioners receiving > Rs 10,000/month excluded",
+      "Suggest checking other eligibility criteria",
+      "Be empathetic and professional"
+    ],
+    "model_answer_te": "అన్నదాత సుఖీభవ పథకంలో income tax చెల్లించే వారు exclude అవుతారు. ఈ నియమం ప్రకారం మీరు eligible కాదు. అయితే, income tax file చేయకపోతే, మీ eligibility verify చేయవచ్చు. ఇతర సహాయం కావాలంటే చెప్పండి."
+  },
+  {
+    "id": "TR013",
+    "difficulty": "medium",
+    "category": "scheme_query",
+    "scenario_te": "ఒక టైలర్ వచ్చి 'నాకు ప్రభుత్వం నుండి ఏదైనా సహాయం వస్తుందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A tailor asks if there is any government assistance for him. How would you respond?",
+    "expected_scheme": "JAGANANNA-CHEDODU",
+    "key_points": [
+      "Jagananna Chedodu scheme for tailors",
+      "Rs 10,000 per annum",
+      "Age: 21-58 years",
+      "Income below Rs 2,40,000 per year",
+      "White/Rice ration card required",
+      "Occupation certificate needed"
+    ],
+    "model_answer_te": "జగనన్న చేదోడు పథకం ప్రకారం tailors కు సంవత్సరానికి Rs 10,000 ఆర్థిక సహాయం. 21-58 వయస్సు, annual income Rs 2,40,000 లోపు ఉండాలి. White/Rice ration card, occupation certificate అవసరం. సచివాలయంలో BC Welfare Assistant దగ్గర apply చేయండి."
+  },
+  {
+    "id": "TR014",
+    "difficulty": "medium",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మా అమ్మ వయస్సు 50, SC community, ఏదైనా scheme ఉందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen says their 50-year-old SC community mother needs financial help. What schemes apply?",
+    "expected_scheme": "YSR-CHEYUTHA",
+    "key_points": [
+      "YSR Cheyutha scheme for SC/ST/BC/Minority women 45-60 years",
+      "Rs 18,750 per year",
+      "Total Rs 75,000 over 4 years",
+      "Also check NTR Bharosa Pension eligibility",
+      "White ration card required",
+      "May suggest multiple applicable schemes"
+    ],
+    "model_answer_te": "మీ అమ్మ 50 సంవత్సరాలు, SC community కాబట్టి YSR చేయూత పథకం eligible కావచ్చు. Rs 18,750/year, 4 సంవత్సరాల్లో Rs 75,000. White ration card అవసరం. అలాగే 60+ అయినప్పుడు NTR భరోసా పెన్షన్ eligible అవుతారు. సచివాలయంలో documents తో apply చేయండి."
+  },
+  {
+    "id": "TR015",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మా కుటుంబంలో ఎవరికి ఏ pension వస్తుంది? నాన్న 65 years, అమ్మ 55 years widow, అన్న 40% disability' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks which pensions their family members qualify for: father 65 years, mother 55 years (widow), brother 40% disabled.",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Father 65: Old age pension Rs 4,000/month",
+      "Mother 55 widow: Widow pension Rs 4,000/month",
+      "Brother 40% disability: Disability pension Rs 6,000/month",
+      "Each needs separate application",
+      "All need White ration card and income criteria",
+      "Cannot receive multiple pensions - one per person"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో మీ కుటుంబంలో ముగ్గురు eligible: 1) నాన్న 65 years — Old age pension Rs 4,000/month, 2) అమ్మ 55 years widow — Widow pension Rs 4,000/month (death certificate అవసరం), 3) అన్న 40% disability — Disability pension Rs 6,000/month (medical board certificate అవసరం). ప్రతి ఒక్కరు separately apply చేయాలి. White ration card, income criteria apply అవుతాయి."
+  },
+  {
+    "id": "TR016",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక విద్యార్థి తల్లి వచ్చి 'మా అబ్బాయి degree చదువుతున్నాడు, fee reimbursement ఎలా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A student's mother asks about fee reimbursement for her son's degree course.",
+    "expected_scheme": "POST-MATRIC-SCHOLARSHIP-RTF",
+    "key_points": [
+      "Post Matric Scholarship / Fee Reimbursement",
+      "100% tuition fee reimbursement",
+      "Annual income below Rs 2,50,000",
+      "SC/ST/BC/EBC/Minority/Kapu eligible",
+      "75% attendance required",
+      "Apply on JnanaBhumi portal"
+    ],
+    "model_answer_te": "Post Matric Scholarship (Fee Reimbursement) పథకం ప్రకారం degree/professional courses tuition fee 100% ప్రభుత్వం చెల్లిస్తుంది. Annual income Rs 2,50,000 లోపు, SC/ST/BC/EBC/Minority eligible. 75% attendance ఉండాలి. jnanabhumi.ap.gov.in లో online apply చేయండి."
+  },
+  {
+    "id": "TR017",
+    "difficulty": "medium",
+    "category": "grievance_handling",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'నా pension 3 నెలలుగా రావడం లేదు, ఏం చేయాలి?' అని ఫిర్యాదు చేస్తున్నారు.",
+    "scenario_en": "A citizen complains their pension has not come for 3 months. How would you handle this?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Acknowledge the problem empathetically",
+      "Check if biometric authentication was done",
+      "Verify bank account status (active, Aadhaar-linked)",
+      "File a grievance in GSWS portal",
+      "Escalate to MPDO/Municipal Commissioner if needed",
+      "Give expected resolution timeline"
+    ],
+    "model_answer_te": "మీ pension 3 నెలలుగా రాకపోవడం చాలా ఇబ్బంది. ముందుగా biometric authentication complete చేశారా confirm చేద్దాం. Bank account active గా ఉందా, Aadhaar link ఉందా check చేద్దాం. GSWS portal లో grievance file చేస్తాను. MPDO/Municipal Commissioner కి escalate చేస్తాం. 15-30 రోజుల్లో resolution expect చేయవచ్చు."
+  },
+  {
+    "id": "TR018",
+    "difficulty": "hard",
+    "category": "grievance_handling",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'నా application reject అయింది, కానీ నేను eligible, ఏం చేయాలి?' అని angry గా అడుగుతున్నారు.",
+    "scenario_en": "An angry citizen says their scheme application was rejected but they believe they are eligible. How do you handle this?",
+    "expected_scheme": "THALLIKI-VANDANAM",
+    "key_points": [
+      "Stay calm and empathetic",
+      "Ask for rejection reason/reference number",
+      "Verify their eligibility criteria",
+      "Check common rejection reasons",
+      "Guide on appeal/re-application process",
+      "File grievance if wrongful rejection"
+    ],
+    "model_answer_te": "మీ application reject అవడం బాధాకరం. ముందు rejection reason verify చేద్దాం. మీ application number ఇవ్వండి. Common rejection reasons: income limit exceed, documents incomplete, attendance 75% కంటే తక్కువ. మీరు eligible అయితే re-application submit చేయవచ్చు లేదా grievance file చేస్తాం. సచివాలయంలో appeal process ఉంటుంది."
+  },
+  {
+    "id": "TR019",
+    "difficulty": "medium",
+    "category": "document_requirements",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'NTR Vaidya Seva కోసం ఏ documents కావాలి?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks what documents are needed for Dr NTR Vaidya Seva. How would you respond?",
+    "expected_scheme": "DR-NTR-VAIDYA-SEVA",
+    "key_points": [
+      "Aadhaar card mandatory",
+      "White/BPL ration card",
+      "Aarogyasri Health Card / Dr NTR Vaidya Seva card",
+      "Doctor referral letter",
+      "Income below Rs 5 lakhs per year",
+      "Go to network hospital with these documents"
+    ],
+    "model_answer_te": "Dr NTR వైద్య సేవ కోసం అవసరమైన documents: 1) Aadhaar card, 2) White/BPL ration card, 3) Dr NTR Vaidya Seva health card, 4) Doctor referral letter. Annual income Rs 5 లక్షల లోపు ఉండాలి. Network hospital లో Aarogyasri counter లో registration చేసుకోండి."
+  },
+  {
+    "id": "TR020",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మాకు 4 acres wet land ఉంది, Thalliki Vandanam వస్తుందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen with 4 acres of wet land asks if they qualify for Thalliki Vandanam. How would you respond?",
+    "expected_scheme": "THALLIKI-VANDANAM",
+    "key_points": [
+      "Land limit: less than 3 acres wet land",
+      "4 acres wet land exceeds the limit",
+      "Therefore NOT eligible on land criteria",
+      "Explain the exclusion politely",
+      "Mention other criteria for reference",
+      "Suggest checking other scheme eligibility"
+    ],
+    "model_answer_te": "తల్లికి వందనం పథకంలో wet land 3 acres కంటే తక్కువ ఉండాలి. మీకు 4 acres wet land ఉన్నందున ఈ criteria ప్రకారం eligible కాదు. అయితే ఇతర పథకాలకు eligible కావచ్చు. Dr NTR Vaidya Seva, Stree Shakti వంటి schemes check చేద్దామా?"
+  },
+  {
+    "id": "TR021",
+    "difficulty": "medium",
+    "category": "document_requirements",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'Chandranna Pelli Kanuka apply చేయాలంటే ఏ documents కావాలి? ఎప్పుడు apply చేయాలి?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks about documents needed for Chandranna Pelli Kanuka and when to apply.",
+    "expected_scheme": "CHANDRANNA-PELLI-KANUKA",
+    "key_points": [
+      "Apply 15 days before marriage",
+      "Bride and groom Aadhaar cards",
+      "Caste certificate",
+      "Income certificate (less than 6 months old)",
+      "Wedding card/invitation",
+      "White ration card / BPL certificate"
+    ],
+    "model_answer_te": "చంద్రన్న పెళ్లి కానుక apply చేయడానికి వివాహానికి 15 రోజుల ముందు submit చేయాలి. Documents: Bride & Groom Aadhaar cards, caste certificate, income certificate (6 months లోపు), wedding card, White ration card, birth/SSC certificate, passport photos, bank passbook. MeeSeva centre లేదా 1100 కి call చేసి apply చేయవచ్చు."
+  },
+  {
+    "id": "TR022",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక inter-caste couple వచ్చి marriage assistance గురించి అడుగుతున్నారు. Bride SC, Groom OC community.",
+    "scenario_en": "An inter-caste couple (SC bride, OC groom) asks about marriage financial assistance.",
+    "expected_scheme": "CHANDRANNA-PELLI-KANUKA",
+    "key_points": [
+      "Inter-caste marriage: Rs 75,000 benefit",
+      "Higher amount than same-community marriage",
+      "Bride must be 18+, groom 21+",
+      "Income criteria applies",
+      "BPL certificate required",
+      "20% before marriage, 80% after"
+    ],
+    "model_answer_te": "Inter-caste marriage కి చంద్రన్న పెళ్లి కానుక ప్రకారం Rs 75,000 సహాయం (same community కంటే ఎక్కువ). Bride 18+, Groom 21+ ఉండాలి. BPL certificate అవసరం. 20% (Rs 15,000) వివాహానికి ముందు, 80% (Rs 60,000) తర్వాత credit అవుతుంది."
+  },
+  {
+    "id": "TR023",
+    "difficulty": "easy",
+    "category": "scheme_query",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'Annadata Sukhibhava payment ఎప్పుడు వస్తుంది?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks when the Annadata Sukhibhava payment will come. How would you respond?",
+    "expected_scheme": "ANNADATA-SUKHIBHAVA",
+    "key_points": [
+      "Three installments per year",
+      "Rs 7,000 in August",
+      "Rs 7,000 in November",
+      "Rs 6,000 in March (Ugadi)",
+      "DBT to bank account",
+      "Check status at annadathasukhibhava.ap.gov.in"
+    ],
+    "model_answer_te": "అన్నదాత సుఖీభవ payment 3 విడతలుగా వస్తుంది: 1) August లో Rs 7,000, 2) November లో Rs 7,000, 3) March (ఉగాది) లో Rs 6,000. DBT ద్వారా bank account కి credit. annadathasukhibhava.ap.gov.in లో Aadhaar తో status check చేయండి."
+  },
+  {
+    "id": "TR024",
+    "difficulty": "hard",
+    "category": "grievance_handling",
+    "scenario_te": "ఒక రైతు wife వచ్చి 'మా ఆయన చనిపోయారు, Annadata Sukhibhava payment ఆగిపోయింది, ఏం చేయాలి?' అని అడుగుతున్నారు.",
+    "scenario_en": "A farmer's wife reports her husband passed away and the Annadata Sukhibhava payments stopped. What do you advise?",
+    "expected_scheme": "ANNADATA-SUKHIBHAVA",
+    "key_points": [
+      "Express condolences",
+      "Land ownership transfer process needed",
+      "Succession/mutation of land records",
+      "After mutation, wife can enroll as beneficiary",
+      "Required: death certificate, legal heir certificate",
+      "Guide to Revenue office for land mutation"
+    ],
+    "model_answer_te": "మీ నష్టానికి సానుభూతి. భూమి records మీ పేరుకు mutation చేయాలి. ముందుగా death certificate, legal heir certificate తీసుకోండి. Revenue office లో land mutation application submit చేయండి. Mutation అయిన తర్వాత మీ పేరున Annadata Sukhibhava లో enroll అవుతారు. సచివాలయంలో VRO సహాయం చేస్తారు."
+  },
+  {
+    "id": "TR025",
+    "difficulty": "medium",
+    "category": "scheme_query",
+    "scenario_te": "ఒక bedridden patient కుటుంబం వచ్చి pension గురించి అడుగుతున్నారు.",
+    "scenario_en": "A family of a bedridden patient asks about pension benefits. How would you respond?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Completely bedridden: Rs 15,000/month",
+      "Highest pension amount available",
+      "Medical certification of bedridden status required",
+      "Door delivery of pension",
+      "No age limit",
+      "BPL criteria applies"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో completely bedridden వారికి Rs 15,000/month pension (అత్యధిక మొత్తం). Medical board certificate అవసరం. Door delivery ద్వారా pension అందించబడుతుంది. Age limit లేదు. White ration card, income criteria apply అవుతాయి. సచివాలయంలో medical certificate తో apply చేయండి."
+  },
+  {
+    "id": "TR026",
+    "difficulty": "medium",
+    "category": "document_requirements",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'Aadhaar card లేదు, pension apply చేయవచ్చా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen without an Aadhaar card asks if they can apply for pension.",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Aadhaar is mandatory for pension",
+      "Biometric authentication needed for monthly disbursement",
+      "Guide to nearest Aadhaar enrollment center",
+      "UIDAI portal for enrollment",
+      "Free Aadhaar enrollment",
+      "Can apply for pension after getting Aadhaar"
+    ],
+    "model_answer_te": "Pension apply చేయడానికి Aadhaar card mandatory. ప్రతి నెల biometric authentication ద్వారా pension disburse అవుతుంది. Aadhaar enrollment center కి వెళ్ళి free గా Aadhaar card apply చేయండి. Aadhaar వచ్చిన తర్వాత pension application submit చేయవచ్చు. UIDAI.gov.in లో nearest center కనుగొనండి."
+  },
+  {
+    "id": "TR027",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మా నాన్నకు kidney dialysis జరుగుతోంది, ఏదైనా pension scheme ఉందా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks about pension for their father who is on kidney dialysis (CKDU). How would you respond?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "CKDU (Chronic Kidney Disease) pension: Rs 10,000/month",
+      "Must be on ongoing dialysis",
+      "No age limit",
+      "Medical records/dialysis records required",
+      "BPL criteria applies",
+      "Also eligible for Dr NTR Vaidya Seva for treatment costs"
+    ],
+    "model_answer_te": "NTR భరోసా పెన్షన్ పథకంలో kidney dialysis (CKDU) వారికి Rs 10,000/month pension. వయస్సు limit లేదు. Dialysis records, medical certificate అవసరం. White ration card ఉండాలి. అదనంగా Dr NTR Vaidya Seva ద్వారా Rs 25 లక్షల వరకు ఉచిత treatment కూడా పొందవచ్చు."
+  },
+  {
+    "id": "TR028",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మేము government quarter లో ఉంటున్నాం, 1200 sq ft ఇల్లు ఉంది, Thalliki Vandanam eligible ఉంటామా?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen living in a 1200 sq ft house asks about Thalliki Vandanam eligibility. How would you respond?",
+    "expected_scheme": "THALLIKI-VANDANAM",
+    "key_points": [
+      "Property limit: cannot own >= 1000 sq ft municipal property",
+      "1200 sq ft exceeds the limit",
+      "Therefore NOT eligible on property criteria",
+      "Government quarter vs own property distinction",
+      "Check if property is owned or rented",
+      "Explain clearly and suggest alternatives"
+    ],
+    "model_answer_te": "తల్లికి వందనం పథకంలో 1,000 sq ft కంటే ఎక్కువ municipal property ఉంటే eligible కాదు. మీ ఇల్లు 1,200 sq ft ఉన్నందున ఈ criteria ప్రకారం eligible కాదు. అయితే, government quarter (rent) ఐతే own property కాదు కాబట్టి eligible కావచ్చు. ఖచ్చితంగా verify చేద్దాం. ఇతర criteria (income, land, electricity) కూడా check చేయాలి."
+  },
+  {
+    "id": "TR029",
+    "difficulty": "easy",
+    "category": "grievance_handling",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'grievance ఎలా file చేయాలి?' అని అడుగుతున్నారు.",
+    "scenario_en": "A citizen asks how to file a grievance. How would you guide them?",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Visit Sachivalayam/Ward Secretariat",
+      "GSWS portal for online grievance",
+      "Provide Aadhaar number and scheme details",
+      "Get grievance tracking number",
+      "Expected resolution: 15-30 days",
+      "Can escalate to MPDO/Municipal Commissioner"
+    ],
+    "model_answer_te": "Grievance file చేయడానికి: 1) సచివాలయంలో Welfare Assistant దగ్గర complaint submit చేయండి, 2) GSWS portal లో online grievance file చేయవచ్చు, 3) Aadhaar number, scheme details ఇవ్వండి, 4) Grievance tracking number తీసుకోండి, 5) 15-30 రోజుల్లో resolution expect చేయవచ్చు. Resolve కాకపోతే MPDO/Municipal Commissioner కి escalate చేస్తాం."
+  },
+  {
+    "id": "TR030",
+    "difficulty": "hard",
+    "category": "eligibility_check",
+    "scenario_te": "ఒక పౌరుడు వచ్చి 'మా family లో 5 మంది ఉన్నారు — అందరికీ different schemes eligible అవుతారా? కలిసి apply చేయవచ్చా?' అని అడుగుతున్నారు. Father 62 (farmer), Mother 55 (SC), Daughter 20 (degree student), Son 25 (unemployed degree holder), Grandmother 80 (bedridden).",
+    "scenario_en": "A family of 5 asks which schemes each member qualifies for. Father 62 (farmer), Mother 55 (SC), Daughter 20 (degree student), Son 25 (unemployed), Grandmother 80 (bedridden).",
+    "expected_scheme": "NTR-BHAROSA-PENSION",
+    "key_points": [
+      "Father 62: Annadata Sukhibhava (farmer) + Old age pension if BPL",
+      "Mother 55 SC: YSR Cheyutha (45-60 SC women) + Stree Shakti + Deepam 2.0",
+      "Daughter 20: Post Matric Scholarship fee reimbursement",
+      "Son 25: Yuva Galam unemployment allowance",
+      "Grandmother 80 bedridden: NTR Bharosa Pension Rs 15,000/month",
+      "Each person applies separately for their schemes"
+    ],
+    "model_answer_te": "మీ family లో ప్రతి ఒక్కరికి different schemes: 1) Father 62 farmer: అన్నదాత సుఖీభవ Rs 20,000/year, BPL ఐతే old age pension Rs 4,000/month, 2) Mother 55 SC: YSR చేయూత Rs 18,750/year + Stree Shakti free bus + Deepam 2.0, 3) Daughter 20 degree: Post Matric Scholarship fee reimbursement, 4) Son 25: యువగళం Rs 3,000/month, 5) Grandmother 80 bedridden: NTR భరోసా Rs 15,000/month. ప్రతి ఒక్కరు separately apply చేయాలి."
+  }
+]

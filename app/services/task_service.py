@@ -287,7 +287,7 @@ class TaskService:
                 status=task.status,
                 reason_te=item.get("reason_te"),
             ))
-            total_minutes += task.estimated_minutes
+            total_minutes += task.estimated_minutes or 30
 
         # Save daily plan
         plan_data = {

@@ -1,10 +1,18 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.dependencies import get_db
 from app.models.scheme import Scheme
-from app.schemas.scheme import EligibilityCheckRequest, EligibilityCheckResponse, SchemeResponse, SchemeSearchRequest, SchemeSearchResponse
+from app.schemas.scheme import (
+    BatchEligibilityCheckRequest,
+    BatchEligibilityCheckResponse,
+    EligibilityCheckRequest,
+    EligibilityCheckResponse,
+    SchemeResponse,
+    SchemeSearchRequest,
+    SchemeSearchResponse,
+)
 from app.services.scheme_advisor import SchemeAdvisor
 
 router = APIRouter()
@@ -72,3 +80,23 @@ async def check_eligibility(
         citizen_details=request.citizen_details,
     )
     return result
+
+
+@router.post("/eligibility-check/batch", response_model=BatchEligibilityCheckResponse)
+async def check_eligibility_batch(
+    request: BatchEligibilityCheckRequest,
+    db: AsyncSession = Depends(get_db),
+):
+    """Check eligibility for up to 50 citizen-scheme pairs in one call.
+
+    All LLM checks run concurrently — significantly faster than calling
+    /eligibility-check in a loop. Partial failures (unknown scheme or LLM
+    error for one item) are surfaced per-result without failing the whole batch.
+    """
+    if len(request.items) == 0:
+        raise HTTPException(status_code=422, detail="items list must not be empty")
+    if len(request.items) > 50:
+        raise HTTPException(status_code=422, detail="Batch size limit is 50 items")
+
+    advisor = SchemeAdvisor(db=db)
+    return await advisor.check_eligibility_batch(request.items)

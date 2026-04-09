@@ -306,42 +306,63 @@ class GrievanceService:
         )
 
     async def check_and_escalate_overdue(self) -> int:
-        """Check for SLA-breached grievances and auto-escalate. Run via Celery."""
+        """Check for SLA-breached grievances and auto-escalate. Run via Celery.
+
+        Supports multi-level escalation:
+        - Level 1: On initial SLA breach
+        - Level 2: 24h after level 1 with no resolution
+        - Level 3: 24h after level 2 with no resolution
+        """
         now = datetime.now(timezone.utc)
 
+        # Find all unresolved grievances past SLA deadline with room to escalate
         result = await self.db.execute(
             select(Grievance)
-            .where(Grievance.status.in_(["open", "acknowledged", "in_progress"]))
+            .where(Grievance.status.in_(["open", "acknowledged", "in_progress", "escalated"]))
             .where(Grievance.sla_deadline < now)
-            .where(Grievance.is_sla_breached.is_(False))
+            .where(Grievance.escalation_level < 3)
         )
         overdue = result.scalars().all()
 
         escalated = 0
         for grievance in overdue:
+            # For first breach, escalate immediately
+            # For subsequent levels, require 24h since last escalation
+            if grievance.is_sla_breached and grievance.last_escalated_at:
+                hours_since_last = (now - grievance.last_escalated_at).total_seconds() / 3600
+                if hours_since_last < 24:
+                    continue  # Too soon for next escalation level
+
             grievance.is_sla_breached = True
+            grievance.escalation_level += 1
+            grievance.last_escalated_at = now
+            grievance.status = "escalated" if grievance.status != "in_progress" else grievance.status
 
-            if grievance.escalation_level < 3:
-                grievance.escalation_level += 1
-                grievance.status = "escalated" if grievance.status != "in_progress" else grievance.status
+            escalation_targets = {
+                1: "Mandal Officer",
+                2: "District Collector",
+                3: "State Level Authority",
+            }
+            target = escalation_targets.get(grievance.escalation_level, "Higher Authority")
 
-                comment = GrievanceComment(
-                    grievance_id=grievance.id,
-                    employee_id=grievance.filed_by_employee_id,
-                    comment_text=(
-                        f"SLA breached. Auto-escalated to level {grievance.escalation_level}. "
-                        f"Deadline was {grievance.sla_deadline.isoformat()}"
-                    ),
-                    comment_type="escalation",
-                )
-                self.db.add(comment)
-                escalated += 1
+            comment = GrievanceComment(
+                grievance_id=grievance.id,
+                employee_id=grievance.filed_by_employee_id,
+                comment_text=(
+                    f"SLA breached. Auto-escalated to level {grievance.escalation_level} ({target}). "
+                    f"Deadline was {grievance.sla_deadline.isoformat()}"
+                ),
+                comment_type="escalation",
+            )
+            self.db.add(comment)
+            escalated += 1
 
-                logger.warning(
-                    "Grievance SLA breached",
-                    reference=grievance.reference_number,
-                    level=grievance.escalation_level,
-                )
+            logger.warning(
+                "Grievance SLA breached",
+                reference=grievance.reference_number,
+                level=grievance.escalation_level,
+                target=target,
+            )
 
         if escalated:
             await self.db.flush()
@@ -356,20 +377,16 @@ class GrievanceService:
         if secretariat_id:
             base = base.where(Grievance.secretariat_id == secretariat_id)
 
-        # Total by status
-        status_query = (
-            select(Grievance.status, func.count())
-            .select_from(base.subquery())
-            .group_by(Grievance.status)
-        )
-        # Simplified: count by status directly
-        statuses = {}
-        for status in ["open", "acknowledged", "in_progress", "escalated", "resolved", "closed"]:
-            q = select(func.count()).where(Grievance.status == status)
-            if secretariat_id:
-                q = q.where(Grievance.secretariat_id == secretariat_id)
-            count = (await self.db.execute(q)).scalar() or 0
-            statuses[status] = count
+        # Total by status — single GROUP BY query
+        status_query = select(Grievance.status, func.count()).group_by(Grievance.status)
+        if secretariat_id:
+            status_query = status_query.where(Grievance.secretariat_id == secretariat_id)
+        status_result = await self.db.execute(status_query)
+        statuses = {
+            s: 0 for s in ["open", "acknowledged", "in_progress", "escalated", "resolved", "closed"]
+        }
+        for row_status, row_count in status_result.all():
+            statuses[row_status] = row_count
 
         # SLA breach count
         breached_q = select(func.count()).where(Grievance.is_sla_breached.is_(True))

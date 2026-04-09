@@ -1,33 +1,52 @@
 {
-  "scheme_code": "YSR-KALYANAMASTHU",
-  "name_te": "వైఎస్ఆర్ కళ్యాణమస్తు",
-  "name_en": "YSR Kalyanamastu",
-  "department": "BC Welfare / SC Welfare / ST Welfare / Minority Welfare",
-  "description_te": "SC, ST, BC, Minority, EBC కుటుంబాల ఆడపిల్లల వివాహం కోసం ₹1,00,000 ఆర్థిక సహాయం.",
-  "description_en": "Marriage assistance of ₹1,00,000 for daughters of SC, ST, BC, Minority, and EBC families.",
+  "scheme_code": "CHANDRANNA-PELLI-KANUKA",
+  "name_te": "చంద్రన్న పెళ్లి కానుక",
+  "name_en": "Chandranna Pelli Kanuka",
+  "previous_name": "YSR Kalyanamasthu",
+  "department": "Social Welfare / Women Development",
+  "description_te": "SC, ST, BC, Minority కుటుంబాల ఆడపిల్లల వివాహం కోసం ₹30,000 - ₹1,00,000 ఆర్థిక సహాయం. 20% వివాహానికి ముందు, 80% తర్వాత.",
+  "description_en": "Marriage financial assistance of ₹30,000 to ₹1,00,000 for daughters of SC, ST, BC, Minority families. 20% before marriage, 80% after.",
   "eligibility_criteria": {
     "bride_age": "18 years and above",
     "groom_age": "21 years and above",
-    "caste": "SC / ST / BC / EBC / Minority",
-    "income": "Family annual income below ₹2,40,000",
-    "first_two_daughters": "Only for first two daughters in the family",
-    "excluded": ["Third or subsequent daughters", "Government employees", "Income tax payees"]
+    "caste": "SC / ST / BC community",
+    "income": "Family monthly income < ₹10,000 (BPL)",
+    "ration_card": "White ration card / BPL certificate",
+    "marriage_type": "Not applicable for divorcees",
+    "marriage_date": "Marriage date on or after January 1, 2018",
+    "benefit_by_category": {
+      "sc_st_same_community": "₹40,000",
+      "bc_same_community": "₹30,000",
+      "inter_caste_marriage": "₹75,000",
+      "physically_challenged": "₹1,00,000"
+    },
+    "excluded": [
+      "Divorcees",
+      "Government employees",
+      "Income tax payees"
+    ]
   },
   "required_documents": {
     "mandatory": [
+      "Birth/SSC certificate (age proof)",
+      "Caste certificate",
+      "Nativity certificate",
       "Bride Aadhaar card",
       "Groom Aadhaar card",
-      "Age proof (both)",
-      "Caste certificate",
-      "Income certificate",
-      "Ration card",
-      "Marriage invitation / date proof",
-      "Bank passbook (bride's father/mother account)"
+      "Income certificate (< 6 months old)",
+      "Wedding card / invitation",
+      "Passport-size photos",
+      "Bank passbook",
+      "White ration card / BPL certificate"
+    ],
+    "optional": [
+      "Disability certificate (if applicable)"
     ]
   },
-  "benefit_amount": "₹1,00,000 per marriage",
-  "application_process_te": "1. సచివాలయంలో respective Welfare Assistant దగ్గర apply\n2. వివాహానికి 15 రోజుల ముందు apply చేయాలి\n3. Documents verify\n4. DBT ద్వారా bank account కి credit\n5. వివాహం తర్వాత marriage certificate submit",
-  "go_reference": "GO Ms. No. 5, dated 2019",
+  "benefit_amount": "₹30,000 to ₹1,00,000 depending on category (20% pre-marriage + 80% post-marriage)",
+  "application_process_te": "1. వివాహానికి 15 రోజుల ముందు official portal లేదా MeeSeva centre లో register చేయండి\n2. 1100 కి call చేసి కూడా apply చేయవచ్చు\n3. Kalyana Mitra organization applications track చేస్తుంది\n4. Documents verify తర్వాత DBT ద్వారా bank account కి credit",
+  "go_reference": "GO Ms. No. 5, dated 2019 (original); renamed to Chandranna Pelli Kanuka",
   "effective_from": "2019-10-01",
+  "helpline": "1100",
   "is_active": true
 }

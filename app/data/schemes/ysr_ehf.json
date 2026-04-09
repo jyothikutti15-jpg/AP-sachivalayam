@@ -10,7 +10,8 @@
     "age": "18 years and above",
     "job_card": "Must have MGNREGS job card",
     "willing": "Must be willing to do manual/unskilled work",
-    "automatic": "Any rural household can demand work"
+    "automatic": "Any rural household can demand work",
+    "excluded": ["Urban households"]
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "MGNREGS Job card", "Bank passbook"]

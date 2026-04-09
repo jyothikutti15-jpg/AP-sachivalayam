@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "residence": "AP resident",
     "automatic": "Free for all — no income limit",
-    "priority": "Priority for school children, elderly, and BPL families"
+    "priority": "Priority for school children, elderly, and BPL families",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "Ration card (for BPL priority)"]

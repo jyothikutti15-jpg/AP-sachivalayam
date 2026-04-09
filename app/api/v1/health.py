@@ -30,4 +30,12 @@ async def health_check(
         checks["services"]["redis"] = f"error: {e}"
         checks["status"] = "degraded"
 
+    # Claude circuit breaker status
+    from app.core.circuit_breaker import get_circuit_breaker
+    cb = get_circuit_breaker()
+    cb_status = cb.status()
+    checks["services"]["claude_circuit"] = cb_status
+    if cb_status["state"] != "closed":
+        checks["status"] = "degraded"
+
     return checks

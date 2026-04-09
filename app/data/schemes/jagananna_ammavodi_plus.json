@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "enrollment": "Students enrolled in government / aided schools",
     "classes": "Classes 1 to 10",
-    "automatic": "No separate application needed — automatic for all enrolled students"
+    "automatic": "No separate application needed — automatic for all enrolled students",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["No separate documents needed", "School enrollment is sufficient"]

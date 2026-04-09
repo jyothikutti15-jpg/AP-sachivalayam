@@ -11,31 +11,31 @@ class TestSchemeMatching:
     """Test scheme name fuzzy matching (the first step in the search chain)."""
 
     def test_exact_telugu_match(self):
-        assert fuzzy_match_scheme("అమ్మ ఒడి") == "YSR-AMMA-VODI"
-        assert fuzzy_match_scheme("రైతు భరోసా") == "YSR-RYTHU-BHAROSA"
-        assert fuzzy_match_scheme("ఆరోగ్యశ్రీ") == "YSR-AAROGYASRI"
+        assert fuzzy_match_scheme("అమ్మ ఒడి") == "THALLIKI-VANDANAM"
+        assert fuzzy_match_scheme("రైతు భరోసా") == "ANNADATA-SUKHIBHAVA"
+        assert fuzzy_match_scheme("ఆరోగ్యశ్రీ") == "DR-NTR-VAIDYA-SEVA"
         assert fuzzy_match_scheme("చేయూత") == "YSR-CHEYUTHA"
-        assert fuzzy_match_scheme("పెన్షన్") == "YSR-PENSION-KANUKA"
+        assert fuzzy_match_scheme("పెన్షన్") == "NTR-BHAROSA-PENSION"
 
     def test_exact_english_match(self):
-        assert fuzzy_match_scheme("amma vodi") == "YSR-AMMA-VODI"
-        assert fuzzy_match_scheme("rythu bharosa") == "YSR-RYTHU-BHAROSA"
-        assert fuzzy_match_scheme("aarogyasri") == "YSR-AAROGYASRI"
+        assert fuzzy_match_scheme("amma vodi") == "THALLIKI-VANDANAM"
+        assert fuzzy_match_scheme("rythu bharosa") == "ANNADATA-SUKHIBHAVA"
+        assert fuzzy_match_scheme("aarogyasri") == "DR-NTR-VAIDYA-SEVA"
         assert fuzzy_match_scheme("cheyutha") == "YSR-CHEYUTHA"
 
     def test_fuzzy_telugu_match(self):
         # Slight variations should still match
         result = fuzzy_match_scheme("అమ్మఒడి")  # No space
         # May or may not match depending on threshold
-        assert result is None or result == "YSR-AMMA-VODI"
+        assert result is None or result == "THALLIKI-VANDANAM"
 
     def test_no_match_for_garbage(self):
         assert fuzzy_match_scheme("xyz random text") is None
         assert fuzzy_match_scheme("") is None
 
     def test_case_insensitive(self):
-        assert fuzzy_match_scheme("AMMA VODI") == "YSR-AMMA-VODI"
-        assert fuzzy_match_scheme("Rythu Bharosa") == "YSR-RYTHU-BHAROSA"
+        assert fuzzy_match_scheme("AMMA VODI") == "THALLIKI-VANDANAM"
+        assert fuzzy_match_scheme("Rythu Bharosa") == "ANNADATA-SUKHIBHAVA"
 
 
 class TestTeluguNormalization:
@@ -121,7 +121,7 @@ class TestEligibilityCheck:
     def test_eligibility_prompt_construction(self):
         """Test that eligibility prompt includes all necessary details."""
         scheme_details = {
-            "scheme_code": "YSR-AMMA-VODI",
+            "scheme_code": "THALLIKI-VANDANAM",
             "name_te": "అమ్మ ఒడి",
             "eligibility_criteria": {
                 "income": "Below 10 lakhs",

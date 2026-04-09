@@ -48,3 +48,28 @@ class EligibilityCheckResponse(BaseModel):
     reasoning_te: str
     missing_documents: list[str] = []
     next_steps_te: str = ""
+
+
+# --- Batch eligibility ---
+
+class BatchEligibilityItem(BaseModel):
+    """One citizen-scheme pair to evaluate."""
+    citizen_id: str          # caller-supplied ID (e.g. Aadhaar hash or seq no.)
+    scheme_code: str
+    citizen_details: dict
+
+
+class BatchEligibilityResult(EligibilityCheckResponse):
+    """Single result inside a batch response — extends single-check response."""
+    citizen_id: str
+    error: str | None = None  # set when this specific check failed
+
+
+class BatchEligibilityCheckRequest(BaseModel):
+    items: list[BatchEligibilityItem]  # max 50 enforced in the endpoint
+
+
+class BatchEligibilityCheckResponse(BaseModel):
+    total: int
+    eligible_count: int
+    results: list[BatchEligibilityResult]

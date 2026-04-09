@@ -1,34 +1,46 @@
 {
-  "scheme_code": "YSR-AMMA-VODI",
-  "name_te": "వైఎస్ఆర్ అమ్మ ఒడి",
-  "name_en": "YSR Amma Vodi",
+  "scheme_code": "THALLIKI-VANDANAM",
+  "name_te": "తల్లికి వందనం",
+  "name_en": "Thalliki Vandanam",
+  "previous_name": "YSR Amma Vodi",
   "department": "School Education",
-  "description_te": "పిల్లలను బడికి పంపే తల్లులు/సంరక్షకురాళ్ళకు ₹15,000 ఆర్థిక సహాయం. ప్రతి సంవత్సరం జనవరిలో DBT ద్వారా చెల్లించబడుతుంది.",
-  "description_en": "Financial assistance of ₹15,000 per year to mothers/guardians who send their children to school. Paid through DBT in January.",
+  "description_te": "పిల్లలను బడికి పంపే తల్లులు/సంరక్షకురాళ్ళకు ₹15,000 ఆర్థిక సహాయం. DBT ద్వారా తల్లి Aadhaar-seeded bank account కి credit.",
+  "description_en": "Financial assistance of ₹15,000 per year to mothers/guardians who send their children to school. Paid through DBT to mother's Aadhaar-seeded bank account.",
   "eligibility_criteria": {
     "mother_or_guardian": "Must be the mother or authorized female guardian",
-    "children_enrolled": "Children must be enrolled in classes 1-12 in recognized schools",
-    "attendance": "Children must have minimum 75% attendance",
-    "income": "Family annual income must be below ₹10,00,000 (10 lakhs)",
-    "ration_card": "Must have White/Rice/Antyodaya ration card",
-    "excluded": ["Government employees", "Income tax payees", "Pension recipients (>₹10,000/month)"]
+    "children_enrolled": "Children must be enrolled in classes 1-12 in govt, private aided/unaided, or recognized junior colleges",
+    "attendance": "Minimum 75% attendance in current academic year",
+    "income": "Rural: household income ≤ ₹10,000/month; Urban: ≤ ₹12,000/month",
+    "ration_card": "At least one family member must hold valid rice card",
+    "land": "< 3 acres wet land OR < 10 acres dry land OR combined < 10 acres",
+    "electricity": "Average < 300 units/month over past 12 months",
+    "property": "Cannot own ≥ 1,000 sq ft municipal property",
+    "bank_account": "Mother's account must be Aadhaar-seeded with NPCI validation",
+    "special_cases": "Orphans and street children enrolled through voluntary organizations eligible (subject to verification)",
+    "excluded": [
+      "Households owning four-wheelers (except taxis, tractors, autos)",
+      "Central/State government or PSU employees or pensioners",
+      "Any family member paying income tax",
+      "Students in ITI, Polytechnic, IIIT (RGUKT), or fee-reimbursed courses"
+    ]
   },
   "required_documents": {
     "mandatory": [
       "Aadhaar card of mother/guardian",
       "Aadhaar card of children",
       "School enrollment certificate",
-      "Ration card (White/Rice/Antyodaya)",
-      "Bank passbook (mother's account)"
+      "Rice card (ration card)",
+      "Bank passbook (mother's Aadhaar-linked account)"
     ],
     "optional": [
       "Caste certificate",
       "Income certificate"
     ]
   },
-  "benefit_amount": "₹15,000 per annum per family",
-  "application_process_te": "1. సచివాలయంలో VRO/Welfare Assistant దగ్గర apply చేయండి\n2. Documents verify చేయబడతాయి\n3. GSWS portal లో online application submit అవుతుంది\n4. జనవరిలో DBT ద్వారా bank account లో credit అవుతుంది",
-  "go_reference": "GO Ms. No. 47, dated 28.12.2019",
-  "effective_from": "2020-01-26",
+  "benefit_amount": "₹15,000 per annum per child (DBT to mother's account)",
+  "application_process_te": "1. సచివాలయంలో VRO/Welfare Assistant దగ్గర apply చేయండి\n2. Documents verify చేయబడతాయి\n3. GSWS portal లో online application submit అవుతుంది\n4. DBT ద్వారా mother's bank account లో credit అవుతుంది",
+  "go_reference": "GO Ms. No. 47, dated 28.12.2019 (original); relaunched as Thalliki Vandanam 12 June 2025",
+  "effective_from": "2025-06-12",
+  "website": "https://thallikivandanam.com/",
   "is_active": true
 }

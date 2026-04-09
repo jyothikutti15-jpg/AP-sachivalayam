@@ -1,27 +1,41 @@
 {
-  "scheme_code": "YSR-RYTHU-BHAROSA",
-  "name_te": "వైఎస్ఆర్ రైతు భరోసా",
-  "name_en": "YSR Rythu Bharosa",
+  "scheme_code": "ANNADATA-SUKHIBHAVA",
+  "name_te": "అన్నదాత సుఖీభవ",
+  "name_en": "Annadata Sukhibhava",
+  "previous_name": "YSR Rythu Bharosa",
   "department": "Agriculture",
-  "description_te": "రైతులకు ప్రతి సంవత్సరం ₹13,500 ఆర్థిక సహాయం (PM-KISAN ₹6,000 + రాష్ట్ర వాటా ₹7,500). మూడు విడతలుగా చెల్లించబడుతుంది.",
-  "description_en": "Annual financial assistance of ₹13,500 to farmers (PM-KISAN ₹6,000 + State share ₹7,500). Paid in three installments.",
+  "description_te": "రైతులకు ప్రతి సంవత్సరం ₹20,000 ఆర్థిక సహాయం (PM-KISAN ₹6,000 + రాష్ట్ర వాటా ₹14,000). మూడు విడతలుగా చెల్లించబడుతుంది. నాణ్యమైన విత్తనాలు, ఎరువులు, ప్రకృతి విపత్తుల భీమా కూడా అందించబడతాయి.",
+  "description_en": "Annual financial assistance of ₹20,000 to farmers (PM-KISAN ₹6,000 + State share ₹14,000). Paid in three installments. Also includes quality seeds, fertilizers, and natural calamity insurance.",
   "eligibility_criteria": {
-    "land_ownership": "Must own agricultural land (pattadar)",
-    "land_limit": "No upper limit on land holding",
-    "cultivation": "Must be actively cultivating the land",
-    "excluded": ["Government employees", "Income tax payees", "Institutional land holders", "Land used for non-agricultural purposes"]
+    "land_ownership": "Must own agricultural land (as per revenue records / pattadar)",
+    "tenant_farmers": "Tenant farmers also eligible with valid CCRC",
+    "residency": "Must be permanent resident of Andhra Pradesh",
+    "pm_kisan": "Must be registered under PM-KISAN (auto-enrolled if already in PM-KISAN list)",
+    "excluded": [
+      "Income tax payers",
+      "Central/State government employees",
+      "Pensioners receiving > ₹10,000/month",
+      "Families owning < 10 cents of land",
+      "Land registered in name of minors (under 18)",
+      "Institutional land holders"
+    ]
   },
   "required_documents": {
     "mandatory": [
       "Aadhaar card",
-      "Land ownership document (1-B / Pattadar passbook)",
+      "Land records (1-B / Pattadar passbook)",
       "Bank passbook",
-      "Ration card"
+      "Ration card",
+      "PAN card",
+      "Mobile number",
+      "Passport-size photo"
     ]
   },
-  "benefit_amount": "₹13,500 per annum (3 installments: ₹7,500 Kharif + ₹4,000 Rabi + ₹2,000 PM-KISAN)",
-  "application_process_te": "1. సచివాలయంలో Agriculture Assistant దగ్గర apply చేయండి\n2. భూమి documents verify చేయబడతాయి\n3. RBK (Rythu Bharosa Kendra) లో registration\n4. DBT ద్వారా bank account లో credit అవుతుంది",
-  "go_reference": "GO Ms. No. 10, dated 15.10.2019",
-  "effective_from": "2019-10-15",
+  "benefit_amount": "₹20,000 per annum (3 installments: ₹7,000 Aug + ₹7,000 Nov + ₹6,000 March/Ugadi)",
+  "application_process_te": "1. ప్రత్యేక application అవసరం లేదు — PM-KISAN beneficiary list నుండి auto-enrolled\n2. annadathasukhibhava.ap.gov.in లో Aadhaar తో status check చేయండి\n3. DBT ద్వారా bank account లో credit అవుతుంది",
+  "go_reference": "Launched 2 August 2025 by TDP government",
+  "effective_from": "2025-08-02",
+  "website": "https://annadathasukhibhava.ap.gov.in/",
+  "helpline": "1800 425 5032",
   "is_active": true
 }

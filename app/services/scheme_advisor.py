@@ -1,3 +1,4 @@
+import asyncio
 import json
 
 import structlog
@@ -9,7 +10,13 @@ from app.core.telugu import fuzzy_match_scheme, normalize_telugu_text
 from app.dependencies import redis_client
 from app.models.knowledge import KBChunk
 from app.models.scheme import Scheme, SchemeFAQ
-from app.schemas.scheme import EligibilityCheckResponse, SchemeSearchResponse
+from app.schemas.scheme import (
+    BatchEligibilityCheckResponse,
+    BatchEligibilityItem,
+    BatchEligibilityResult,
+    EligibilityCheckResponse,
+    SchemeSearchResponse,
+)
 from app.services.llm_service import LLMRouter
 
 logger = structlog.get_logger()
@@ -195,6 +202,102 @@ class SchemeAdvisor:
             reasoning_te=data.get("reasoning_te", ""),
             missing_documents=data.get("missing_documents", []),
             next_steps_te=data.get("next_steps_te", ""),
+        )
+
+    async def check_eligibility_batch(
+        self,
+        items: list[BatchEligibilityItem],
+    ) -> BatchEligibilityCheckResponse:
+        """Check eligibility for multiple citizen-scheme pairs concurrently.
+
+        Optimisations over calling check_eligibility() N times:
+        - Single DB query fetches all unique schemes at once.
+        - asyncio.gather runs all LLM calls in parallel (not sequentially).
+        """
+        # Fetch all unique schemes in one query
+        unique_codes = list({item.scheme_code for item in items})
+        result = await self.db.execute(
+            select(Scheme).where(Scheme.scheme_code.in_(unique_codes))
+        )
+        schemes_by_code: dict[str, Scheme] = {
+            s.scheme_code: s for s in result.scalars().all()
+        }
+
+        logger.info(
+            "Batch eligibility check started",
+            total=len(items),
+            unique_schemes=len(schemes_by_code),
+        )
+
+        async def _check_one(item: BatchEligibilityItem) -> BatchEligibilityResult:
+            scheme = schemes_by_code.get(item.scheme_code)
+            if not scheme:
+                return BatchEligibilityResult(
+                    citizen_id=item.citizen_id,
+                    scheme_code=item.scheme_code,
+                    scheme_name_te="Unknown",
+                    is_eligible=False,
+                    reasoning_te="ఈ పథకం కనుగొనబడలేదు.",
+                    error=f"scheme_code '{item.scheme_code}' not found",
+                )
+
+            scheme_details = json.dumps({
+                "scheme_code": scheme.scheme_code,
+                "name_te": scheme.name_te,
+                "eligibility_criteria": scheme.eligibility_criteria,
+                "required_documents": scheme.required_documents,
+            }, ensure_ascii=False)
+
+            citizen_info = json.dumps(item.citizen_details, ensure_ascii=False)
+            prompt = f"Citizen details: {citizen_info}\n\nCheck eligibility for this scheme."
+            system_prompt = ELIGIBILITY_SYSTEM_PROMPT.format(scheme_details=scheme_details)
+
+            try:
+                response = await self.llm.call_claude_structured(
+                    prompt=prompt,
+                    system_prompt=system_prompt,
+                )
+                data = json.loads(response)
+            except (json.JSONDecodeError, Exception) as exc:
+                logger.warning(
+                    "Batch eligibility LLM error",
+                    citizen_id=item.citizen_id,
+                    scheme_code=item.scheme_code,
+                    error=str(exc),
+                )
+                return BatchEligibilityResult(
+                    citizen_id=item.citizen_id,
+                    scheme_code=item.scheme_code,
+                    scheme_name_te=scheme.name_te,
+                    is_eligible=False,
+                    reasoning_te="అర్హత తనిఖీలో లోపం. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+                    error=str(exc),
+                )
+
+            return BatchEligibilityResult(
+                citizen_id=item.citizen_id,
+                scheme_code=scheme.scheme_code,
+                scheme_name_te=scheme.name_te,
+                is_eligible=data.get("is_eligible", False),
+                reasoning_te=data.get("reasoning_te", ""),
+                missing_documents=data.get("missing_documents", []),
+                next_steps_te=data.get("next_steps_te", ""),
+            )
+
+        results: list[BatchEligibilityResult] = await asyncio.gather(
+            *[_check_one(item) for item in items]
+        )
+
+        eligible_count = sum(1 for r in results if r.is_eligible)
+        logger.info(
+            "Batch eligibility check complete",
+            total=len(results),
+            eligible=eligible_count,
+        )
+        return BatchEligibilityCheckResponse(
+            total=len(results),
+            eligible_count=eligible_count,
+            results=results,
         )
 
     async def _check_faqs(self, scheme_code: str, query: str) -> str | None:

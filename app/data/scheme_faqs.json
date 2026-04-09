@@ -1,108 +1,108 @@
 {
-  "YSR-AMMA-VODI": [
+  "THALLIKI-VANDANAM": [
     {
-      "question_te": "అమ్మ ఒడి అర్హత ఏమిటి?",
-      "answer_te": "అమ్మ ఒడి అర్హత:\n• తల్లి/సంరక్షకురాలు ఉండాలి\n• పిల్లలు 1-12 తరగతి చదువుతుండాలి\n• 75% attendance ఉండాలి\n• White/Rice/Antyodaya ration card\n• కుటుంబ ఆదాయం ₹10 లక్షల లోపు\n\nExcluded: Govt employees, Income tax payees, ₹10,000+ pension receivers",
-      "question_en": "What is Amma Vodi eligibility?",
-      "answer_en": "Amma Vodi eligibility: Mother/guardian with children in classes 1-12, 75% attendance, White/Rice ration card, family income under 10 lakhs."
+      "question_te": "తల్లికి వందనం అర్హత ఏమిటి?",
+      "answer_te": "తల్లికి వందనం (గతంలో అమ్మ ఒడి) అర్హత:\n• తల్లి/సంరక్షకురాలు ఉండాలి\n• పిల్లలు 1-12 తరగతి చదువుతుండాలి\n• 75% attendance ఉండాలి\n• Rice card ఉండాలి\n• Rural: ₹10,000/నెల income లోపు; Urban: ₹12,000/నెల\n• భూమి: < 3 ఎకరాలు wet / < 10 ఎకరాలు dry\n• Electricity: < 300 units/నెల\n\nExcluded: Four-wheeler owners, Govt employees, Income tax payees, ITI/Polytechnic/RGUKT students",
+      "question_en": "What is Thalliki Vandanam eligibility?",
+      "answer_en": "Thalliki Vandanam (formerly Amma Vodi) eligibility: Mother/guardian with children in classes 1-12, 75% attendance, rice card, Rural income ≤ ₹10,000/month or Urban ≤ ₹12,000/month, land < 3 acres wet / < 10 acres dry, electricity < 300 units/month. Excluded: four-wheeler owners, govt employees, IT payees."
     },
     {
-      "question_te": "అమ్మ ఒడి ఎంత డబ్బు వస్తుంది?",
-      "answer_te": "అమ్మ ఒడి: ₹15,000 ప్రతి కుటుంబానికి సంవత్సరానికి. జనవరిలో DBT ద్వారా mother's bank account లో credit.",
-      "question_en": "How much money in Amma Vodi?",
-      "answer_en": "₹15,000 per family per year. Paid via DBT in January to mother's bank account."
+      "question_te": "తల్లికి వందనం ఎంత డబ్బు వస్తుంది?",
+      "answer_te": "తల్లికి వందనం: ₹15,000 ప్రతి పిల్లవాడికి సంవత్సరానికి. DBT ద్వారా mother's Aadhaar-seeded bank account లో credit.",
+      "question_en": "How much money in Thalliki Vandanam?",
+      "answer_en": "₹15,000 per child per year. Paid via DBT to mother's Aadhaar-seeded bank account."
     },
     {
-      "question_te": "అమ్మ ఒడి కి ఏ documents కావాలి?",
-      "answer_te": "అమ్మ ఒడి documents:\n• తల్లి Aadhaar card\n• పిల్లల Aadhaar card\n• School enrollment certificate\n• Ration card (White/Rice)\n• Bank passbook (తల్లి account)\n• Attendance certificate (75%+)",
-      "question_en": "What documents needed for Amma Vodi?",
-      "answer_en": "Mother's Aadhaar, children's Aadhaar, school enrollment certificate, ration card (White/Rice), bank passbook (mother's account)."
+      "question_te": "తల్లికి వందనం కి ఏ documents కావాలి?",
+      "answer_te": "తల్లికి వందనం documents:\n• తల్లి Aadhaar card\n• పిల్లల Aadhaar card\n• School enrollment certificate\n• Rice card\n• Bank passbook (తల్లి Aadhaar-linked account)",
+      "question_en": "What documents needed for Thalliki Vandanam?",
+      "answer_en": "Mother's Aadhaar, children's Aadhaar, school enrollment certificate, rice card, bank passbook (mother's Aadhaar-linked account)."
     },
     {
-      "question_te": "అమ్మ ఒడి ఎప్పుడు వస్తుంది?",
-      "answer_te": "అమ్మ ఒడి ప్రతి సంవత్సరం జనవరి 26 (Republic Day) న credit అవుతుంది. DBT ద్వారా mother's bank account కి.",
-      "question_en": "When is Amma Vodi paid?",
-      "answer_en": "Amma Vodi is credited on January 26 (Republic Day) every year via DBT."
+      "question_te": "అమ్మ ఒడి పేరు మారిందా?",
+      "answer_te": "అవును, YSR అమ్మ ఒడి పేరు 'తల్లికి వందనం' గా మారింది. 12 జూన్ 2025 న relaunch చేయబడింది. Benefits అదే — ₹15,000/సంవత్సరం. కానీ eligibility criteria strict అయ్యాయి — income limits, land limits, electricity checks add అయ్యాయి.",
+      "question_en": "Was Amma Vodi renamed?",
+      "answer_en": "Yes, YSR Amma Vodi was renamed to 'Thalliki Vandanam' and relaunched on 12 June 2025. Same ₹15,000/year benefit but stricter eligibility: income limits, land limits, and electricity consumption checks added."
     },
     {
-      "question_te": "అమ్మ ఒడి private school కి వర్తిస్తుందా?",
-      "answer_te": "అవును, అమ్మ ఒడి government మరియు private schools రెండింటికీ వర్తిస్తుంది. Recognized school అయి ఉండాలి. Un-recognized schools కి వర్తించదు.",
-      "question_en": "Does Amma Vodi apply to private schools?",
-      "answer_en": "Yes, Amma Vodi applies to both government and private recognized schools."
+      "question_te": "తల్లికి వందనం private school కి వర్తిస్తుందా?",
+      "answer_te": "అవును, తల్లికి వందనం govt, private aided/unaided, మరియు recognized junior colleges కి వర్తిస్తుంది. Un-recognized schools కి వర్తించదు.",
+      "question_en": "Does Thalliki Vandanam apply to private schools?",
+      "answer_en": "Yes, Thalliki Vandanam applies to govt, private aided/unaided, and recognized junior colleges. Not applicable to unrecognized schools."
     }
   ],
-  "YSR-RYTHU-BHAROSA": [
+  "ANNADATA-SUKHIBHAVA": [
     {
-      "question_te": "రైతు భరోసా అర్హత ఏమిటి?",
-      "answer_te": "రైతు భరోసా అర్హత:\n• వ్యవసాయ భూమి ఉన్న రైతు (pattadar)\n• భూమి actively cultivate చేస్తుండాలి\n• Land limit లేదు\n\nExcluded: Govt employees, IT payees, institutional lands",
-      "question_en": "What is Rythu Bharosa eligibility?",
-      "answer_en": "Must own agricultural land (pattadar), actively cultivating. No land size limit. Excluded: Govt employees, income tax payees."
+      "question_te": "అన్నదాత సుఖీభవ అర్హత ఏమిటి?",
+      "answer_te": "అన్నదాత సుఖీభవ (గతంలో రైతు భరోసా) అర్హత:\n• వ్యవసాయ భూమి ఉన్న రైతు (pattadar)\n• Tenant farmers కూడా eligible (CCRC తో)\n• AP permanent resident\n• PM-KISAN లో registered\n\nExcluded: IT payees, Govt employees, ₹10,000+ pension, < 10 cents land, minors land",
+      "question_en": "What is Annadata Sukhibhava eligibility?",
+      "answer_en": "Annadata Sukhibhava (formerly Rythu Bharosa): Must own agricultural land or be tenant farmer with CCRC, AP resident, PM-KISAN registered. Excluded: IT payees, govt employees, pensioners > ₹10K/month."
     },
     {
-      "question_te": "రైతు భరోసా ఎంత డబ్బు వస్తుంది?",
-      "answer_te": "రైతు భరోసా: ₹13,500/సంవత్సరం\n• Kharif: ₹7,500 (May/June)\n• Rabi: ₹4,000 (October)\n• PM-KISAN: ₹2,000 (Jan)\n\nDBT ద్వారా farmer bank account కి.",
-      "question_en": "How much money in Rythu Bharosa?",
-      "answer_en": "₹13,500/year in 3 installments: ₹7,500 (Kharif) + ₹4,000 (Rabi) + ₹2,000 (PM-KISAN)."
+      "question_te": "అన్నదాత సుఖీభవ ఎంత డబ్బు వస్తుంది?",
+      "answer_te": "అన్నదాత సుఖీభవ: ₹20,000/సంవత్సరం (పెరిగింది!)\n• 1st installment: ₹7,000 (August)\n• 2nd installment: ₹7,000 (November)\n• 3rd installment: ₹6,000 (March/Ugadi)\n\nగతంలో రైతు భరోసా ₹13,500 ఉండేది — ఇప్పుడు ₹20,000 కి పెరిగింది.",
+      "question_en": "How much money in Annadata Sukhibhava?",
+      "answer_en": "₹20,000/year (increased from ₹13,500 under Rythu Bharosa). 3 installments: ₹7,000 (Aug) + ₹7,000 (Nov) + ₹6,000 (Mar/Ugadi). Also includes seeds, fertilizers, and calamity insurance."
     },
     {
-      "question_te": "రైతు భరోసా documents ఏమి కావాలి?",
-      "answer_te": "రైతు భరోసా documents:\n• Aadhaar card\n• Land pattadar passbook / 1-B\n• Bank passbook\n• Ration card\n• RBK registration",
-      "question_en": "What documents for Rythu Bharosa?",
-      "answer_en": "Aadhaar, land pattadar passbook/1-B, bank passbook, ration card."
+      "question_te": "రైతు భరోసా పేరు మారిందా?",
+      "answer_te": "అవును, YSR రైతు భరోసా పేరు 'అన్నదాత సుఖీభవ' గా మారింది. 2 ఆగస్ట్ 2025 న launch. మొత్తం ₹13,500 నుండి ₹20,000 కి పెరిగింది. PM-KISAN auto-enrollment.",
+      "question_en": "Was Rythu Bharosa renamed?",
+      "answer_en": "Yes, YSR Rythu Bharosa was renamed to 'Annadata Sukhibhava' launched 2 Aug 2025. Amount increased from ₹13,500 to ₹20,000/year. Auto-enrolled from PM-KISAN list."
     },
     {
-      "question_te": "కౌలు రైతుకు రైతు భరోసా వస్తుందా?",
-      "answer_te": "కౌలు రైతులకు (tenant farmers) ప్రత్యేక CCRC (Crop Cultivator Rights Card) ఉంటే రైతు భరోసా వస్తుంది. VRO/Agriculture Assistant ద్వారా CCRC apply చేయండి.",
-      "question_en": "Do tenant farmers get Rythu Bharosa?",
-      "answer_en": "Tenant farmers with CCRC (Crop Cultivator Rights Card) are eligible. Apply for CCRC through VRO."
+      "question_te": "కౌలు రైతుకు అన్నదాత సుఖీభవ వస్తుందా?",
+      "answer_te": "అవును, కౌలు రైతులు (tenant farmers) కూడా eligible. Valid CCRC (Crop Cultivator Rights Card) ఉండాలి. VRO/Agriculture Assistant ద్వారా CCRC apply చేయండి.",
+      "question_en": "Do tenant farmers get Annadata Sukhibhava?",
+      "answer_en": "Yes, tenant farmers are also eligible with valid CCRC (Crop Cultivator Rights Card). Apply for CCRC through VRO/Agriculture Assistant."
     }
   ],
-  "YSR-AAROGYASRI": [
+  "DR-NTR-VAIDYA-SEVA": [
     {
-      "question_te": "ఆరోగ్యశ్రీ అర్హత ఏమిటి?",
-      "answer_te": "ఆరోగ్యశ్రీ అర్హత:\n• White/Rice/Antyodaya ration card\n• కుటుంబ ఆదాయం ₹5 లక్షల లోపు\n• AP resident\n• ₹25 లక్షల వరకు cashless treatment\n• 3,257 procedures cover\n\nExcluded: Govt employees with medical reimbursement, ESIC beneficiaries",
-      "question_en": "What is Aarogyasri eligibility?",
-      "answer_en": "White/Rice ration card, family income below 5 lakhs, AP resident. Covers 3,257 procedures up to ₹25 lakhs."
+      "question_te": "డాక్టర్ NTR వైద్య సేవ అర్హత ఏమిటి?",
+      "answer_te": "డాక్టర్ NTR వైద్య సేవ (గతంలో ఆరోగ్యశ్రీ) అర్హత:\n• White ration card (BPL) Aadhaar linked\n• కుటుంబ ఆదాయం ₹5 లక్షల లోపు\n• AP permanent resident\n• < 35 ఎకరాలు total land\n• ₹25 లక్షల వరకు cashless treatment\n• 949+ treatments cover\n\nExcluded: Govt employees with medical reimbursement, ESIC beneficiaries",
+      "question_en": "What is Dr. NTR Vaidya Seva eligibility?",
+      "answer_en": "Dr. NTR Vaidya Seva (formerly Aarogyasri): White ration card (BPL), income below 5 lakhs, AP resident, land < 35 acres. Covers 949+ treatments up to ₹25 lakhs. Being integrated with Ayushman Bharat."
     },
     {
-      "question_te": "ఆరోగ్యశ్రీ card ఎలా తీసుకోవాలి?",
-      "answer_te": "ఆరోగ్యశ్రీ Health Card:\n1. సచివాలయంలో Aadhaar + Ration card తో apply\n2. GSWS portal ద్వారా online verify\n3. e-Health card generate\n4. Network hospital కి వెళ్ళేటప్పుడు Aadhaar + Ration card sufficient (e-card optional)",
-      "question_en": "How to get Aarogyasri card?",
-      "answer_en": "Apply at secretariat with Aadhaar + Ration card. e-Health card generated via GSWS. At hospital, Aadhaar + Ration card is sufficient."
+      "question_te": "ఆరోగ్యశ్రీ పేరు మారిందా?",
+      "answer_te": "అవును, YSR ఆరోగ్యశ్రీ పేరు 'డాక్టర్ NTR వైద్య సేవ' గా మారింది. Coverage ₹25 లక్షలకు expand అయ్యింది. Ayushman Bharat-PMJAY తో integrate అవుతోంది.",
+      "question_en": "Was Aarogyasri renamed?",
+      "answer_en": "Yes, YSR Aarogyasri was renamed to 'Dr. NTR Vaidya Seva'. Coverage expanded to ₹25 lakhs. Being integrated with Ayushman Bharat-PMJAY in a hybrid Universal Health Policy."
     },
     {
-      "question_te": "ఆరోగ్యశ్రీ లో ఏ hospitals వస్తాయి?",
-      "answer_te": "ఆరోగ్యశ్రీ network hospitals:\n• అన్ని government hospitals\n• Empanelled private hospitals\n• Network hospital list: aarogyasri.telangana.gov.in లో check చేయవచ్చు\n• Emergency లో ఏ hospital కైనా వెళ్ళవచ్చు, తర్వాత approval",
-      "question_en": "Which hospitals accept Aarogyasri?",
-      "answer_en": "All government hospitals and empanelled private hospitals. Emergency treatment at any hospital, approval can be obtained afterwards."
+      "question_te": "NTR వైద్య సేవ లో ఏ hospitals వస్తాయి?",
+      "answer_te": "Dr. NTR వైద్య సేవ network hospitals:\n• అన్ని government hospitals\n• Empanelled private hospitals\n• drntrvaidyaseva.ap.gov.in లో hospital list check చేయవచ్చు\n• Emergency లో ఏ hospital కైనా వెళ్ళవచ్చు, తర్వాత approval\n• Helpline: 0863-2259861",
+      "question_en": "Which hospitals accept Dr. NTR Vaidya Seva?",
+      "answer_en": "All government hospitals and empanelled private hospitals. Check list at drntrvaidyaseva.ap.gov.in. Emergency treatment at any hospital, approval obtained afterwards. Helpline: 0863-2259861."
     }
   ],
-  "YSR-PENSION-KANUKA": [
+  "NTR-BHAROSA-PENSION": [
     {
-      "question_te": "పెన్షన్ అర్హత ఏమిటి?",
-      "answer_te": "YSR పెన్షన్ కానుక types:\n\n• వృద్ధాప్య పెన్షన్: 60+ సంవత్సరాలు, ₹2.4L income లోపు\n• వితంతు పెన్షన్: 18+ సంవత్సరాలు, unmarried/widowed\n• వికలాంగ పెన్షన్: 40%+ disability, 18+ సంవత్సరాలు\n• చేనేత పెన్షన్: 50+ సంవత్సరాలు\n• తాపీ మేస్త్రీ పెన్షన్: 50+ సంవత్సరాలు\n\nమొత్తం: ₹3,000/నెల. ప్రతి నెల 1వ తేదీ door delivery.",
-      "question_en": "What is YSR Pension eligibility?",
-      "answer_en": "Old age (60+), Widow (18+), Disabled (40%+ disability, 18+). All need income below ₹2.4L. Amount: ₹3,000/month, door delivery on 1st of every month."
+      "question_te": "NTR భరోసా పెన్షన్ types ఏమిటి?",
+      "answer_te": "NTR భరోసా పెన్షన్ (గతంలో పెన్షన్ కానుక) types:\n\n• వృద్ధాప్య: 60+ (ST 50+) — ₹4,000/నెల\n• వితంతు: 18+ — ₹4,000/నెల\n• వికలాంగ 40-79%: — ₹6,000/నెల\n• వికలాంగ 80%+: — ₹10,000/నెల\n• చేనేత: 50+ — ₹4,000/నెల\n• తాడి గీత: 50+ — ₹4,000/నెల\n• మత్స్యకారులు: 50+ — ₹4,000/నెల\n• ఒంటరి మహిళ: 30+/35+ — ₹4,000/నెల\n• తృతీయ లింగ: 18+ — ₹4,000/నెల\n• ART/PLHIV: — ₹4,000/నెల\n• CKDU: — ₹10,000/నెల\n• Bedridden: — ₹15,000/నెల\n\nప్రతి నెల 1వ తేదీ biometric door delivery.",
+      "question_en": "What are NTR Bharosa Pension types?",
+      "answer_en": "NTR Bharosa Pension (formerly Pension Kanuka) has 12+ types: Old age (60+) ₹4,000; Widow (18+) ₹4,000; Disabled 40-79% ₹6,000; Disabled 80%+ ₹10,000; Weavers/Toddy Tappers/Fishermen (50+) ₹4,000; Single Women ₹4,000; Transgender (18+) ₹4,000; ART ₹4,000; CKDU ₹10,000; Bedridden ₹15,000. Monthly on 1st via biometric door delivery."
+    },
+    {
+      "question_te": "పెన్షన్ amounts ఎంత పెరిగాయి?",
+      "answer_te": "NTR భరోసా పెన్షన్ amounts పెరిగాయి:\n• Base pension: ₹2,750 → ₹4,000\n• Disabled: ₹3,000 → ₹6,000/₹10,000\n• Bedridden: కొత్తగా add — ₹15,000\n• CKDU: కొత్తగా add — ₹10,000\n• కొత్త categories: Traditional cobblers, Dappu artists, Transgender",
+      "question_en": "How much did pension amounts increase?",
+      "answer_en": "NTR Bharosa pension increases: Base from ₹2,750 to ₹4,000; Disabled from ₹3,000 to ₹6,000/₹10,000; New: Bedridden ₹15,000, CKDU ₹10,000. New categories added: Traditional cobblers, Dappu artists, Transgender."
     },
     {
       "question_te": "పెన్షన్ documents ఏమి కావాలి?",
-      "answer_te": "పెన్షన్ documents:\n• Aadhaar card\n• Age proof\n• Ration card\n• Bank passbook\n• Income certificate\n• Death certificate (widow pension కి)\n• Disability certificate (disabled pension కి)\n• Caste certificate (if applicable)",
-      "question_en": "What documents for pension?",
-      "answer_en": "Aadhaar, age proof, ration card, bank passbook, income certificate. Widow: death certificate. Disabled: disability certificate."
-    },
-    {
-      "question_te": "పెన్షన్ ఎప్పుడు వస్తుంది?",
-      "answer_te": "YSR పెన్షన్ ప్రతి నెల 1వ తేదీన వస్తుంది. Volunteer ద్వారా door delivery. Bank account లో DBT. ₹3,000/నెల.",
-      "question_en": "When does pension come?",
-      "answer_en": "YSR Pension is delivered on 1st of every month via volunteer door delivery + DBT to bank. ₹3,000/month."
+      "answer_te": "NTR భరోసా పెన్షన్ documents:\n• Aadhaar card\n• Age proof\n• White ration card\n• Bank passbook\n• Residential proof\n• Income certificate\n• Photo\n\nCategory-specific:\n• Widow: husband death certificate\n• Disabled: disability certificate\n• Toddy tappers: cooperative registration\n• ART/CKDU: treatment records",
+      "question_en": "What documents for NTR Bharosa Pension?",
+      "answer_en": "Aadhaar, age proof, white ration card, bank passbook, residential proof, income certificate, photo. Category-specific: death certificate (widow), disability certificate, cooperative registration (toddy tappers), treatment records (ART/CKDU)."
     }
   ],
   "YSR-CHEYUTHA": [
     {
       "question_te": "చేయూత అర్హత ఏమిటి?",
-      "answer_te": "YSR చేయూత అర్హత:\n• మహిళలు మాత్రమే\n• వయస్సు: 45-60 సంవత్సరాలు\n• SC/ST/BC/Minority\n• ₹10 లక్షల income లోపు\n• White/Rice ration card\n\nMొత్తం: ₹18,750/సంవత్సరం DBT",
+      "answer_te": "YSR చేయూత అర్హత:\n• మహిళలు మాత్రమే\n• వయస్సు: 45-60 సంవత్సరాలు\n• SC/ST/BC/Minority\n• ₹10 లక్షల income లోపు\n• White/Rice ration card\n\nMొత్తం: ₹18,750/సంవత్సరం (₹75,000 over 4 years)\n\n⚠️ Note: TDP government కింద ఈ scheme status uncertain.",
       "question_en": "What is YSR Cheyutha eligibility?",
-      "answer_en": "Women only, age 45-60, SC/ST/BC/Minority, income below 10 lakhs, White/Rice ration card. Amount: ₹18,750/year."
+      "answer_en": "Women only, age 45-60, SC/ST/BC/Minority, income below 10 lakhs, White/Rice ration card. Amount: ₹18,750/year (₹75,000 over 4 years). Note: Status uncertain under current TDP government."
     },
     {
       "question_te": "చేయూత documents ఏమి కావాలి?",
@@ -111,18 +111,58 @@
       "answer_en": "Aadhaar, age proof, caste certificate, ration card, bank passbook."
     }
   ],
-  "JAGANANNA-VIDYA-DEEVENA": [
+  "POST-MATRIC-SCHOLARSHIP-RTF": [
     {
-      "question_te": "విద్యా దీవెన అర్హత ఏమిటి?",
-      "answer_te": "జగనన్న విద్యా దీవెన:\n• ITI/Polytechnic/Degree/PG/Professional courses\n• ₹2.5 లక్షల income లోపు\n• White/Rice ration card\n• 75% attendance\n• Recognized institution లో study\n\nFull tuition fee reimbursement!",
-      "question_en": "What is Vidya Deevena eligibility?",
-      "answer_en": "ITI/Poly/Degree/PG students, income below 2.5 lakhs, White/Rice ration card, 75% attendance. Full tuition fee reimbursement."
+      "question_te": "Post Matric Scholarship (విద్యా దీవెన) అర్హత ఏమిటి?",
+      "answer_te": "Post Matric Scholarship RTF (గతంలో విద్యా దీవెన):\n• ITI/Polytechnic/Degree/PG/Professional courses\n• ₹2.5 లక్షల income లోపు\n• SC/ST/BC/EBC/Kapu/Minority/Disabled\n• Wetland < 10 acres or agricultural land < 25 acres\n• 75% attendance\n• No IT payee in family\n\nFull tuition fee reimbursement!",
+      "question_en": "What is Post Matric Scholarship (Vidya Deevena) eligibility?",
+      "answer_en": "Post Matric Scholarship RTF (formerly Vidya Deevena): ITI/Poly/Degree/PG students, SC/ST/BC/EBC/Kapu/Minority/Disabled, income below 2.5 lakhs, land limits, 75% attendance. Full tuition fee reimbursement."
     },
     {
-      "question_te": "విద్యా దీవెన ఎంత వస్తుంది?",
-      "answer_te": "విద్యా దీవెన — Full tuition fee:\n• ITI: ~₹10,000\n• Polytechnic: ~₹15,000\n• Degree: ~₹20,000-35,000\n• Engineering: ~₹35,000-1,00,000\n• Medicine: ~₹5,00,000\n\nFee నేరుగా college account కి credit.",
-      "question_en": "How much is Vidya Deevena?",
-      "answer_en": "Full tuition fee reimbursement. Varies by course: ITI ~10K, Engineering ~35K-1L, Medicine ~5L. Paid directly to college."
+      "question_te": "విద్యా దీవెన పేరు మారిందా?",
+      "answer_te": "అవును, జగనన్న విద్యా దీవెన పేరు 'Post Matric Scholarship (RTF - Reimbursement of Tuition Fees)' గా మారింది. JnanaBhumi portal (jnanabhumi.ap.gov.in) ద్వారా apply.",
+      "question_en": "Was Vidya Deevena renamed?",
+      "answer_en": "Yes, Jagananna Vidya Deevena was renamed to 'Post Matric Scholarship (RTF - Reimbursement of Tuition Fees)'. Apply via JnanaBhumi portal (jnanabhumi.ap.gov.in)."
+    }
+  ],
+  "CHANDRANNA-PELLI-KANUKA": [
+    {
+      "question_te": "చంద్రన్న పెళ్లి కానుక అర్హత ఏమిటి?",
+      "answer_te": "చంద్రన్న పెళ్లి కానుక (గతంలో కళ్యాణమస్తు):\n• Bride: 18+ years, Groom: 21+ years\n• SC/ST/BC community\n• BPL (monthly income < ₹10,000)\n• Divorcees కి వర్తించదు\n\nAmounts:\n• SC/ST same community: ₹40,000\n• BC same community: ₹30,000\n• Inter-caste: ₹75,000\n• Physically challenged: ₹1,00,000\n\n20% ముందు + 80% తర్వాత",
+      "question_en": "What is Chandranna Pelli Kanuka eligibility?",
+      "answer_en": "Chandranna Pelli Kanuka (formerly Kalyanamasthu): Bride 18+, Groom 21+, SC/ST/BC, BPL income < ₹10,000/month. SC/ST: ₹40,000; BC: ₹30,000; Inter-caste: ₹75,000; Disabled: ₹1,00,000. 20% pre-marriage + 80% post."
+    }
+  ],
+  "AUTO-DRIVERS-SEVALO": [
+    {
+      "question_te": "Auto Drivers Sevalo (వాహన మిత్ర) అర్హత ఏమిటి?",
+      "answer_te": "Auto Drivers Sevalo (గతంలో వాహన మిత్ర):\n• Auto/taxi/maxi cab own చేసి drive చేస్తుండాలి\n• AP driving license ఉండాలి\n• AP registered vehicle (valid RC, tax, fitness)\n• ఒక household కి ఒక vehicle మాత్రమే\n\nమొత్తం: ₹15,000/సంవత్సరం (₹10,000 నుండి పెరిగింది)",
+      "question_en": "What is Auto Drivers Sevalo eligibility?",
+      "answer_en": "Auto Drivers Sevalo (formerly Vahana Mitra): Must own and drive auto/taxi/maxi cab, AP driving license, AP-registered vehicle with valid RC/tax/fitness. One vehicle per household. Amount: ₹15,000/year (increased from ₹10,000)."
+    }
+  ],
+  "DEEPAM-2": [
+    {
+      "question_te": "దీపం 2.0 అర్హత ఏమిటి?",
+      "answer_te": "దీపం 2.0 (Super Six scheme):\n• మహిళలు మాత్రమే (18+)\n• AP permanent resident\n• BPL household\n• ఒకే OMC LPG connection\n\nExcluded: IT filers, Property > 1000 sq ft, 4-wheeler, Electricity > 300 units, Land ≥ 3 acres wet / ≥ 10 acres dry\n\nBenefit: సంవత్సరానికి 3 ఉచిత LPG cylinders",
+      "question_en": "What is Deepam 2.0 eligibility?",
+      "answer_en": "Deepam 2.0 (Super Six): Women only, 18+, AP resident, BPL. Excluded: IT filers, property > 1000 sqft, four-wheeler, electricity > 300 units, excess land. Benefit: 3 free LPG cylinders per year."
+    }
+  ],
+  "STREE-SHAKTI": [
+    {
+      "question_te": "స్త్రీ శక్తి scheme ఏమిటి?",
+      "answer_te": "స్త్రీ శక్తి (Super Six scheme):\n• AP లోని అన్ని మహిళలు, బాలికలు, తృతీయ లింగ వ్యక్తులకు ఉచిత bus travel\n• APSRTC: Pallevelugu, Ultra Pallevelugu, Express, Metro Express, City Ordinary\n• Application అవసరం లేదు — govt photo ID చూపించండి\n\nExcluded buses: Non-Stop, AC, Super Luxury, Interstate",
+      "question_en": "What is Stree Shakti scheme?",
+      "answer_en": "Stree Shakti (Super Six): Free bus travel for all women, girls, transgender persons in AP on eligible APSRTC services. No application needed — show any govt photo ID. Excluded: Non-Stop, AC, Super Luxury, Interstate buses."
+    }
+  ],
+  "YUVA-GALAM": [
+    {
+      "question_te": "యువగళం / నిరుద్యోగ భృతి ఏమిటి?",
+      "answer_te": "యువగళం (Super Six scheme):\n• విద్యావంతులైన నిరుద్యోగ యువతకు ₹3,000/నెల\n• వయస్సు: 22-35 సంవత్సరాలు\n• AP permanent resident\n• Degree/diploma holders\n• APSSDC skill development courses తో link\n\nOnline apply: gramawardsachivalayam.ap.gov.in",
+      "question_en": "What is Yuva Galam / Nirudyoga Bruthi?",
+      "answer_en": "Yuva Galam (Super Six): ₹3,000/month unemployment allowance for educated unemployed youth aged 22-35, AP resident, degree/diploma holders. Linked with APSSDC skill development. Apply online at gramawardsachivalayam.ap.gov.in."
     }
   ],
   "PEDALANDARIKI-ILLU": [

@@ -99,6 +99,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Correlation ID middleware — must be added before rate limiter so all
+# downstream log lines (including rate-limit hits) carry the request ID.
+from app.core.correlation import CorrelationIdMiddleware
+app.add_middleware(CorrelationIdMiddleware)
+
 # Rate limiting middleware (Redis-backed)
 from app.core.rate_limiter import RateLimitMiddleware
 app.add_middleware(RateLimitMiddleware)

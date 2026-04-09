@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "status": "Pregnant women / Lactating mothers / Children (0-6 years)",
     "registration": "Must be registered at Anganwadi center",
-    "automatic": "Free for all registered beneficiaries"
+    "automatic": "Free for all registered beneficiaries",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "Pregnancy card (from PHC/hospital)", "Anganwadi registration"]

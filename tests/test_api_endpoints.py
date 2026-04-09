@@ -121,7 +121,7 @@ class TestSchemeEndpoints:
         with patch("app.api.v1.schemes.SchemeAdvisor") as MockAdvisor:
             instance = MockAdvisor.return_value
             instance.check_eligibility = AsyncMock(return_value=MagicMock(
-                scheme_code="YSR-AMMA-VODI",
+                scheme_code="THALLIKI-VANDANAM",
                 scheme_name_te="అమ్మ ఒడి",
                 is_eligible=True,
                 reasoning_te="అర్హత ఉంది",
@@ -130,7 +130,7 @@ class TestSchemeEndpoints:
             ))
             response = client.post(
                 "/api/v1/schemes/eligibility-check",
-                json={"scheme_code": "YSR-AMMA-VODI", "citizen_details": {"age": 35}},
+                json={"scheme_code": "THALLIKI-VANDANAM", "citizen_details": {"age": 35}},
             )
             assert response.status_code == 200
             data = response.json()

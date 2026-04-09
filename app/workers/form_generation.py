@@ -8,8 +8,14 @@ from app.workers.celery_app import celery_app
 logger = structlog.get_logger()
 
 
-@celery_app.task(bind=True, max_retries=2, default_retry_delay=30)
-def generate_form_pdf(self, submission_id: str):
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=30,
+    retry_backoff_max=300,
+    retry_jitter=True,
+)
+def generate_form_pdf(submission_id: str):
     """Generate a PDF form from a submission (async Celery task)."""
     try:
         loop = asyncio.get_event_loop()
@@ -40,7 +46,13 @@ async def _generate_pdf(submission_id: str) -> dict:
             return {"status": "error", "message": "PDF generation failed"}
 
 
-@celery_app.task
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=30,
+    retry_backoff_max=300,
+    retry_jitter=True,
+)
 def generate_and_send_pdf(submission_id: str, phone_number: str):
     """Generate PDF and send it via WhatsApp."""
     try:

@@ -1,11 +1,14 @@
-from app.core.security import hash_aadhaar, mask_aadhaar, strip_pii
+from app.core.security import hash_aadhaar, mask_aadhaar, strip_pii, verify_aadhaar
 
 
 def test_hash_aadhaar():
     h1 = hash_aadhaar("1234 5678 9012")
-    h2 = hash_aadhaar("123456789012")
-    assert h1 == h2  # Spaces should not affect hash
-    assert len(h1) == 64  # SHA-256 hex
+    # Spaces stripped before hashing — both formats must verify against the same hash.
+    assert verify_aadhaar("123456789012", h1)
+    # Different Aadhaar must not verify.
+    assert not verify_aadhaar("123456789013", h1)
+    # bcrypt hashes start with $2b$ (cost factor prefix).
+    assert h1.startswith("$2b$")
 
 
 def test_mask_aadhaar():

@@ -38,12 +38,12 @@ def test_normalize_telugu_text():
 
 
 def test_fuzzy_match_scheme_exact():
-    assert fuzzy_match_scheme("అమ్మ ఒడి") == "YSR-AMMA-VODI"
-    assert fuzzy_match_scheme("amma vodi") == "YSR-AMMA-VODI"
+    assert fuzzy_match_scheme("అమ్మ ఒడి") == "THALLIKI-VANDANAM"
+    assert fuzzy_match_scheme("amma vodi") == "THALLIKI-VANDANAM"
 
 
 def test_fuzzy_match_scheme_fuzzy():
-    assert fuzzy_match_scheme("రైతు భరోసా") == "YSR-RYTHU-BHAROSA"
+    assert fuzzy_match_scheme("రైతు భరోసా") == "ANNADATA-SUKHIBHAVA"
 
 
 def test_fuzzy_match_scheme_no_match():

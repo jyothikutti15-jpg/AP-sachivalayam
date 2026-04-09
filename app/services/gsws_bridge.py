@@ -177,7 +177,7 @@ class GSWSBridge:
         if self.mock_mode:
             return {
                 "found": True,
-                "schemes_enrolled": ["YSR-AMMA-VODI", "YSR-PENSION-KANUKA"],
+                "schemes_enrolled": ["THALLIKI-VANDANAM", "NTR-BHAROSA-PENSION"],
                 "pending_applications": 1,
                 "mock": True,
                 "message_te": f"Aadhaar ...{aadhaar_last4}: 2 పథకాల్లో enrolled, 1 pending application.",

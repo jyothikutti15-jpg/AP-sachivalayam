@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "land_owner": "Any land owner in AP",
     "automatic": "Automatic coverage for all registered land owners",
-    "dispute_resolution": "Land disputes can be filed under this act"
+    "dispute_resolution": "Land disputes can be filed under this act",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "Existing land documents (pattadar passbook, 1-B)", "Survey number details"]

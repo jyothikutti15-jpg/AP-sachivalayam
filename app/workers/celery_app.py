@@ -18,9 +18,19 @@ celery_app.conf.update(
     timezone="Asia/Kolkata",
     enable_utc=True,
     task_track_started=True,
-    task_acks_late=True,
+    task_acks_late=True,          # task is not acked until it completes/fails
     worker_prefetch_multiplier=1,
+    task_max_retries=3,           # global safety-net ceiling for all tasks
 )
+
+# ---------------------------------------------------------------------------
+# Exponential backoff reference values (used in autoretry_for decorators)
+# ---------------------------------------------------------------------------
+# User-facing tasks (transcribe, form PDF, notifications):
+#   retry_backoff=30, retry_backoff_max=300  →  ~30s, 60s, 120s
+# Background / periodic tasks:
+#   retry_backoff=60, retry_backoff_max=3600 →  ~60s, 120s, 240s
+# retry_jitter=True adds ±25% randomisation to avoid thundering herd.
 
 # Periodic tasks
 celery_app.conf.beat_schedule = {
@@ -48,6 +58,14 @@ celery_app.conf.beat_schedule = {
         "task": "generate_daily_plans",
         "schedule": crontab(hour=6, minute=0),  # 6 AM IST
     },
+    "scan-outreach-weekly": {
+        "task": "scan_outreach",
+        "schedule": crontab(day_of_week=0, hour=3, minute=0),  # Sunday 3 AM IST
+    },
+    "send-citizen-reminders": {
+        "task": "send_due_reminders",
+        "schedule": crontab(hour=8, minute=30),  # 8:30 AM IST daily
+    },
 }
 
 # Auto-discover tasks
@@ -57,4 +75,6 @@ celery_app.autodiscover_tasks([
     "app.workers.knowledge_sync",
     "app.workers.grievance_escalation",
     "app.workers.task_scheduler",
+    "app.workers.outreach_scanner",
+    "app.workers.reminder_sender",
 ])

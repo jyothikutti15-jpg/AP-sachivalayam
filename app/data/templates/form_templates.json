@@ -3,7 +3,7 @@
     "name_te": "అమ్మ ఒడి దరఖాస్తు",
     "name_en": "Amma Vodi Application",
     "department": "School Education",
-    "scheme_code": "YSR-AMMA-VODI",
+    "scheme_code": "THALLIKI-VANDANAM",
     "gsws_form_code": "GSWS-EDU-AV-01",
     "output_format": "pdf",
     "fields": {
@@ -31,7 +31,7 @@
     "name_te": "రైతు భరోసా దరఖాస్తు",
     "name_en": "Rythu Bharosa Application",
     "department": "Agriculture",
-    "scheme_code": "YSR-RYTHU-BHAROSA",
+    "scheme_code": "ANNADATA-SUKHIBHAVA",
     "gsws_form_code": "GSWS-AGR-RB-01",
     "output_format": "pdf",
     "fields": {
@@ -55,7 +55,7 @@
     "name_te": "పెన్షన్ దరఖాస్తు",
     "name_en": "Pension Application",
     "department": "Panchayat Raj & Rural Development",
-    "scheme_code": "YSR-PENSION-KANUKA",
+    "scheme_code": "NTR-BHAROSA-PENSION",
     "gsws_form_code": "GSWS-WEL-PN-01",
     "output_format": "pdf",
     "fields": {
@@ -81,7 +81,7 @@
     "name_te": "ఆరోగ్యశ్రీ దరఖాస్తు",
     "name_en": "Aarogyasri Application",
     "department": "Health, Medical & Family Welfare",
-    "scheme_code": "YSR-AAROGYASRI",
+    "scheme_code": "DR-NTR-VAIDYA-SEVA",
     "gsws_form_code": "GSWS-HLT-AS-01",
     "output_format": "pdf",
     "fields": {
@@ -125,7 +125,7 @@
     "name_te": "కళ్యాణమస్తు దరఖాస్తు",
     "name_en": "Kalyanamastu Application",
     "department": "BC Welfare",
-    "scheme_code": "YSR-KALYANAMASTHU",
+    "scheme_code": "CHANDRANNA-PELLI-KANUKA",
     "gsws_form_code": "GSWS-BCW-KM-01",
     "output_format": "pdf",
     "fields": {
@@ -169,7 +169,7 @@
     "name_te": "విద్యా దీవెన దరఖాస్తు",
     "name_en": "Vidya Deevena Application",
     "department": "Higher Education",
-    "scheme_code": "JAGANANNA-VIDYA-DEEVENA",
+    "scheme_code": "POST-MATRIC-SCHOLARSHIP-RTF",
     "gsws_form_code": "GSWS-EDU-VD-01",
     "output_format": "pdf",
     "fields": {

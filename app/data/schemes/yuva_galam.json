@@ -1,0 +1,37 @@
+{
+  "scheme_code": "YUVA-GALAM",
+  "name_te": "యువగళం / నిరుద్యోగ భృతి",
+  "name_en": "Yuva Galam / Nirudyoga Bruthi",
+  "department": "Skill Development & Training",
+  "description_te": "విద్యావంతులైన నిరుద్యోగ యువతకు నెలకు ₹3,000 నిరుద్యోగ భృతి. Skill development courses తో అనుసంధానం. 20 లక్షల ఉద్యోగాల లక్ష్యం.",
+  "description_en": "₹3,000/month unemployment allowance for eligible educated unemployed youth. Linked with skill development courses. Target of 20 lakh jobs.",
+  "eligibility_criteria": {
+    "age": "22 to 35 years",
+    "education": "Must be educated (degree/diploma holders)",
+    "residency": "Permanent resident of Andhra Pradesh",
+    "employment_status": "Currently unemployed",
+    "excluded": [
+      "Beneficiaries of other employment/scholarship schemes",
+      "Government employees",
+      "Income tax payees"
+    ]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Bank account number",
+      "Mobile number",
+      "Domicile certificate",
+      "Education certificate (degree/diploma)",
+      "Email ID",
+      "Passport-size photo",
+      "Income certificate"
+    ]
+  },
+  "benefit_amount": "₹3,000 per month unemployment allowance (DBT)",
+  "application_process_te": "1. AP Employment portal (gramawardsachivalayam.ap.gov.in) లో online apply చేయండి\n2. Aadhaar authentication (biometric/OTP)\n3. Form auto-populated అవుతుంది\n4. Documents upload చేయండి\n5. Monthly DBT bank account కి credit\n6. APSSDC ద్వారా skill development courses లో enroll అవ్వవచ్చు",
+  "go_reference": "Super Six scheme by TDP government 2024-25",
+  "effective_from": "2024-09-01",
+  "status_note": "Unemployment allowance component active; 20 lakh jobs promise is ongoing",
+  "is_active": true
+}

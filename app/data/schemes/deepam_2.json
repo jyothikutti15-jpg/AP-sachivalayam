@@ -1,0 +1,42 @@
+{
+  "scheme_code": "DEEPAM-2",
+  "name_te": "దీపం 2.0",
+  "name_en": "Deepam 2.0",
+  "department": "Civil Supplies",
+  "description_te": "BPL మహిళలకు సంవత్సరానికి 3 ఉచిత LPG గ్యాస్ సిలిండర్లు (ప్రతి 4 నెలలకు 1). ~90 లక్షల households benefited.",
+  "description_en": "3 free LPG gas cylinders per year for BPL women (1 every 4 months). Approximately 90 lakh households benefited.",
+  "eligibility_criteria": {
+    "gender": "Women only (female head of household)",
+    "age": "18 years and above",
+    "residency": "Permanent resident of Andhra Pradesh",
+    "lpg_connection": "Must not have another LPG connection from any OMC in same household",
+    "bpl_status": "Urban and rural BPL households; SC/ST, PMAY-G, AAY beneficiaries eligible",
+    "excluded": [
+      "Income tax filers",
+      "Property > 1,000 sq ft",
+      "Four-wheeler owners",
+      "Electricity consumption > 300 units/month",
+      "Agricultural land ≥ 3 acres wet OR ≥ 10 acres dry"
+    ]
+  },
+  "required_documents": {
+    "mandatory": [
+      "Aadhaar card",
+      "Income certificate",
+      "LPG gas connection details",
+      "Ration card",
+      "Electricity bill",
+      "Address proof",
+      "Mobile number",
+      "Bank account with IFSC"
+    ],
+    "optional": [
+      "PAN card"
+    ]
+  },
+  "benefit_amount": "3 free LPG gas cylinders per year (1 every 4 months)",
+  "application_process_te": "1. Official MeeSeva website (ap.meeseva.gov.in) కి visit చేయండి\n2. Deepam Gas Connection option select చేయండి\n3. Form fill చేసి documents upload చేయండి\n4. Submit చేయండి\n5. Processing: 7-15 రోజులు",
+  "go_reference": "Super Six scheme launched by TDP government 2024-25",
+  "effective_from": "2024-09-01",
+  "is_active": true
+}

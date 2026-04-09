@@ -9,7 +9,14 @@ from app.workers.celery_app import celery_app as celery
 logger = structlog.get_logger()
 
 
-@celery.task(name="generate_daily_plans")
+@celery.task(
+    name="generate_daily_plans",
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def generate_daily_plans():
     """Generate AI-powered daily plans for all active employees. Runs 6 AM IST."""
     import asyncio
@@ -99,7 +106,14 @@ def _format_daily_plan_message(plan, employee) -> str:
     return "\n".join(lines)
 
 
-@celery.task(name="create_recurring_tasks")
+@celery.task(
+    name="create_recurring_tasks",
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def create_recurring_tasks():
     """Create recurring tasks for the day. Runs 5:30 AM IST."""
     import asyncio

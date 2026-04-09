@@ -7,8 +7,14 @@ from app.workers.celery_app import celery_app
 logger = structlog.get_logger()
 
 
-@celery_app.task(bind=True, max_retries=3, default_retry_delay=60)
-def transcribe_voice_note(self, media_id: str, phone_number: str, session_id: str):
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=30,
+    retry_backoff_max=300,
+    retry_jitter=True,
+)
+def transcribe_voice_note(media_id: str, phone_number: str, session_id: str):
     """Async task to transcribe a WhatsApp voice note."""
     try:
         loop = asyncio.get_event_loop()
@@ -60,7 +66,13 @@ async def _transcribe_and_respond(media_id: str, phone_number: str, session_id: 
         raise
 
 
-@celery_app.task
+@celery_app.task(
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def process_offline_queue():
     """Process pending offline queue items."""
     try:

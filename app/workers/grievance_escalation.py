@@ -9,7 +9,14 @@ from app.workers.celery_app import celery_app as celery
 logger = structlog.get_logger()
 
 
-@celery.task(name="check_grievance_sla")
+@celery.task(
+    name="check_grievance_sla",
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=60,
+    retry_backoff_max=3600,
+    retry_jitter=True,
+)
 def check_grievance_sla():
     """Check for overdue grievances and auto-escalate."""
     import asyncio
@@ -28,7 +35,14 @@ def check_grievance_sla():
     return asyncio.get_event_loop().run_until_complete(_run())
 
 
-@celery.task(name="send_grievance_notification")
+@celery.task(
+    name="send_grievance_notification",
+    autoretry_for=(Exception,),
+    max_retries=3,
+    retry_backoff=30,
+    retry_backoff_max=300,
+    retry_jitter=True,
+)
 def send_grievance_notification(
     phone_number: str,
     reference_number: str,

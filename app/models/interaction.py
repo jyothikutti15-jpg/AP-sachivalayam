@@ -12,7 +12,8 @@ class ChatSession(Base):
     __tablename__ = "chat_sessions"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    employee_id: Mapped[int] = mapped_column(ForeignKey("employees.id"), nullable=False)
+    employee_id: Mapped[int | None] = mapped_column(ForeignKey("employees.id"), nullable=True)
+    citizen_id: Mapped[int | None] = mapped_column(ForeignKey("citizens.id"), nullable=True)
     channel: Mapped[str] = mapped_column(String(20), default="whatsapp")
     started_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()

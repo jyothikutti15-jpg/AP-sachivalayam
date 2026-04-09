@@ -8,7 +8,8 @@
   "eligibility_criteria": {
     "status": "New mothers (within 24 hours of delivery)",
     "registration": "Must be registered at Anganwadi center",
-    "institution_delivery": "Must deliver at government hospital / PHC"
+    "institution_delivery": "Must deliver at government hospital / PHC",
+    "excluded": []
   },
   "required_documents": {
     "mandatory": ["Aadhaar card", "Discharge summary from hospital", "Anganwadi registration"]

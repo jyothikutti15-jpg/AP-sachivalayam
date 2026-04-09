@@ -21,7 +21,9 @@ class Settings(BaseSettings):
 
     # Claude API
     anthropic_api_key: str = ""
-    claude_model: str = "claude-sonnet-4-20250514"
+    claude_model: str = "claude-sonnet-4-6"
+    claude_circuit_failure_threshold: int = 5   # consecutive failures before opening
+    claude_circuit_recovery_timeout: int = 60   # seconds before trying again
 
     # WhatsApp Business API
     whatsapp_api_url: str = "https://graph.facebook.com/v21.0"
@@ -32,6 +34,7 @@ class Settings(BaseSettings):
     # Whisper
     whisper_model_size: str = "large-v3"
     whisper_device: str = "cpu"
+    voice_max_file_size_mb: int = 25  # WhatsApp voice notes cap at ~16 MB
 
     # GSWS Portal
     gsws_api_base_url: str = "https://gsws.ap.gov.in/api"

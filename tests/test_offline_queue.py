@@ -30,7 +30,7 @@ class TestKeywordFallbackSearch:
         mock_result.scalar_one_or_none.return_value = mock_scheme
         search.db.execute = AsyncMock(return_value=mock_result)
 
-        result = await search._get_scheme_summary("YSR-AMMA-VODI", "te")
+        result = await search._get_scheme_summary("THALLIKI-VANDANAM", "te")
 
         assert result is not None
         assert "అమ్మ ఒడి" in result
