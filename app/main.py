@@ -33,6 +33,12 @@ async def lifespan(app: FastAPI):
         version="0.1.0",
     )
 
+    # Startup: create database tables + seed data (idempotent)
+    try:
+        await _init_database()
+    except Exception as e:
+        logger.error("Database initialization failed", error=str(e))
+
     # Startup: warm FAQ cache
     try:
         await _warm_faq_cache()
@@ -66,6 +72,124 @@ async def lifespan(app: FastAPI):
     logger.info("Shutdown complete")
 
 
+async def _init_database():
+    """Create all tables and seed scheme data on first startup.
+
+    Idempotent — safe to run on every startup. Uses Base.metadata.create_all
+    instead of Alembic migrations so it works out-of-the-box on cloud platforms.
+    """
+    from sqlalchemy import select
+
+    from app.models import Base, Scheme
+
+    # Create tables if they don't exist
+    async with engine.begin() as conn:
+        # Enable pgvector extension (safe if already enabled)
+        try:
+            from sqlalchemy import text
+            await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+        except Exception as e:
+            logger.warning("pgvector extension not available", error=str(e))
+        await conn.run_sync(Base.metadata.create_all)
+    logger.info("Database tables created/verified")
+
+    # Check if schemes already seeded
+    async with async_session_factory() as session:
+        result = await session.execute(select(Scheme).limit(1))
+        if result.scalar_one_or_none() is not None:
+            logger.info("Database already seeded, skipping")
+            return
+
+    # Seed schemes from JSON files
+    logger.info("Seeding database...")
+    import json
+    from pathlib import Path
+
+    schemes_dir = Path(__file__).parent / "data" / "schemes"
+    templates_file = Path(__file__).parent / "data" / "templates" / "form_templates.json"
+    faqs_file = Path(__file__).parent / "data" / "scheme_faqs.json"
+
+    async with async_session_factory() as session:
+        from app.models import FormTemplate, Scheme, SchemeFAQ
+
+        # Load schemes
+        scheme_count = 0
+        scheme_by_code = {}
+        for scheme_file in sorted(schemes_dir.glob("*.json")):
+            try:
+                with open(scheme_file, encoding="utf-8") as f:
+                    data = json.load(f)
+                scheme = Scheme(
+                    scheme_code=data["scheme_code"],
+                    state_code=data.get("state_code", "AP"),
+                    name_te=data.get("name_te", ""),
+                    name_en=data.get("name_en", ""),
+                    department=data.get("department", "General"),
+                    description_te=data.get("description_te"),
+                    description_en=data.get("description_en"),
+                    eligibility_criteria=data.get("eligibility_criteria", {}),
+                    required_documents=data.get("required_documents"),
+                    benefit_amount=data.get("benefit_amount"),
+                    application_process_te=data.get("application_process_te"),
+                    go_reference=data.get("go_reference"),
+                    is_active=data.get("is_active", True),
+                )
+                session.add(scheme)
+                scheme_by_code[data["scheme_code"]] = scheme
+                scheme_count += 1
+            except Exception as e:
+                logger.warning("Failed to seed scheme", file=str(scheme_file), error=str(e))
+        await session.flush()
+        logger.info("Seeded schemes", count=scheme_count)
+
+        # Load FAQs
+        faq_count = 0
+        if faqs_file.exists():
+            try:
+                with open(faqs_file, encoding="utf-8") as f:
+                    faqs_data = json.load(f)
+                for scheme_code, faqs_list in faqs_data.items():
+                    scheme = scheme_by_code.get(scheme_code)
+                    if not scheme or not isinstance(faqs_list, list):
+                        continue
+                    for faq in faqs_list:
+                        session.add(SchemeFAQ(
+                            scheme_id=scheme.id,
+                            question_te=faq.get("question_te", ""),
+                            answer_te=faq.get("answer_te", ""),
+                            question_en=faq.get("question_en"),
+                            answer_en=faq.get("answer_en"),
+                        ))
+                        faq_count += 1
+            except Exception as e:
+                logger.warning("Failed to seed FAQs", error=str(e))
+            logger.info("Seeded FAQs", count=faq_count)
+
+        # Load form templates
+        template_count = 0
+        if templates_file.exists():
+            try:
+                with open(templates_file, encoding="utf-8") as f:
+                    templates = json.load(f)
+                for tpl in templates:
+                    session.add(FormTemplate(
+                        name_te=tpl.get("name_te", ""),
+                        name_en=tpl.get("name_en", ""),
+                        department=tpl.get("department", "General"),
+                        scheme_code=tpl.get("scheme_code"),
+                        gsws_form_code=tpl.get("gsws_form_code"),
+                        fields=tpl.get("fields", {}),
+                        output_format=tpl.get("output_format", "pdf"),
+                    ))
+                    template_count += 1
+            except Exception as e:
+                logger.warning("Failed to seed templates", error=str(e))
+            logger.info("Seeded form templates", count=template_count)
+
+        await session.commit()
+    logger.info("Database seeding complete")
+
+
 async def _warm_faq_cache():
     """Pre-load top FAQs into Redis cache on startup."""
     async with async_session_factory() as session:
@@ -86,8 +210,8 @@ app = FastAPI(
     ),
     version="0.1.0",
     lifespan=lifespan,
-    docs_url="/docs" if not settings.is_production else None,
-    redoc_url="/redoc" if not settings.is_production else None,
+    docs_url="/docs",      # Always enabled for demo/testing
+    redoc_url="/redoc",
 )
 
 # CORS
