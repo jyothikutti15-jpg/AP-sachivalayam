@@ -26,12 +26,29 @@ class Settings(BaseSettings):
 
         Render and other PaaS providers give postgresql:// URLs,
         but SQLAlchemy async needs postgresql+asyncpg://.
+
+        Also strips psycopg2-specific query params (sslmode, channel_binding)
+        that asyncpg doesn't understand. asyncpg uses ssl=true by default
+        for hosted databases like Neon, Supabase, etc.
         """
+        from urllib.parse import urlparse, urlunparse, parse_qs, urlencode
+
         url = self.database_url
         if url.startswith("postgres://"):
             url = url.replace("postgres://", "postgresql+asyncpg://", 1)
         elif url.startswith("postgresql://") and "+asyncpg" not in url:
             url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
+        # Strip psycopg2-specific query params that asyncpg rejects
+        parsed = urlparse(url)
+        if parsed.query:
+            params = parse_qs(parsed.query)
+            # Remove params asyncpg doesn't support
+            for bad in ("sslmode", "channel_binding", "options"):
+                params.pop(bad, None)
+            new_query = urlencode(params, doseq=True)
+            url = urlunparse(parsed._replace(query=new_query))
+
         return url
 
     # Redis

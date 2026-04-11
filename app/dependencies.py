@@ -7,12 +7,20 @@ from app.config import get_settings
 
 settings = get_settings()
 
-# Database engine and session
+# Database engine and session.
+# For Neon/Supabase/other hosted Postgres, SSL is required. asyncpg uses
+# ssl=True via connect_args (not via URL query params like psycopg2).
+_db_url = settings.async_database_url
+_connect_args: dict = {}
+if any(host in _db_url for host in ("neon.tech", "supabase.co", "render.com", "amazonaws.com")):
+    _connect_args["ssl"] = True
+
 engine = create_async_engine(
-    settings.async_database_url,
+    _db_url,
     echo=settings.database_echo,
     pool_size=20,
     max_overflow=10,
+    connect_args=_connect_args,
 )
 async_session_factory = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 AsyncSessionLocal = async_session_factory  # Alias for workers
