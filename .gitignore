@@ -1,17 +1,50 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.env
-.venv/
-venv/
 *.egg-info/
 dist/
 build/
 .mypy_cache/
 .ruff_cache/
 .pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files (NEVER commit secrets)
+.env
+.env.*
+!.env.example
+*.secret
+*.key
+*.pem
+credentials.json
+secrets.json
+
+# IDE / Editor
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Generated artifacts
 *.pdf
 *.log
-.DS_Store
-.claude/
+
+# Local data
+*.sqlite
+*.db
+local_data/
+uploads/

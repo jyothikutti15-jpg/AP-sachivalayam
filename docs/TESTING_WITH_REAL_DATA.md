@@ -147,7 +147,7 @@ with open('real_ap_schemes.json', 'w') as f:
 **Test Input (Real citizen scenario in Telugu):**
 ```
 "రాము, వయస్సు 42, agricultural worker, White ration card, 
-income 80,000, Kurnool district, Aadhaar 1234 5678 9012, 
+income 80,000, Kurnool district, Aadhaar XXXX XXXX XXXX, 
 2 children, wife name సీత, bank account SBI Kurnool branch"
 ```
 
