@@ -777,7 +777,7 @@ ap-sachivalayam-copilot/
 |-- docs/
 |   |-- FEATURES.md          # This file
 |   |-- IMPACT.md            # Time saved, cost analysis, ROI
-|   |-- COMPETITIONS.md      # 20 competitions with strategy
+|   |-- COMPONENTS.md        # Component reference
 |   +-- ...
 |-- .github/workflows/ci.yml # GitHub Actions CI/CD
 |-- Dockerfile
@@ -905,6 +905,6 @@ See [IMPACT.md](IMPACT.md) for detailed methodology and calculations.
 ## Related Documentation
 
 - [Impact Projections](IMPACT.md) -- time saved, cost analysis, ROI methodology
-- [Competition Guide](COMPETITIONS.md) -- 20 competitions ranked with application strategy
+- [Components Reference](COMPONENTS.md) -- complete component documentation
 - [Live Test Results](LIVE_TEST_RESULTS.md) -- actual test output with real data
 - [Testing Guide](TESTING_WITH_REAL_DATA.md) -- how tests use real AP government data

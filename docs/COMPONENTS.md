@@ -493,5 +493,5 @@ _warm_faq_cache()
 
 - [FEATURES.md](FEATURES.md) — Complete feature specs with endpoints
 - [IMPACT.md](IMPACT.md) — Impact projections and ROI methodology
-- [COMPETITIONS.md](COMPETITIONS.md) — Competition application guide
+- [TESTING_WITH_REAL_DATA.md](TESTING_WITH_REAL_DATA.md) — Test data sources
 - [README.md](../README.md) — Quick start and overview

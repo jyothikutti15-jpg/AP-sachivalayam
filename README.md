@@ -257,8 +257,8 @@ See [docs/IMPACT.md](docs/IMPACT.md) for detailed methodology.
 ## Documentation
 
 - [Features (all 10)](docs/FEATURES.md) — complete feature specs with endpoints
+- [Components Reference](docs/COMPONENTS.md) — every API, service, model, worker
 - [Impact Projections](docs/IMPACT.md) — time saved, cost analysis, methodology
-- [Competition Guide](docs/COMPETITIONS.md) — 20 competitions with application strategy
 - [Testing Guide](docs/TESTING_WITH_REAL_DATA.md) — how tests use real AP data
 - [Live Test Results](docs/LIVE_TEST_RESULTS.md) — actual test run output
 
